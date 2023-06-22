@@ -14,6 +14,7 @@ import axios from "../http/axiosSet.js";
 import MegaMenu from "./Megamenu/MegaMenu";
 import img from '../assets/Tabpanel ⏵ Link.png'
 import Pakage from "../Components/Pakage/Pakage";
+import AdminDashboard from "../Components/AdminDashboard";
 const ProductComponent = ({ product }) => {
   console.log("product", product);
   const navigate = useNavigate();
@@ -246,7 +247,9 @@ function Dashboard() {
           />
         </div>
       </div>
+<div>
 
+</div>
       <div className=" ">
       <Footer />
       </div>

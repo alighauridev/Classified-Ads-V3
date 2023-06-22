@@ -71,3 +71,24 @@ export const  adspakage=[
         adslist6:"unlimited",
     },
 ]
+
+export const adminpakage=[
+    {
+        h3:'Gold Plan',
+        para:'All the gold starting from the new business',
+        price:'$12',
+     
+    },
+    {
+        h3:'Gold Plan',
+        para:'All the gold starting from the new business',
+        price:'$12',
+     
+    },
+    {
+        h3:'Gold Plan',
+        para:'All the gold starting from the new business',
+        price:'$12',
+     
+    },
+]
