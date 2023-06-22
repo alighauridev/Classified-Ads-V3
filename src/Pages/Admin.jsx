@@ -6,6 +6,7 @@ import { GetAllAds, GetAllAdsAdmin, updateAd } from "../http/Services";
 import axios from "../http/axiosSet.js";
 
 import { toast } from "react-toastify";
+import Sidebar from "./Admin/components/sidebar";
 function Admin() {
   //====================================================================
   const [products, setProducts] = useState([]);
@@ -70,6 +71,9 @@ function Admin() {
 
   return (
     <div className="h-screen bg-[#1a294d]">
+      <div>
+        <Sidebar/>
+      </div>
       <button onClick={handleLogout}>Logout</button>
       <div className="flex justify-between flex-col ">
         <p

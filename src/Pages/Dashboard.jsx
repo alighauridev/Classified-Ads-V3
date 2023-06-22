@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 import EditIcon from "@mui/icons-material/Edit";
 import CallIcon from "@mui/icons-material/Call";
 import Footer from "../Components/Footer/Footer";
+import './Dashboard.scss'
 import { GetAllAds, getCategories, updateAd } from "../http/Services";
 import CategoryDropdown from "../Components/CategoryDropDown";
 import SearchBar from "../Components/SearchBar.js";
@@ -10,6 +11,9 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { useNavigate } from "react-router-dom";
 import axios from "../http/axiosSet.js";
+import MegaMenu from "./Megamenu/MegaMenu";
+import img from '../assets/Tabpanel ⏵ Link.png'
+import Pakage from "../Components/Pakage/Pakage";
 const ProductComponent = ({ product }) => {
   console.log("product", product);
   const navigate = useNavigate();
@@ -28,61 +32,64 @@ const ProductComponent = ({ product }) => {
 
   return (
     <div>
-      <div>
-        <div
-          className="flex flex-row w-[100%] lg:w-[75%] mobile:w-[100%] min-w-[180px]  mr-5 relative  my-4 overflow-hidden  "
-          onClick={() => navigate(`/ProductDetails/${product._id}`)}
+
+      <div className="card-grid" style={{borderRadius:'4px',boxShadow: '0px 1px 2px rgba(96, 125, 135, 0.15)'}}>
+      {/* onClick={() => navigate(`/ProductDetails/${product._id}`)} */}
+        <div className="card-parent"
+         style={{margin:'10px 0',position:'relative',borderRadius:'4px'}}
         >
           <img
             src={`${axios.defaults.baseURL}/upload/image/${product.images[0]}`}
-            className=" h-[250px]  min-w-[36%] max-w-[36%]  rounded-l-2xl md:object-cover md:flex hidden object-cover "
-            crossorigin="anonymous"
+           
+            
+            crossorigin="anonymous" style={{borderRadius:'4px'}}
           />
 
           {/* <div className="bg-white w-full py-2  absolute top-[55.8%] rounded-t-3xl "></div> */}
 
-          <div className="bg-white w-full p-5  h-[250px]  mobile:rounded-lg  md:rounded-r-lg flex flex-col justify-between border-2 ">
-            <div className="flex justify-center items-center flex-col">
-              <p className="font-Poppins font-semibold text-[2.25rem] text-[#2F2F2F]">
+          <div style={{padding:'25px 10px 10px 10px'}}>
+            <div >
+              <p style={{fontSize:'18px',fontWeight:'600'}}>
                 {product.title}
               </p>
-              <p className="font-Poppins font-medium text-[1.8rem] text-[#2f2f2f] ">
-                <span className="font-bold">Category :</span>{" "}
-                {product.category[0]} /{product.subCategory}
+             
+              {/* <p >
+                <span className="font-bold">Category :</span> {product.category[0]}{" "}
+                /{product.subCategory}
               </p>
-              <p className="font-Poppins font-medium text-[1.3rem] text-[#2f2f2f] self-start ">
+              <p >
                 <span className="font-bold"> Description:</span>
               </p>
-              <p className="font-Poppins font-medium text-[1.25rem] text-[#2F2F2F] self-start">
+              <p >
                 {product.description}
-              </p>
+              </p> */}
 
               {/* make add buttun bg green */}
             </div>
-            <div className="flex justify-between">
-              <p className="font-Poppins font-bold text-[1.25rem] text-[#2F2F2F]">
-                <span className="font-bold text-[1.8rem]  ">Price:</span>
+            <div >
+              <p style={{fontSize:'15px',fontWeight:'400',color:'#00B53F',fontWeight:'500'}}>
+                <span style={{color:'#00B53F'}}>Price:</span>
                 {product.price} $
               </p>
-              <p className="font-Poppins font-bold text-[1.25rem] text-[#2F2F2F] ml-5">
-                <span className="font-bold text-[1.8rem] mr-2 "> author</span>
+              {/* <p >
+                <span > author</span>
                 {product.author.name}
               </p>
-              <p className="font-Poppins font-bold text-[1.25rem] text-[#2F2F2F] ml-5">
-                <span className="font-bold text-[1.8rem] mr-2 ">
-                  {" "}
-                  Location:
-                </span>
+              <p >
+                <span> Location:</span>
                 {product.Location}
-              </p>
-              <div
-                className="flex flex-row justify-center items-center bg-[#35B368] text-[#FFF] rounded-[5px] font-Poppins font-medium text-[1.25rem] py-2 px-14 mobile:hidden cursor-pointer "
+              </p> */}
+              {/* <div
+               
                 onClick={() => handlePress()}
               >
                 <CallIcon sx={{ color: "#FFF", width: 18, height: 18 }} />
                 Contact
-              </div>
+              </div> */}
             </div>
+            <div style={{position:'absolute',top:'130px',right:'20px'}}>
+                <img src="./images/button.png" alt="" />
+              </div>
           </div>
         </div>
       </div>
@@ -177,26 +184,55 @@ function Dashboard() {
     fetchCategories();
   }, []);
   return (
-    <div className="min-h-screen min-w-full flex flex-col">
+    <div className="min-h-screen min-w-full flex flex-col" style={{ background: '#EBF2F7' }}>
       {/* write me a  */}
       <Navbar />
       <div className="flex-1">
-        <div className="flex  px-10">
+        {/* <div className="flex  px-10">
           <SearchBar setName={setsearch} />
           <CategoryDropdown
             categories={categories}
             onSelect={handleTagClicked}
           />
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "2fr 8fr" }}>
-          <div style={{ marginTop: "40px" }}>{/* <MegaMenu/> */}</div>
-          <div className="flex flex-col border-[#2F2F2F17]  px-10 my-14 flex-wrap justify-center items-center  ">
-            {displayProducts
-              .slice(0)
-              .reverse()
-              .map((product) => (
-                <ProductComponent product={product} />
-              ))}
+        </div> */}
+        <div style={{ display: 'grid', gridTemplateColumns: '2fr 8fr', padding: '20px 20px', gap: '10px',width:'90%',margin:'auto' }}>
+
+          {/* MEGAMENU SECTION */}
+
+          <div>
+            <MegaMenu />
+          </div>
+
+
+
+
+          <div>
+            {/* BANNER SECTION */}
+            <div style={{}}>
+         <div>
+         <img src={img} alt="" style={{ width: '100%', }} />
+         </div>
+         {/* <div>
+          <img src="./images/add.png" alt=""nstyle={{ width: '100%', }}  />
+         </div> */}
+            </div>
+
+            {/* ADS SECTION */}
+
+        
+
+
+            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr 1fr',gap:'10px',margin:'20px 0'}} >
+              {displayProducts
+                .slice(0)
+                .reverse()
+                .map((product) => (
+                  <ProductComponent product={product} />
+                ))}
+            </div>
+
+
+            
           </div>
         </div>
         <div className="w-full items-center justify-center my-8 ">
@@ -212,8 +248,9 @@ function Dashboard() {
       </div>
 
       <div className=" ">
-        <Footer />
+      <Footer />
       </div>
+    
     </div>
   );
 }

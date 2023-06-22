@@ -1,0 +1,31 @@
+
+.navbar-parent{
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    place-items: center;
+    align-items: center;
+    background: 
+    #00B53F;
+    padding: 20px 100px;
+    .logo-div{
+     img{
+         width: 60%;
+     }
+    }
+    .seller-buy{
+     display: flex;
+     gap: 10px;
+ 
+     span{
+         font-size: 16px;
+         color: white;
+     }
+    }
+    .user-button{
+     background: 
+     #FEA03C;
+     padding: 10px 15px;
+     border-radius: 4px;
+    }
+     }
+ 
