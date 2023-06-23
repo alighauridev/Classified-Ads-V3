@@ -34,7 +34,7 @@ const ProductComponent = ({ product }) => {
   return (
     <div>
 
-      <div className="card-grid" style={{borderRadius:'4px',boxShadow: '0px 1px 2px rgba(96, 125, 135, 0.15)',height:'218px'}}>
+      <div className="card-grid" style={{borderRadius:'4px',boxShadow: '0px 1px 2px rgba(96, 125, 135, 0.15)',height:'235px'}}>
       {/* onClick={() => navigate(`/ProductDetails/${product._id}`)} */}
         <div className="card-parent"
          style={{margin:'10px 0',position:'relative',borderRadius:'4px'}}
