@@ -3,7 +3,7 @@ import './AdminDashboard.scss'
 import { BiSolidDashboard, } from 'react-icons/bi'
 import { BsBag } from 'react-icons/bs'
 import { AiOutlineUsergroupDelete } from 'react-icons/ai'
-import { adminpakage } from './Data';
+import { adminpakage, request } from './Data';
 const AdminDashboard = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
@@ -18,7 +18,7 @@ const AdminDashboard = () => {
                     <img src="./images/logo.png" alt="" />
                 </div>
                 <ul className="sidebar-menu" >
-                    <div className="sidebar-menu-parent" style={{ background: '#72CC5A' }}>
+                    <div className="sidebar-menu-parent" style={{ background: '#FC5018' }}>
                         <div className="sidebar-menu-sub">
                             <span style={{ color: 'white' }}><BiSolidDashboard /></span>
                             <li style={{ color: 'white' }}>Dashboard</li>
@@ -39,9 +39,9 @@ const AdminDashboard = () => {
                         </div>
                     </div>
                 </ul>
-                <div className="sidebar-toggle" onClick={toggleSidebar}>
+                {/* <div className="sidebar-toggle" onClick={toggleSidebar}>
                     {isSidebarOpen ? 'Hide Sidebar' : 'Show Sidebar'}
-                </div>
+                </div> */}
             </div>
             <div>
                 <div className='main-content-parent'>
@@ -60,14 +60,14 @@ const AdminDashboard = () => {
                                 return (
                                     <div className='card-parent'>
                                         <div>
-                                            <h3>Gold Plan</h3>
-                                            <p>All the gold starting from the new business</p>
+                                            <h3>{item.h3}</h3>
+                                            <p>{item.para}</p>
                                             <div className='price'>
-                                                <h1>$12</h1>
+                                                <h1>{item.price}</h1>
                                                 <span>/mo</span>
                                             </div>
-                                            <div style={{display:'flex',justifyContent:'center'}}>
-                                            <button>Edit</button>
+                                            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                                                <button>Edit</button>
                                             </div>
                                         </div>
                                     </div>
@@ -75,8 +75,60 @@ const AdminDashboard = () => {
                             })
                         }
                     </div>
-                    <div style={{padding:'40px 0'}}>
-                        <img src="./images/frame.png" alt="" width={'100%'} />
+                    <div className='request-card-parent-main'>
+                        {
+                            request.map((item) => {
+                                return (
+                                    <div className='request-card-parent'>
+                                        <div  className='price-parent'>
+                                            <div className='img-parent'>
+                                                <div className='img-div'>
+                                                    <img src="./images/lcd.png" alt="" />
+                                                </div>
+                                                <div>
+                                                    <h1>{item.title}</h1>
+                                                    <p>{item.para}</p>
+                                                </div>
+                                            </div>
+                                            <div >
+                                                <h1 className='price'>{item.price}</h1>
+                                            </div>
+                                        </div>
+                                        <div className='brand-item'>
+                                            <ul className='brand-item-list'>
+                                                <li>{item.brand}</li>
+                                                <li>{item.model}</li>
+                                                <li>{item.condition}</li>
+                                                <li>{item.display}</li>
+                                                <li>{item.tech}</li>
+                                                <li>{item.size}</li>
+
+                                                <li>{item.fresh}</li>
+                                            </ul>
+                                            {/* <ul className='brand-item-list-name'>
+                                                <li>{item.brandname}</li>
+                                                <li>{item.modelname}</li>
+                                                <li>{item.conditionname}</li>
+                                                <li>{item.displayname}</li>
+                                                <li>{item.techname}</li>
+                                                <li>{item.sizename}</li>
+                                                <li>{item.freshname}</li>
+                                            </ul> */}
+                                            <div className='accept'>
+                                                <div className='posted'>
+                                                    <h3>Posted</h3>
+                                                    <p>1 Hour</p>
+                                                </div>
+                                                <div>
+                                                    <button className='cancel'>Cancel</button>
+                                                    <button className='approve'>Accept</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                     <div>
 

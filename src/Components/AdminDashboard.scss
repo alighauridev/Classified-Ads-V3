@@ -73,7 +73,7 @@
              }
         }
         .sidebar-menu-parent:hover{
-            background:  #72CC5A;
+            background:  #FC5018;
             color: white;
             li{
                 color: white;
@@ -176,7 +176,7 @@
             }
             button{
               background:#1F2937 ;
-              font-family: 'Poppins', sans-serif;;
+              font-family: 'Poppins', sans-serif;
               border-radius: 4px;
               color: white;
               border: none;
@@ -184,6 +184,104 @@
               margin: auto;
               margin: auto;
             }
+      }
+      .request-card-parent-main{
+        margin: 30px 0;
+        .request-card-parent{
+          padding: 30px;
+          margin: 30px 0;
+          background: white;
+          border-radius: 8px;
+          .price-parent{
+            display: flex;
+            justify-content: space-between;
+            .img-parent{
+              display: flex;
+              gap: 20px;
+              .img-div{
+                width: 10%;
+                img{
+                  width: 100%;
+                  border-radius: 8px;
+                }
+              }
+              h1{
+                font-size: 32px;
+                color: #282D5A;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 500;
+              }
+              p{
+                color: gray;
+                font-family: 'Poppins', sans-serif;
+                font-size: 15px;
+              }
+            }
+            .price{
+              font-size: 32px;
+              color: #282D5A;
+              font-family: 'Poppins', sans-serif;
+              font-weight: 500;
+            }
+          }
+          .brand-item{
+            padding: 30px 0 0 0;
+           .brand-item-list{
+              display: flex;
+            justify-content: space-between;
+             li{
+              font-size: 15px;
+              color: #282D5A;
+              font-weight: 600;
+              font-family: 'Poppins', sans-serif;
+             }
+            }
+         
+           
+          }
+          .accept{
+            padding: 30px 0 0 0; 
+            display: flex;
+            justify-content: space-between;
+            .posted{
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              h3{
+                font-size: 18px;
+                color: #282D5A;
+                font-weight: 600;
+                font-family: 'Poppins', sans-serif;
+              }
+              p{
+                font-size: 15px;
+                color: gray;
+                font-weight: 600;
+                font-family: 'Poppins', sans-serif;
+              }
+            }
+            .cancel{
+              border: 2px solid #FC5018;
+              border-radius: 50px;
+              color: #FC5018;
+              font-family: 'Poppins', sans-serif;
+              font-size: 15px;
+            }
+            .cancel:hover{
+             background: none;
+            }
+            .approve{
+              background:#1F2937;
+              border: none;
+              border-radius: 50px;
+              color: #ffffff;
+              font-family: 'Poppins', sans-serif;
+              font-size: 15px;
+            }
+          }
+         
+        
+        }
       }
   }
    
