@@ -1,0 +1,101 @@
+.pakage-parent{
+    background: #EBF2F7;
+    height: 100%;
+    .pakage-sub-parent{
+        padding: 20px 0;
+        .pakage-title{
+            color: black;
+            font-size: 19px;
+            font-weight: bolder;
+            padding: 20px;
+            
+        }
+        .pakage-grid{
+            display: grid;
+            grid-template-columns: 2fr 8fr;
+            gap: 30px;
+            padding: 80px 20px;
+            .pakage-side-item{
+                h1{
+                    padding: 30px 0;
+                    font-size: 13px ;
+                    color: black;
+                    border-bottom: 1px dashed gray;
+                }
+               }
+               .adspakage-card{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 20px;
+                #silver{
+                    padding: 10px 20px;
+                    background: #D1DFE5;
+                    h1{
+                        text-align: center;
+                        font-size: 18px;
+                        color: black;
+                        font-weight: bolder;
+                    }
+                    
+                }
+                #gold{
+                    padding: 10px 20px;
+                    background: #FFF4E4;
+                    h1{
+                        text-align: center;
+                        font-size: 18px;
+                        color: black;
+                        font-weight: bolder;
+                    }
+                    
+                }
+                #bronze{
+                    padding: 10px 20px;
+                    background: #FFDAA3;
+                    h1{
+                        text-align: center;
+                        font-size: 18px;
+                        color: black;
+                        font-weight: bolder;
+                    }
+                    
+                }
+                .month{
+                    padding: 10px 20px;
+                    background: white;
+                    border-bottom: 1px solid #D1DFE5;
+                    h1{
+                        text-align: center;
+                        color: #00B53F;
+                        font-size: 15px;
+                    }
+                }
+                .ads-limit{
+                    padding: 10px 20px;
+                    background: white;
+                    border-bottom: 1px solid #D1DFE5;
+                    h1{
+                        text-align: center;
+                        color: #00B53F;
+                        font-size: 15px;
+                    }
+                }
+                .ads-list{
+                   
+                    background: white;
+                    border-bottom: 1px solid #D1DFE5;  
+                    h1{
+                        text-align: center;
+                        padding: 10px 20px;
+                        color: #000000;
+                        font-size: 15px;
+                        border-bottom: 1px solid #D1DFE5;  
+                    }
+                }
+               }
+        }
+    }
+   
+    
+   
+}

@@ -34,7 +34,7 @@ const ProductComponent = ({ product }) => {
   return (
     <div>
 
-      <div className="card-grid" style={{borderRadius:'4px',boxShadow: '0px 1px 2px rgba(96, 125, 135, 0.15)'}}>
+      <div className="card-grid" style={{borderRadius:'4px',boxShadow: '0px 1px 2px rgba(96, 125, 135, 0.15)',height:'218px'}}>
       {/* onClick={() => navigate(`/ProductDetails/${product._id}`)} */}
         <div className="card-parent"
          style={{margin:'10px 0',position:'relative',borderRadius:'4px'}}
@@ -43,7 +43,7 @@ const ProductComponent = ({ product }) => {
             src={`${axios.defaults.baseURL}/upload/image/${product.images[0]}`}
            
             
-            crossorigin="anonymous" style={{borderRadius:'4px'}}
+            crossorigin="anonymous" style={{borderRadius:'4px',height:'145px'}}
           />
 
           {/* <div className="bg-white w-full py-2  absolute top-[55.8%] rounded-t-3xl "></div> */}
