@@ -16,6 +16,7 @@ import Admin from "./Pages/Admin";
 import Homescreen from "./Pages/Homepage/Homescreen";
 import Dashboard from "./Pages/Dashboard";
 import Pakage from "./Components/Pakage/Pakage";
+import Secondpage from "./Components/Secondpage";
 
 function Main() {
   const LoginBool = false;
@@ -42,6 +43,7 @@ function Main() {
         <Route path="/CreateAd" element={<CreateAd />} />
         <Route path="/About" element={<Homescreen />} />
         <Route path="/ProductDetails/:id" element={<ProductDetails />} />
+        <Route path="/secondpage" element={<Secondpage/>}/>
       </Routes>
     </Router>
   ) : authenticated !== "" && role ? (
