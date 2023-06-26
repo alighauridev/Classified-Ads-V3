@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "../http/axiosSet.js";
 import MegaMenu from "./Megamenu/MegaMenu";
 import img from '../assets/Tabpanel ⏵ Link.png'
+import { Link } from "react-router-dom";
 import Pakage from "../Components/Pakage/Pakage";
 import AdminDashboard from "../Components/AdminDashboard";
 const ProductComponent = ({ product }) => {
@@ -228,7 +229,9 @@ function Dashboard() {
                 .slice(0)
                 .reverse()
                 .map((product) => (
-                  <ProductComponent product={product} />
+                  <Link to='/secondpage'>
+                    <ProductComponent product={product} />
+                  </Link>
                 ))}
             </div>
 

@@ -1,0 +1,31 @@
+.second-page-grid{
+    display: grid;
+    grid-template-columns: 8fr 2fr;
+    width: 95%;
+    margin: 30px auto;
+    gap: 30px;
+    img{
+        width: 100%;
+        
+    }
+    h3{
+        font-size: 15px;
+        font-weight: bolder;
+        margin: 5px 0;
+    }
+    li{
+        font-size: 12px;
+        font-weight: 500;
+        color: gray;
+    }
+    .rbort{
+        display: flex;
+background: white;
+padding: 20px 10px;
+margin-top: 10px;
+    }
+    button{
+        font-size: 12px;
+        border: 1px solid rgba(160, 160, 160, 0.608);
+    }
+}

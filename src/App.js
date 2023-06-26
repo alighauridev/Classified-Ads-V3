@@ -15,6 +15,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ContextProvider } from "./Context/Context";
+import Secondpage from "./Components/Secondpage";
 
 function Main() {
   const [authenticated, setAuthenticated] = useState(
@@ -37,6 +38,7 @@ function Main() {
             <Route path="/MyAccount" element={<MyAccount />} />
             <Route path="/CreateAd" element={<CreateAd />} />
             <Route path="/About" element={<Homescreen />} />
+            <Route path="/secondpage" element={<Secondpage />} />
             <Route path="/ProductDetails/:id" element={<ProductDetails />} />
           </>
         ) : authenticated !== "" && role ? (
