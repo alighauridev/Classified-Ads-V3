@@ -23,7 +23,8 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-const AdminDashboard = () => {
+import axios from "../http/axiosSet"
+const AdminDashboard = ({ products, handlePress }) => {
   const [open, setOpen] = React.useState(false);
   // const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

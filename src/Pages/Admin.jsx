@@ -73,7 +73,7 @@ function Admin() {
   return (
     <div className="h-screen bg-[#F5F5F5]">
       <div>
-      <AdminDashboard/>
+        <AdminDashboard handlePress={handlePress} products={products} />
       </div>
       <button onClick={handleLogout}>Logout</button>
       <div className="flex justify-between flex-col ">
