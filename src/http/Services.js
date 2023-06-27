@@ -168,6 +168,26 @@ export const getCategories = async () => {
     console.log(err);
   }
 };
+////////////////////////////////////////////UPDATE PAKAGE
+export const getpakage = async () => {
+  try {
+    const token = localStorage.getItem("@accessToken");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    // console.log("in get all ads");
+
+    const res = await axios.get("/plans", config);
+    console.log("data" + res.data);
+    return res.data; 
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
 ////////////////////////////////////////////postImage
 export const postImages = async (data) => {
   try {
