@@ -16,6 +16,7 @@ import img from '../assets/Tabpanel ⏵ Link.png'
 import { Link } from "react-router-dom";
 import Pakage from "../Components/Pakage/Pakage";
 import AdminDashboard from "../Components/AdminDashboard";
+import Banner from "./Homepage/Banner";
 const ProductComponent = ({ product }) => {
   console.log("product", product);
   const navigate = useNavigate();
@@ -69,8 +70,8 @@ const ProductComponent = ({ product }) => {
               {/* make add buttun bg green */}
             </div>
             <div >
-              <p style={{fontSize:'15px',fontWeight:'400',color:'#00B53F',fontWeight:'500'}}>
-                <span style={{color:'#00B53F'}}>Price:</span>
+              <p style={{fontSize:'15px',fontWeight:'400',color:'#787878',fontWeight:'500'}}>
+                <span style={{color:'#787878'}}>Price:</span>
                 {product.price} $
               </p>
               {/* <p >
@@ -171,6 +172,7 @@ function Dashboard() {
     search: search.length > 0 ? search : null,
   });
   //==============================================================
+
   useEffect(() => {
     //fetch categories
     const fetchCategories = async () => {
@@ -185,10 +187,13 @@ function Dashboard() {
     };
     fetchCategories();
   }, []);
+
+
   return (
     <div className="min-h-screen min-w-full flex flex-col" style={{ background: '#EBF2F7' }}>
       {/* write me a  */}
       <Navbar />
+      <Banner/>
       <div className="flex-1">
         {/* <div className="flex  px-10">
           <SearchBar setName={setsearch} />
@@ -197,7 +202,7 @@ function Dashboard() {
             onSelect={handleTagClicked}
           />
         </div> */}
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 8fr', padding: '20px 20px', gap: '10px',width:'90%',margin:'auto' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '2fr 8fr', padding: '20px 20px', gap: '10px',width:'95%',margin:'auto' }}>
 
           {/* MEGAMENU SECTION */}
 
@@ -211,9 +216,9 @@ function Dashboard() {
           <div>
             {/* BANNER SECTION */}
             <div style={{}}>
-         <div>
+         {/* <div>
          <img src={img} alt="" style={{ width: '100%', }} />
-         </div>
+         </div> */}
          {/* <div>
           <img src="./images/add.png" alt=""nstyle={{ width: '100%', }}  />
          </div> */}

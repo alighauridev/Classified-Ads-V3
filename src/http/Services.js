@@ -197,13 +197,15 @@ export const pkgedit = async (id,body) => {
     };
     // console.log("in get all ads");
 
-    const res = await axios.put("/plans/"+id, config,body);
+    const res = await axios.put("/plans/"+id,body);
+    console.log('hello abdullah',body)
     console.log("data" + res.data);
     return res.data; 
   } catch (err) {
     console.log(err);
   }
 };
+
 ////////////////////////////////////////////postImage
 export const postImages = async (data) => {
   try {

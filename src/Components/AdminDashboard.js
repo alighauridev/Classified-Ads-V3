@@ -41,6 +41,7 @@ const AdminDashboard = () => {
   };
 
   //fetch categories
+
   useEffect(() => {
     //fetch categories
     const fetchpkg = async () => {
@@ -55,6 +56,8 @@ const AdminDashboard = () => {
     fetchpkg();
   }, []);
 
+
+console.log('hello sheikh sab',pakage)
   const editpkg = async (id) => {
     setOpen(true);
     const data = pakage.filter(
@@ -62,6 +65,8 @@ const AdminDashboard = () => {
     )[0];
     setedit({ ...data, id });
   };
+
+
 
   const editpkgdone = async () => {
     const { id, ...data } = edit;
@@ -76,6 +81,8 @@ const AdminDashboard = () => {
     );
     console.log('this is resonpne',response);
   };
+
+
 
   return (
     <div className={`dashboard ${isSidebarOpen ? "sidebar-open" : ""}`}>
@@ -144,6 +151,7 @@ const AdminDashboard = () => {
                     <p>{item.totalAds}</p>
                     <div className="price">
                       <h1>{item.price}</h1>
+                  
                       <span>/mo</span>
                     </div>
                     <div style={{ display: "flex", justifyContent: "center" }}>
@@ -169,21 +177,28 @@ const AdminDashboard = () => {
                             type="text"
                             value={edit.description}
                             placeholder="edit your description"
-                            style={{ border: "1px solid rgb(128, 128, 128)" }}
+                            style={{ border: "1px solid rgb(128, 128, 128)" }}            onChange={(e) =>
+                                setedit({ ...edit, description: e.target.value })
+                              }
                           />
                           <input
                             type="number"
                             value={edit.price}
                             placeholder="edit your price"
-                            style={{ border: "1px solid rgb(128, 128, 128)" }}
+                            style={{ border: "1px solid rgb(128, 128, 128)" }}            onChange={(e) =>
+                                setedit({ ...edit, price: e.target.value })
+                              }
                           />
                           <input
                             type="number"
                             value={edit.totalAds}
                             placeholder="edit your ads"
                             style={{ border: "1px solid rgb(128, 128, 128)" }}
+                            onChange={(e) =>
+                                setedit({ ...edit, totalAds: e.target.value })
+                              }
                           />
-                          <button onClick={editpkgdone}>Edit</button>
+                          <button onClick={editpkgdone}>Update</button>
                         </Box>
                       </Modal>
                     </div>

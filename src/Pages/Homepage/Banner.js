@@ -7,18 +7,17 @@ const Banner = () => {
 
       <div className='banner-parent-back'>
         <div className='banner-grid'>
-          <div className='person'>
-            <img src="./images/man.png" alt="" style={{ marginTop: '25px' }} />
-          </div>
+      
           <div className='search'>
             <div className='cunty'>
-              <span>Find anythings in</span>
-              <button>Nigeria</button>
+              <h1>For Anythins</h1>
+          
+             <h1>In <span>Nigeria</span></h1>
             </div>
             <input type="text" placeholder='I am looking for...' />
           </div>
           <div className='person'>
-            <img src='./images/girls.png' alt="" style={{ marginTop: '60px', width: '130%' }} />
+            <img src='./images/880.png' alt="" style={{ marginTop: '60px', width: '130%' }} />
           </div>
         </div>
       </div>
