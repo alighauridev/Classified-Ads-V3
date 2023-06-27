@@ -169,7 +169,7 @@ export const getCategories = async () => {
   }
 };
 ////////////////////////////////////////////UPDATE PAKAGE
-export const getpakage = async () => {
+export const getpakagetwo = async () => {
   try {
     const token = localStorage.getItem("@accessToken");
     const config = {
@@ -187,7 +187,23 @@ export const getpakage = async () => {
   }
 };
 
+export const pkgedit = async (id,body) => {
+  try {
+    const token = localStorage.getItem("@accessToken");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    // console.log("in get all ads");
 
+    const res = await axios.put("/plans/"+id, config,body);
+    console.log("data" + res.data);
+    return res.data; 
+  } catch (err) {
+    console.log(err);
+  }
+};
 ////////////////////////////////////////////postImage
 export const postImages = async (data) => {
   try {
