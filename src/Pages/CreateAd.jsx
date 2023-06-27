@@ -270,33 +270,6 @@ function MyAccount() {
                   })}
                 </div> */}
               </div>
-              <div>
-                <p className="text-subheading text-[18px] mt-5 ">
-                  Worker Details
-                </p>
-                <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                  <InputLabel id="demo-simple-select-standard-label">
-                    League
-                  </InputLabel>
-                  <Select
-                    labelId="demo-simple-select-standard-label"
-                    id="demo-simple-select-standard"
-                    value={league}
-                    onChange={(e) => {
-                      setObj({ ...Obj, League: e.target.value });
-                      setLeague(e.target.value);
-                    }}
-                    label="catégorie"
-                  >
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    {Leagues.map((item) => {
-                      return <MenuItem value={item}>{item}</MenuItem>;
-                    })}
-                  </Select>
-                </FormControl>
-              </div>
             </div>
             <div className="flex  justify-center">
               <button

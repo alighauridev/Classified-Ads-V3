@@ -5,24 +5,24 @@ import { BsBag } from 'react-icons/bs'
 import { AiOutlineUsergroupDelete } from 'react-icons/ai'
 import { adminpakage, request } from './Data';
 import { getpakage } from '../http/Services';
-const AdminDashboard = () => {
+const AdminDashboard = ({ products }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const [pakage, setpakage] = useState([]);
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
-        //fetch categories
-        const fetchpakage = async () => {
-          try {
+    //fetch categories
+    const fetchpakage = async () => {
+        try {
             const resp = await getpakage();
             if (resp.status === "OK") setpakage(resp.data);
-          } catch (err) {
+        } catch (err) {
             console.log(err);
-          }
-        };
-        fetchpakage();
-     
+        }
+    };
+    fetchpakage();
+
     return (
         <div className={`dashboard ${isSidebarOpen ? 'sidebar-open' : ''}`}>
             <div className="sidebar">
@@ -68,7 +68,7 @@ const AdminDashboard = () => {
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px' }}>
                         {
-                            adminpakage.map((item) => {
+                            products.map((item) => {
                                 return (
                                     <div className='card-parent'>
                                         <div>
@@ -78,8 +78,8 @@ const AdminDashboard = () => {
                                                 <h1>{item.price}</h1>
                                                 <span>/mo</span>
                                             </div>
-                                            <div style={{ display: 'grid',gridTemplateColumns:'4fr 2fr', justifyContent: 'center',gap:'10px' }}>
-                                                <input type="number" placeholder='Edit your price' style={{width:'100%',border:'1px solid rgb(128, 128, 128)',outline:'none',borderRadius:'4px',padding:'0 10px'}}/>
+                                            <div style={{ display: 'grid', gridTemplateColumns: '4fr 2fr', justifyContent: 'center', gap: '10px' }}>
+                                                <input type="number" placeholder='Edit your price' style={{ width: '100%', border: '1px solid rgb(128, 128, 128)', outline: 'none', borderRadius: '4px', padding: '0 10px' }} />
                                                 <button onClick={fetch}>Edit</button>
                                             </div>
                                         </div>
@@ -93,7 +93,7 @@ const AdminDashboard = () => {
                             request.map((item) => {
                                 return (
                                     <div className='request-card-parent'>
-                                        <div  className='price-parent'>
+                                        <div className='price-parent'>
                                             <div className='img-parent'>
                                                 <div className='img-div'>
                                                     <img src="./images/lcd.png" alt="" />
