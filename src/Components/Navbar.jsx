@@ -140,7 +140,7 @@ export default function Navbar({ fixed }) {
         </ul>
       </div>
     </div>
-    <Banner/>
+
   </>
   );
 }
