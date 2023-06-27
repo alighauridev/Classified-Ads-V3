@@ -6,6 +6,7 @@ import { AiOutlineUsergroupDelete } from 'react-icons/ai'
 import { adminpakage, request } from './Data';
 import { getpakage } from '../http/Services';
 import axios from "../http/axiosSet"
+import { formatDistanceToNow } from 'date-fns';
 const AdminDashboard = ({ products, handlePress }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const [pakage, setpakage] = useState([]);
@@ -92,6 +93,10 @@ const AdminDashboard = ({ products, handlePress }) => {
                     <div className='request-card-parent-main'>
                         {
                             products.map((item) => {
+                                const createdAt = new Date(item.createdAt); // Replace this with your actual createdAt value
+
+                                // Format the time as "time ago"
+                                const timeAgo = formatDistanceToNow(createdAt, { addSuffix: true });
                                 return (
                                     <div className='request-card-parent'>
                                         <div className='price-parent'>
@@ -130,8 +135,7 @@ const AdminDashboard = ({ products, handlePress }) => {
                                             </ul> */}
                                             <div className='accept'>
                                                 <div className='posted'>
-                                                    <h3>Posted</h3>
-                                                    <p>1 Hour</p>
+                                                    {timeAgo}
                                                 </div>
                                                 {
                                                     item.status === 'accepted' ? <h2>Accepted</h2> : <div>
