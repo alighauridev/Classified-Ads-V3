@@ -5,7 +5,8 @@ import { BsBag } from 'react-icons/bs'
 import { AiOutlineUsergroupDelete } from 'react-icons/ai'
 import { adminpakage, request } from './Data';
 import { getpakage } from '../http/Services';
-const AdminDashboard = ({ products }) => {
+import axios from "../http/axiosSet"
+const AdminDashboard = ({ products, handlePress }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const [pakage, setpakage] = useState([]);
     const toggleSidebar = () => {
@@ -68,7 +69,7 @@ const AdminDashboard = ({ products }) => {
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px' }}>
                         {
-                            products.map((item) => {
+                            adminpakage.map((item) => {
                                 return (
                                     <div className='card-parent'>
                                         <div>
@@ -90,21 +91,21 @@ const AdminDashboard = ({ products }) => {
                     </div>
                     <div className='request-card-parent-main'>
                         {
-                            request.map((item) => {
+                            products.map((item) => {
                                 return (
                                     <div className='request-card-parent'>
                                         <div className='price-parent'>
                                             <div className='img-parent'>
                                                 <div className='img-div'>
-                                                    <img src="./images/lcd.png" alt="" />
+                                                    <img src={`${axios.defaults.baseURL}/upload/image/${item.images[0]}`} alt="" />
                                                 </div>
                                                 <div>
                                                     <h1>{item.title}</h1>
-                                                    <p>{item.para}</p>
+                                                    <p>{item.description}</p>
                                                 </div>
                                             </div>
                                             <div >
-                                                <h1 className='price'>{item.price}</h1>
+                                                <h1 className='price'>{item.price}USD</h1>
                                             </div>
                                         </div>
                                         <div className='brand-item'>
@@ -132,10 +133,12 @@ const AdminDashboard = ({ products }) => {
                                                     <h3>Posted</h3>
                                                     <p>1 Hour</p>
                                                 </div>
-                                                <div>
-                                                    <button className='cancel'>Cancel</button>
-                                                    <button className='approve'>Accept</button>
-                                                </div>
+                                                {
+                                                    item.status === 'accepted' ? <h2>Accepted</h2> : <div>
+
+                                                        <button className='approve' onClick={() => handlePress(item._id)}>Accept</button>
+                                                    </div>
+                                                }
                                             </div>
                                         </div>
                                     </div>
