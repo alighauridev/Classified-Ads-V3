@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "../../src/http/axiosSet";
+import axios from './../http/axiosSet'
 
 import "./AdminDashboard.scss";
 import { BiSolidDashboard } from "react-icons/bi";
@@ -23,7 +23,7 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-import axios from "../http/axiosSet"
+
 const AdminDashboard = ({ products, handlePress }) => {
   const [open, setOpen] = React.useState(false);
   // const handleOpen = () => setOpen(true);
