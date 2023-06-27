@@ -1,7 +1,5 @@
 import './AdminDashboard.scss'
-import { BiSolidDashboard, } from 'react-icons/bi'
 import { BsBag } from 'react-icons/bs'
-import { AiOutlineUsergroupDelete } from 'react-icons/ai'
 import { adminpakage, request } from './Data';
 import { getpakage } from '../http/Services';
 import axios from "../http/axiosSet"
@@ -10,7 +8,6 @@ import React, { useState, useEffect } from "react";
 
 import "./AdminDashboard.scss";
 import { BiSolidDashboard } from "react-icons/bi";
-import { BsBag } from "react-icons/bs";
 import { AiOutlineUsergroupDelete } from "react-icons/ai";
 import { adminpakage, request } from "./Data";
 import { getpakage, getpakagetwo, pkgedit } from "../http/Services";
