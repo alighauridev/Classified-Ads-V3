@@ -4,13 +4,25 @@ import { BiSolidDashboard, } from 'react-icons/bi'
 import { BsBag } from 'react-icons/bs'
 import { AiOutlineUsergroupDelete } from 'react-icons/ai'
 import { adminpakage, request } from './Data';
+import { getpakage } from '../http/Services';
 const AdminDashboard = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-
+    const [pakage, setpakage] = useState([]);
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
+        //fetch categories
+        const fetchpakage = async () => {
+          try {
+            const resp = await getpakage();
+            if (resp.status === "OK") setpakage(resp.data);
+          } catch (err) {
+            console.log(err);
+          }
+        };
+        fetchpakage();
+     
     return (
         <div className={`dashboard ${isSidebarOpen ? 'sidebar-open' : ''}`}>
             <div className="sidebar">
@@ -66,8 +78,9 @@ const AdminDashboard = () => {
                                                 <h1>{item.price}</h1>
                                                 <span>/mo</span>
                                             </div>
-                                            <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                                <button>Edit</button>
+                                            <div style={{ display: 'grid',gridTemplateColumns:'4fr 2fr', justifyContent: 'center',gap:'10px' }}>
+                                                <input type="number" placeholder='Edit your price' style={{width:'100%',border:'1px solid rgb(128, 128, 128)',outline:'none',borderRadius:'4px',padding:'0 10px'}}/>
+                                                <button onClick={fetch}>Edit</button>
                                             </div>
                                         </div>
                                     </div>
