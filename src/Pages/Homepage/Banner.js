@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../Components/Scss/Home/Banner.scss'
-
+import banner from '../../assets/880 (1).png'
 const Banner = () => {
   return (
     <div>
@@ -17,7 +17,7 @@ const Banner = () => {
             <input type="text" placeholder='I am looking for...' />
           </div>
           <div className='person'>
-            <img src='./images/880.png' alt="" style={{ marginTop: '60px', width: '130%' }} />
+            <img src={banner} alt="" style={{ marginTop: '60px', width: '130%' }} />
           </div>
         </div>
       </div>

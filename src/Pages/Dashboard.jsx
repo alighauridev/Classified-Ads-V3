@@ -52,7 +52,7 @@ const ProductComponent = ({ product }) => {
 
           <div style={{padding:'25px 10px 10px 10px'}}>
             <div >
-              <p style={{fontSize:'18px',fontWeight:'600'}}>
+              <p style={{fontSize:'18px',fontWeight:'600'}} cl>
                 {product.title}
               </p>
              
@@ -70,8 +70,8 @@ const ProductComponent = ({ product }) => {
               {/* make add buttun bg green */}
             </div>
             <div >
-              <p style={{fontSize:'15px',fontWeight:'400',color:'#787878',fontWeight:'500'}}>
-                <span style={{color:'#787878'}}>Price:</span>
+              <p style={{fontSize:'15px',fontWeight:'400',color:'rgba(251, 80, 24, 1)',fontWeight:'500'}}>
+                <span style={{color:'rgba(251, 80, 24, 1)'}}>Price : </span>
                 {product.price} $
               </p>
               {/* <p >
@@ -190,7 +190,7 @@ function Dashboard() {
 
 
   return (
-    <div className="min-h-screen min-w-full flex flex-col" style={{ background: '#EBF2F7' }}>
+    <div className="min-h-screen min-w-full flex flex-col" style={{  }}>
       {/* write me a  */}
       <Navbar />
       <Banner/>
@@ -202,7 +202,7 @@ function Dashboard() {
             onSelect={handleTagClicked}
           />
         </div> */}
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 8fr', padding: '20px 20px', gap: '10px',width:'95%',margin:'auto' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '2fr 8fr', padding: '20px 40px', gap: '20px',width:'90%',margin:'auto' }}>
 
           {/* MEGAMENU SECTION */}
 

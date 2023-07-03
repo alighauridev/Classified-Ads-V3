@@ -3,13 +3,13 @@
     border-bottom: 1px solid rgba(128, 128, 128, 0.247);
     padding: 80px 0;
     .container{
-        max-width: 1170px;
-        margin:auto;
+       width: 95%;
+       margin: auto;
        
     }
     .row{
-        display: flex;
-        flex-wrap: wrap;
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
     ul{
         list-style: none;

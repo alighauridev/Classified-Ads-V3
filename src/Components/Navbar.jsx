@@ -3,6 +3,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import '.././Components/Scss/Home/Navbar.scss'
 import { Link, useNavigate } from "react-router-dom";
 import logo from '../assets/logo.png'
+import iconf from '../assets/Frame 13.png'
+import icons from '../assets/Frame 14.png'
+import icont from '../assets/Frame 15.png'
+import icont4 from '../assets/Frame 16.png'
+import icont5 from '../assets/Frame 17.png'
+import icont6 from '../assets/Frame 18.png'
 import Banner from "../Pages/Homepage/Banner";
 export default function Navbar({ fixed }) {
   const navigate = useNavigate();
@@ -24,18 +30,42 @@ export default function Navbar({ fixed }) {
   };
   // console.log("navbar", );
   return (
-  <>
+  <div className="navbar-back">
     <div className="navbar-parent">
       <div className="logo-div">
         <img src={logo} alt="" />
       </div>
       <div className="seller-buy">
-        <span>
-          Sell faster
+        <span style={{color:'#FA4F16'}}>
+          Home
         </span>
         <span>
-          Buy smarter
+      About
         </span>
+        <span>
+          Services
+        </span>
+      </div>
+      <div className="icons">
+        <div>
+          <img src={iconf} alt="" />
+        </div>
+        <div>
+          <img src={icons} alt="" />
+        </div>
+        <div>
+          <img src={icont} alt="" />
+        </div>
+        <div>
+          <img src={icont4} alt="" />
+        </div>
+        <div>
+          <img src={icont6} alt="" />
+        </div>
+        <div>
+          <img src={icont5} alt="" />
+        </div>
+        
       </div>
       <div>
         <ul >
@@ -141,6 +171,6 @@ export default function Navbar({ fixed }) {
       </div>
     </div>
 
-  </>
+  </div>
   );
 }
