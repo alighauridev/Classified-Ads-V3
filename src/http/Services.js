@@ -58,8 +58,7 @@ export const GetAllAds = async (filter, page, limit) => {
         Authorization: `Bearer ${token}`,
       },
     };
-    console.log("in get all ads");
-    console.log(filter);
+
     const res = await axios.post(
       "/ads/getall",
       {
@@ -181,13 +180,13 @@ export const getpakagetwo = async () => {
 
     const res = await axios.get("/plans", config);
     console.log("data" + res.data);
-    return res.data; 
+    return res.data;
   } catch (err) {
     console.log(err);
   }
 };
 
-export const pkgedit = async (id,body) => {
+export const pkgedit = async (id, body) => {
   try {
     const token = localStorage.getItem("@accessToken");
     const config = {
@@ -197,10 +196,10 @@ export const pkgedit = async (id,body) => {
     };
     // console.log("in get all ads");
 
-    const res = await axios.put("/plans/"+id,body);
-    console.log('hello abdullah',body)
+    const res = await axios.put("/plans/" + id, body);
+    console.log('hello abdullah', body)
     console.log("data" + res.data);
-    return res.data; 
+    return res.data;
   } catch (err) {
     console.log(err);
   }

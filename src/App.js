@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Provider, useSelector, useDispatch } from "react-redux";
-import { store, signIN } from "./redux/userSlice";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import MyAccount from "./Pages/MyAccount";
@@ -66,12 +65,11 @@ function Main() {
 
 function App() {
   return (
-    <Provider store={store}>
-      <ContextProvider>
-        <Main />
-        <ToastContainer />
-      </ContextProvider>
-    </Provider>
+
+    <ContextProvider>
+      <Main />
+      <ToastContainer />
+    </ContextProvider>
   );
 }
 
