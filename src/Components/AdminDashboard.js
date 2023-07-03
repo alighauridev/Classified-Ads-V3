@@ -1,16 +1,16 @@
 import './AdminDashboard.scss'
 import { BsBag } from 'react-icons/bs'
-import { adminpakage, request } from './Data';
-import { getpakage } from '../http/Services';
+import { adminpakage,request } from './Data';
+import {  getpakage, getpakagetwo, pkgedit } from '../http/Services';
 import axios from "../http/axiosSet"
-//  
+import { formatDistanceToNow } from 'date-fns';
 import React, { useState, useEffect } from "react";
 
 import "./AdminDashboard.scss";
 import { BiSolidDashboard } from "react-icons/bi";
 import { AiOutlineUsergroupDelete } from "react-icons/ai";
-// import { adminpakage, request } from "./Data";
-// import { getpakage, getpakagetwo, pkgedit } from "../http/Services";
+
+
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -47,19 +47,19 @@ const AdminDashboard = ({ products, handlePress }) => {
 
     //fetch categories
 
-    // useEffect(() => {
-    //     //fetch categories
-    //     const fetchpkg = async () => {
-    //         try {
-    //             const resp = await getpakagetwo();
-    //             console.log(" reponse ", resp);
-    //             setpakage(resp);
-    //         } catch (err) {
-    //             console.log(err);
-    //         }
-    //     };
-    //     fetchpkg();
-    // }, []);
+    useEffect(() => {
+        //fetch categories
+        const fetchpkg = async () => {
+            try {
+                const resp = await getpakagetwo();
+                console.log(" reponse ", resp);
+                setpakage(resp);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchpkg();
+    }, []);
 
 
     console.log('hello sheikh sab', pakage)
@@ -73,19 +73,19 @@ const AdminDashboard = ({ products, handlePress }) => {
 
 
 
-    // const editpkgdone = async () => {
-    //     const { id, ...data } = edit;
-    //     const response = await pkgedit(id, data);
-    //     setpakage(
-    //         pakage.map((item) => {
-    //             if (item._id.toString() === response._id.toString()) {
-    //                 return response;
-    //             }
-    //             return item;
-    //         })
-    //     );
-    //     console.log('this is resonpne', response);
-    // };
+    const editpkgdone = async () => {
+        const { id, ...data } = edit;
+        const response = await pkgedit(id, data);
+        setpakage(
+            pakage.map((item) => {
+                if (item._id.toString() === response._id.toString()) {
+                    return response;
+                }
+                return item;
+            })
+        );
+        console.log('this is resonpne', response);
+    };
 
 
 
@@ -203,7 +203,7 @@ const AdminDashboard = ({ products, handlePress }) => {
                                                             setedit({ ...edit, totalAds: e.target.value })
                                                         }
                                                     />
-                                                    {/* <button onClick={editpkgdone}>Update</button> */}
+                                                    <button onClick={editpkgdone}>Update</button>
                                                 </Box>
                                             </Modal>
                                         </div>
