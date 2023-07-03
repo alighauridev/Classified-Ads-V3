@@ -245,7 +245,7 @@ export default function Navbar({ fixed }) {
                       </li>
                     ) : (
                       <div>
-                      <Button onClick={handleOpentwo}>Open modal</Button>
+                      <Button onClick={handleOpentwo}>Login</Button>
                       <Modal
                         open={opentwo}
                         onClose={handleClosetwo}
