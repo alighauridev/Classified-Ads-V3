@@ -27,8 +27,9 @@ function Login({ authenticated, role }) {
       credentials.email,
       credentials.pass
     );
-
+console.log(accessToken)
     if (status === "OK") {
+      console.log('its here', accessToken)
       authenticated(accessToken);
       setuserdetails(resp);
 
@@ -42,6 +43,8 @@ function Login({ authenticated, role }) {
       localStorage.setItem("@role", JSON.stringify(resp.user.admin));
       navigate("/");
     }
+
+    // console.log(status)
   };
   const google = async () => {
     //settimeout for 5 seconds
