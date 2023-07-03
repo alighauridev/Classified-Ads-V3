@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Copse&family=Nunito&family=Open+Sans&family=Poppins&family=Quicksand&family=Raleway:wght@200&family=Roboto&display=swap');
+.login-parent{
+    .logo-div{
+        width: 30%;
+        margin: auto;
+
+        img{
+width: 100%;
+        }
+    }
+    .login-text{
+        h1{
+            font-family: 'Quicksand', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            text-transform: capitalize;
+            margin-top: 30px;
+        }
+    }
+    .user-email{
+        display: flex;
+        align-items: center;
+        input{
+            padding: 15px 30px;
+            width: 100%;
+            border-radius: 40px;
+            background: white;
+            border: 1px solid #E9EBED;
+            margin-top: 40px ;
+            outline: none;
+        
+        }
+    }
+    .user-password{
+        display: flex;
+        align-items: center;
+        position: relative;
+        input{
+            padding: 15px 30px;
+            width: 100%;
+            border-radius: 40px;
+            background: white;
+        border: 1px solid #E9EBED;
+        margin-top: 20px ;
+        outline: none;
+        }
+        span{
+            position: absolute;
+            right: 20px;
+            top: 40px;
+        }
+    }
+    .login-button{
+        width: 100%;
+    margin-top: 40px;
+    background: #FF4C1C;
+    text-align: center;
+    color: white;
+    padding: 15px;
+    border-radius: 40px;
+    }
+    .dont-have{
+        text-align: center;
+        padding-top: 50px;
+        input{
+            color: #FF4C1C;
+            font-family: 'Quicksand', sans-serif;
+        }
+        text{
+            font-family: 'Quicksand', sans-serif; 
+            color: black;
+            font-weight: 700;
+        }
+    }
+}
