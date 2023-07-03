@@ -80,9 +80,9 @@ export default function Navbar({ fixed }) {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>Dollar</MenuItem>
+        <MenuItem onClick={handleClose}>Rupees</MenuItem>
+        <MenuItem onClick={handleClose}>Dirham</MenuItem>
       </Menu>
     </div>
 
@@ -110,9 +110,9 @@ export default function Navbar({ fixed }) {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>English</MenuItem>
+        <MenuItem onClick={handleClose}>Africans</MenuItem>
+        <MenuItem onClick={handleClose}>Spannish</MenuItem>
       </Menu>
     </div>
       </div>
