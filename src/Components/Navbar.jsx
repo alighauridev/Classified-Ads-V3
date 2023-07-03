@@ -15,7 +15,7 @@ import icont5 from '../assets/Frame 17.png'
 import icont6 from '../assets/Frame 18.png'
 import Banner from "../Pages/Homepage/Banner";
 import Login from "../Pages/Login";
-
+import {AiOutlineUser} from 'react-icons/ai'
 
 
 // MODAL
@@ -245,7 +245,7 @@ export default function Navbar({ fixed }) {
                       </li>
                     ) : (
                       <div>
-                      <Button onClick={handleOpentwo}>Login</Button>
+                      <Button onClick={handleOpentwo}> <AiOutlineUser/> Login</Button>
                       <Modal
                         open={opentwo}
                         onClose={handleClosetwo}
