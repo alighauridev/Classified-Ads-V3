@@ -3,7 +3,7 @@ import Navbar from "../Components/Navbar";
 import EditIcon from "@mui/icons-material/Edit";
 import CallIcon from "@mui/icons-material/Call";
 import Footer from "../Components/Footer/Footer";
-import './Dashboard.scss'
+import "./Dashboard.scss";
 import { GetAllAds, getCategories, updateAd } from "../http/Services";
 import CategoryDropdown from "../Components/CategoryDropDown";
 import SearchBar from "../Components/SearchBar.js";
@@ -12,11 +12,13 @@ import Stack from "@mui/material/Stack";
 import { useNavigate } from "react-router-dom";
 import axios from "../http/axiosSet.js";
 import MegaMenu from "./Megamenu/MegaMenu";
-import img from '../assets/Tabpanel ⏵ Link.png'
+import img from "../assets/Tabpanel ⏵ Link.png";
 import { Link } from "react-router-dom";
 import Pakage from "../Components/Pakage/Pakage";
 import AdminDashboard from "../Components/AdminDashboard";
 import Banner from "./Homepage/Banner";
+import { getProducts } from "../Redux copy/actions/productActions";
+import { useDispatch, useSelector } from "react-redux";
 const ProductComponent = ({ product }) => {
   console.log("product", product);
   const navigate = useNavigate();
@@ -35,27 +37,37 @@ const ProductComponent = ({ product }) => {
 
   return (
     <div>
-
-      <div className="card-grid" style={{borderRadius:'4px',boxShadow: '0px 1px 2px rgba(96, 125, 135, 0.15)',height:'235px'}}>
-      {/* onClick={() => navigate(`/ProductDetails/${product._id}`)} */}
-        <div className="card-parent"
-         style={{margin:'10px 0',position:'relative',borderRadius:'4px'}}
+      <div
+        className="card-grid"
+        style={{
+          borderRadius: "4px",
+          boxShadow: "0px 1px 2px rgba(96, 125, 135, 0.15)",
+          height: "235px",
+        }}
+      >
+        {/* onClick={() => navigate(`/ProductDetails/${product._id}`)} */}
+        <div
+          className="card-parent"
+          style={{
+            margin: "10px 0",
+            position: "relative",
+            borderRadius: "4px",
+          }}
         >
           <img
             src={`${axios.defaults.baseURL}/upload/image/${product.images[0]}`}
-           
-            
-            crossorigin="anonymous" style={{borderRadius:'4px',height:'145px'}}
+            crossorigin="anonymous"
+            style={{ borderRadius: "4px", height: "145px" }}
           />
 
           {/* <div className="bg-white w-full py-2  absolute top-[55.8%] rounded-t-3xl "></div> */}
 
-          <div style={{padding:'25px 10px 10px 10px'}}>
-            <div >
-              <p style={{fontSize:'18px',fontWeight:'600'}} cl>
+          <div style={{ padding: "25px 10px 10px 10px" }}>
+            <div>
+              <p style={{ fontSize: "18px", fontWeight: "600" }} cl>
                 {product.title}
               </p>
-             
+
               {/* <p >
                 <span className="font-bold">Category :</span> {product.category[0]}{" "}
                 /{product.subCategory}
@@ -69,9 +81,16 @@ const ProductComponent = ({ product }) => {
 
               {/* make add buttun bg green */}
             </div>
-            <div >
-              <p style={{fontSize:'15px',fontWeight:'400',color:'rgba(251, 80, 24, 1)',fontWeight:'500'}}>
-                <span style={{color:'rgba(251, 80, 24, 1)'}}>Price : </span>
+            <div>
+              <p
+                style={{
+                  fontSize: "15px",
+                  fontWeight: "400",
+                  color: "rgba(251, 80, 24, 1)",
+                  fontWeight: "500",
+                }}
+              >
+                <span style={{ color: "rgba(251, 80, 24, 1)" }}>Price : </span>
                 {product.price} $
               </p>
               {/* <p >
@@ -90,9 +109,9 @@ const ProductComponent = ({ product }) => {
                 Contact
               </div> */}
             </div>
-            <div style={{position:'absolute',top:'130px',right:'20px'}}>
-                <img src="./images/button.png" alt="" />
-              </div>
+            <div style={{ position: "absolute", top: "130px", right: "20px" }}>
+              <img src="./images/button.png" alt="" />
+            </div>
           </div>
         </div>
       </div>
@@ -101,7 +120,9 @@ const ProductComponent = ({ product }) => {
 };
 
 function Dashboard() {
-  console.log(`${axios.defaults.baseURL}/upload/image/`);
+  const products = useSelector((state) => state.Products.products);
+  const dispatch = useDispatch();
+
   //====================================================================
   const getProductsData = (state, filter) => {
     let products = state;
@@ -119,7 +140,7 @@ function Dashboard() {
     return products;
   };
   //====================================================================
-  const [products, setProducts] = useState([]);
+
   //selected category
   const [selectedCategory, setSelectedCategory] = useState("");
   //list of categories
@@ -131,24 +152,7 @@ function Dashboard() {
   const [callIt, setCallIt] = useState(false);
   const [pageCount, setCount] = useState();
   useEffect(() => {
-    const fetchAds = async () => {
-      try {
-        const resp = await GetAllAds(
-          selectedCat !== "" && { category: { $in: selectedCat } },
-          page //include selected categories
-        );
-        if (resp.status === "OK") {
-          setProducts(resp.data);
-          let setpage = Math.ceil(resp.count / 10);
-          setCount(setpage);
-        }
-
-        // setProducts(resp);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchAds();
+    dispatch(getProducts());
   }, [selectedCat, page, callIt]);
 
   // For storing Slected Categories in useState array which categories are selected
@@ -188,12 +192,11 @@ function Dashboard() {
     fetchCategories();
   }, []);
 
-
   return (
-    <div className="min-h-screen min-w-full flex flex-col" style={{  }}>
+    <div className="min-h-screen min-w-full flex flex-col" style={{}}>
       {/* write me a  */}
       <Navbar />
-      <Banner/>
+      <Banner />
       <div className="flex-1">
         {/* <div className="flex  px-10">
           <SearchBar setName={setsearch} />
@@ -202,46 +205,49 @@ function Dashboard() {
             onSelect={handleTagClicked}
           />
         </div> */}
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 8fr', padding: '20px 40px', gap: '20px',width:'90%',margin:'auto' }}>
-
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "2fr 8fr",
+            padding: "20px 40px",
+            gap: "20px",
+            width: "90%",
+            margin: "auto",
+          }}
+        >
           {/* MEGAMENU SECTION */}
 
           <div>
             <MegaMenu />
           </div>
 
-
-
-
           <div>
             {/* BANNER SECTION */}
             <div style={{}}>
-         {/* <div>
+              {/* <div>
          <img src={img} alt="" style={{ width: '100%', }} />
          </div> */}
-         {/* <div>
+              {/* <div>
           <img src="./images/add.png" alt=""nstyle={{ width: '100%', }}  />
          </div> */}
             </div>
 
             {/* ADS SECTION */}
 
-        
-
-
-            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr 1fr',gap:'10px',margin:'20px 0'}} >
-              {displayProducts
-                .slice(0)
-                .reverse()
-                .map((product) => (
-                  <Link to='/secondpage'>
-                    <ProductComponent product={product} />
-                  </Link>
-                ))}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr 1fr 1fr",
+                gap: "10px",
+                margin: "20px 0",
+              }}
+            >
+              {products?.map((product) => (
+                <Link to="/secondpage">
+                  <ProductComponent product={product} />
+                </Link>
+              ))}
             </div>
-
-
-            
           </div>
         </div>
         <div className="w-full items-center justify-center my-8 ">
@@ -255,13 +261,10 @@ function Dashboard() {
           />
         </div>
       </div>
-<div>
-
-</div>
+      <div></div>
       <div className=" ">
-      <Footer />
+        <Footer />
       </div>
-    
     </div>
   );
 }

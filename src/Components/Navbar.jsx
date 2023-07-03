@@ -1,67 +1,61 @@
-import React,{useState} from "react";
+import React, { useState, useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-import {RiArrowDropDownLine} from 'react-icons/ri'
-import '.././Components/Scss/Home/Navbar.scss'
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import { RiArrowDropDownLine } from "react-icons/ri";
+import ".././Components/Scss/Home/Navbar.scss";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 import { Link, useNavigate } from "react-router-dom";
-import logo from '../assets/logo.png'
-import iconf from '../assets/Frame 13.png'
-import icons from '../assets/Frame 14.png'
-import icont from '../assets/Frame 15.png'
-import icont4 from '../assets/Frame 16.png'
-import icont5 from '../assets/Frame 17.png'
-import icont6 from '../assets/Frame 18.png'
+import logo from "../assets/logo.png";
+import iconf from "../assets/Frame 13.png";
+import icons from "../assets/Frame 14.png";
+import icont from "../assets/Frame 15.png";
+import icont4 from "../assets/Frame 16.png";
+import icont5 from "../assets/Frame 17.png";
+import icont6 from "../assets/Frame 18.png";
 import Banner from "../Pages/Homepage/Banner";
 import Login from "../Pages/Login";
 import {AiOutlineUser} from 'react-icons/ai'
-
-
-// MODAL
-
-import Box from '@mui/material/Box';
-
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import axios from "axios";
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
   width: 580,
-  height:603,
-  bgcolor: 'background.paper',
-borderRadius:8,
+  height: 603,
+  bgcolor: "background.paper",
+  borderRadius: 8,
   boxShadow: 24,
   p: 4,
 };
 
-
-
 export default function Navbar({ fixed }) {
-
   const [opentwo, setOpentwo] = useState(false);
   const handleOpentwo = () => setOpentwo(true);
   const handleClosetwo = () => setOpentwo(false);
 
-
-
   const navigate = useNavigate();
   const [navbarOpen, setNavbarOpen] = React.useState(false);
-  //dropdown useState
+  const [currencies, setCurrencies] = React.useState([]);
   const [dropdown, setdropdown] = React.useState(false);
   const [user, setuser] = React.useState(
     localStorage.getItem("@userdetails") &&
-    JSON.parse(localStorage.getItem("@userdetails"))
+      JSON.parse(localStorage.getItem("@userdetails"))
   );
-
+  const getCurrencies = async () => {
+    const { data } = await axios.get(
+      "https://openexchangerates.org/api/currencies.json"
+    );
+    setCurrencies(data);
+  };
   const handleLogout = () => {
     localStorage.setItem("@accessToken", "");
     localStorage.setItem("@refreshToken", "");
     localStorage.setItem("@userdetails", "");
-    // window.location.reload();
     navigate("/");
     window.location.reload();
   };
@@ -74,50 +68,49 @@ export default function Navbar({ fixed }) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  // console.log("navbar", );
+  useEffect(() => {
+    getCurrencies();
+  }, []);
+
   return (
-  <div className="navbar-back">
-    <div className="navbar-parent">
-      <div className="logo-div">
-        <img src={logo} alt="" />
-      </div>
-      <div className="seller-buy">
-        <span style={{color:'#FA4F16'}}>
-          Home
-        </span>
-        <span>
-      About
-        </span>
-        <span>
-     
-        </span>
-        <span>
-          Services
-        </span>
-        <div>
-      <Button className="curreny"
-        id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick} style={{background:'none'}}
-      >
-        Currency <RiArrowDropDownLine style={{fontSize:"16px"}}/>
-      </Button>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-      >
-        <MenuItem onClick={handleClose}>Dollar</MenuItem>
-        <MenuItem onClick={handleClose}>Rupees</MenuItem>
-        <MenuItem onClick={handleClose}>Dirham</MenuItem>
-      </Menu>
-    </div>
+    <div className="navbar-back">
+      <div className="navbar-parent">
+        <div className="logo-div">
+          <img src={logo} alt="" />
+        </div>
+        <div className="seller-buy">
+          <span style={{ color: "#FA4F16" }}>Home</span>
+          <span>About</span>
+          <span></span>
+          <span>Services</span>
+          <div>
+            <Button
+              className="curreny"
+              id="basic-button"
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClick}
+              style={{ background: "none" }}
+            >
+              Currency <RiArrowDropDownLine style={{ fontSize: "16px" }} />
+            </Button>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+            >
+              {Object.entries(currencies).map(([code, currency]) => (
+                <MenuItem key={code} onClick={handleClose}>
+                  {code}: {currency}
+                </MenuItem>
+              ))}
+            </Menu>
+          </div>
 
 
 
@@ -245,7 +238,7 @@ export default function Navbar({ fixed }) {
                       </li>
                     ) : (
                       <div>
-                      <Button onClick={handleOpentwo}> <AiOutlineUser/> Login</Button>
+                      <Button onClick={handleOpentwo}>Login</Button>
                       <Modal
                         open={opentwo}
                         onClose={handleClosetwo}
