@@ -34,8 +34,20 @@
          cursor: pointer;
          font-weight: 600;
      }
-     span:focus{
+     span:hover{
         color: #FA4F16;
+     }
+     .curreny{
+        font-size: 16px;
+        color: #000000;
+        font-family: 'Quicksand', sans-serif;
+        cursor: pointer;
+        font-weight: 600;
+        text-transform: capitalize;
+     }
+     .curreny:hover{
+background: none;
+color: #FA4F16;
      }
     }
     .user-button{

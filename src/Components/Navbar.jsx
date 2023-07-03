@@ -1,6 +1,10 @@
 import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
+import {RiArrowDropDownLine} from 'react-icons/ri'
 import '.././Components/Scss/Home/Navbar.scss'
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import { Link, useNavigate } from "react-router-dom";
 import logo from '../assets/logo.png'
 import iconf from '../assets/Frame 13.png'
@@ -28,6 +32,15 @@ export default function Navbar({ fixed }) {
     navigate("/");
     window.location.reload();
   };
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   // console.log("navbar", );
   return (
   <div className="navbar-back">
@@ -43,8 +56,65 @@ export default function Navbar({ fixed }) {
       About
         </span>
         <span>
+     
+        </span>
+        <span>
           Services
         </span>
+        <div>
+      <Button className="curreny"
+        id="basic-button"
+        aria-controls={open ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick} style={{background:'none'}}
+      >
+        Currency <RiArrowDropDownLine style={{fontSize:"16px"}}/>
+      </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem>
+      </Menu>
+    </div>
+
+
+
+
+
+
+    <div>
+      <Button className="curreny"
+        id="basic-button"
+        aria-controls={open ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick} style={{background:'none'}}
+      >
+       Language <RiArrowDropDownLine style={{fontSize:"16px"}}/>
+      </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem>
+      </Menu>
+    </div>
       </div>
       <div className="icons">
         <div>
