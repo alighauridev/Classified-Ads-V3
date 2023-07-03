@@ -23,7 +23,7 @@ import { toast } from "react-toastify";
 import { FETCH_CARS_FAILURE, FETCH_CARS_REQUEST, FETCH_CARS_SUCCESS } from "../constants/carsConstants";
 
 export const getProducts =
-    (filter = {}, page = 1, limit = 10) =>
+    (filter = {}, page = 1, limit = 10, currency = "USD") =>
         async (dispatch, getState) => {
             try {
                 dispatch({
@@ -42,13 +42,14 @@ export const getProducts =
                         filter: filter,
                         page: page,
                         limit: limit,
+                        currency: currency
                     },
                     config
                 );
                 console.log(data);
                 dispatch({
                     type: PRODUCT_LIST_SUCCESS,
-                    payload: data?.data,
+                    payload: data,
                 });
             } catch (error) {
                 dispatch({

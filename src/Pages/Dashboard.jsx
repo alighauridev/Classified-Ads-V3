@@ -19,7 +19,7 @@ import AdminDashboard from "../Components/AdminDashboard";
 import Banner from "./Homepage/Banner";
 import { getProducts } from "../Redux copy/actions/productActions";
 import { useDispatch, useSelector } from "react-redux";
-const ProductComponent = ({ product }) => {
+const ProductComponent = ({ product, currency }) => {
   console.log("product", product);
   const navigate = useNavigate();
   // const [selected, setSelected] = useState([]);
@@ -90,8 +90,10 @@ const ProductComponent = ({ product }) => {
                   fontWeight: "500",
                 }}
               >
-                <span style={{ color: "rgba(251, 80, 24, 1)" }}>Price : </span>
-                {product.price} $
+                <span style={{ color: "rgba(251, 80, 24, 1)" }}>
+                  {currency}{" "}
+                </span>
+                {product.price.toFixed(2)}
               </p>
               {/* <p >
                 <span > author</span>
@@ -120,7 +122,7 @@ const ProductComponent = ({ product }) => {
 };
 
 function Dashboard() {
-  const products = useSelector((state) => state.Products.products);
+  const { ads, currency } = useSelector((state) => state.Products);
   const dispatch = useDispatch();
 
   //====================================================================
@@ -171,7 +173,7 @@ function Dashboard() {
     setSelectedCat(temp);
   };
   // ====================================================================
-  const displayProducts = getProductsData(products, {
+  const displayProducts = getProductsData(ads, {
     category: selectedCat,
     search: search.length > 0 ? search : null,
   });
@@ -242,9 +244,9 @@ function Dashboard() {
                 margin: "20px 0",
               }}
             >
-              {products?.map((product) => (
+              {ads?.map((product) => (
                 <Link to="/secondpage">
-                  <ProductComponent product={product} />
+                  <ProductComponent currency={currency} product={product} />
                 </Link>
               ))}
             </div>

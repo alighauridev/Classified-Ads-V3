@@ -19,6 +19,8 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { getProducts } from "../Redux copy/actions/productActions";
 const style = {
   position: "absolute",
   top: "50%",
@@ -70,7 +72,7 @@ export default function Navbar({ fixed }) {
   useEffect(() => {
     getCurrencies();
   }, []);
-
+  const dispatch = useDispatch();
   return (
     <div className="navbar-back">
       <div className="navbar-parent">
@@ -104,8 +106,14 @@ export default function Navbar({ fixed }) {
               }}
             >
               {Object.entries(currencies).map(([code, currency]) => (
-                <MenuItem key={code} onClick={handleClose}>
-                  {code}: {currency}
+                <MenuItem
+                  key={code}
+                  onClick={() => {
+                    dispatch(getProducts({}, 1, 10, code)); // Pass the selected currency code here
+                    handleClose();
+                  }}
+                >
+                  {currency}
                 </MenuItem>
               ))}
             </Menu>
@@ -118,12 +126,12 @@ export default function Navbar({ fixed }) {
               aria-controls={open ? "basic-menu" : undefined}
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
-              onClick={handleClick}
+              // onClick={handleClick}
               style={{ background: "none" }}
             >
               Language <RiArrowDropDownLine style={{ fontSize: "16px" }} />
             </Button>
-            <Menu
+            {/* <Menu
               id="basic-menu"
               anchorEl={anchorEl}
               open={open}
@@ -135,7 +143,7 @@ export default function Navbar({ fixed }) {
               <MenuItem onClick={handleClose}>English</MenuItem>
               <MenuItem onClick={handleClose}>Africans</MenuItem>
               <MenuItem onClick={handleClose}>Logout</MenuItem>
-            </Menu>
+            </Menu> */}
           </div>
         </div>
         <div className="icons">

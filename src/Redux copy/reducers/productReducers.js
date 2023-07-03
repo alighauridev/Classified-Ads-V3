@@ -14,20 +14,19 @@ import {
 } from "../constants/productConstants";
 
 const initialstate = {
-    products: [],
+    ads: [],
 };
 // GET all products 
 
 export const allProductsReducer = (state = initialstate, action) => {
     switch (action.type) {
         case PRODUCT_LIST_REQUEST:
-            return { loading: true, products: [] };
+            return { loading: true, ads: [] };
         case PRODUCT_LIST_SUCCESS:
             return {
                 loading: false,
-                pages: action.payload.pages,
-                page: action.payload.page,
-                products: action.payload.products,
+                currency: action.payload.currency,
+                ads: action.payload.data,
             };
         case PRODUCT_LIST_FAIL:
             return { loading: false, error: action.payload };
@@ -36,7 +35,7 @@ export const allProductsReducer = (state = initialstate, action) => {
     }
 };
 
-// get single products 
+// get single ads 
 
 export const productCreateReviewReducer = (state = {}, action) => {
     switch (action.type) {
