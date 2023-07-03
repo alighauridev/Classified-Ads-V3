@@ -132,7 +132,7 @@ export default function Navbar({ fixed }) {
             >
               Language <RiArrowDropDownLine style={{ fontSize: "16px" }} />
             </Button>
-            <Menu
+            {/* <Menu
               id="basic-menu"
               anchorEl={anchorEl}
               open={open}
@@ -144,7 +144,7 @@ export default function Navbar({ fixed }) {
               <MenuItem onClick={handleClose}>English</MenuItem>
               <MenuItem onClick={handleClose}>Africans</MenuItem>
               <MenuItem onClick={handleClose}>Logout</MenuItem>
-            </Menu>
+            </Menu> */}
           </div>
         </div>
         <div className="icons">
