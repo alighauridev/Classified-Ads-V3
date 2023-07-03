@@ -12,7 +12,7 @@ import { Country, State, City } from "country-state-city";
 import { ICountry, IState, ICity } from "country-state-city";
 
 import { toast } from "react-toastify";
-
+import './Createads.scss'
 function MyAccount() {
   const [Category, setCategory] = useState(null);
   const [subCategory, setSubCategory] = useState(null);
