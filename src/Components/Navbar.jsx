@@ -1,8 +1,18 @@
 import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
+import {RiArrowDropDownLine} from 'react-icons/ri'
 import '.././Components/Scss/Home/Navbar.scss'
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import { Link, useNavigate } from "react-router-dom";
 import logo from '../assets/logo.png'
+import iconf from '../assets/Frame 13.png'
+import icons from '../assets/Frame 14.png'
+import icont from '../assets/Frame 15.png'
+import icont4 from '../assets/Frame 16.png'
+import icont5 from '../assets/Frame 17.png'
+import icont6 from '../assets/Frame 18.png'
 import Banner from "../Pages/Homepage/Banner";
 export default function Navbar({ fixed }) {
   const navigate = useNavigate();
@@ -22,20 +32,110 @@ export default function Navbar({ fixed }) {
     navigate("/");
     window.location.reload();
   };
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   // console.log("navbar", );
   return (
-  <>
+  <div className="navbar-back">
     <div className="navbar-parent">
       <div className="logo-div">
         <img src={logo} alt="" />
       </div>
       <div className="seller-buy">
-        <span>
-          Sell faster
+        <span style={{color:'#FA4F16'}}>
+          Home
         </span>
         <span>
-          Buy smarter
+      About
         </span>
+        <span>
+     
+        </span>
+        <span>
+          Services
+        </span>
+        <div>
+      <Button className="curreny"
+        id="basic-button"
+        aria-controls={open ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick} style={{background:'none'}}
+      >
+        Currency <RiArrowDropDownLine style={{fontSize:"16px"}}/>
+      </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}>Dollar</MenuItem>
+        <MenuItem onClick={handleClose}>Rupees</MenuItem>
+        <MenuItem onClick={handleClose}>Dirham</MenuItem>
+      </Menu>
+    </div>
+
+
+
+
+
+
+    <div>
+      <Button className="curreny"
+        id="basic-button"
+        aria-controls={open ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick} style={{background:'none'}}
+      >
+       Language <RiArrowDropDownLine style={{fontSize:"16px"}}/>
+      </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}>English</MenuItem>
+        <MenuItem onClick={handleClose}>Africans</MenuItem>
+        <MenuItem onClick={handleClose}>Spannish</MenuItem>
+      </Menu>
+    </div>
+      </div>
+      <div className="icons">
+        <div>
+          <img src={iconf} alt="" />
+        </div>
+        <div>
+          <img src={icons} alt="" />
+        </div>
+        <div>
+          <img src={icont} alt="" />
+        </div>
+        <div>
+          <img src={icont4} alt="" />
+        </div>
+        <div>
+          <img src={icont6} alt="" />
+        </div>
+        <div>
+          <img src={icont5} alt="" />
+        </div>
+        
       </div>
       <div>
         <ul >
@@ -141,6 +241,6 @@ export default function Navbar({ fixed }) {
       </div>
     </div>
 
-  </>
+  </div>
   );
 }

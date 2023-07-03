@@ -32,18 +32,19 @@
   
     .wrapper .nav-links {
       display: flex;
-      height: 750px;
-      flex-direction: column;
-      background: white;
-      padding-left: 10px;
-    //   box-shadow: 0px 0px 5px 2px #70707024;
-      border: 1px solid #70707024;
-      /* padding: 10px 0 1px 30px; */
-      margin: 0;
-      padding-top: 10px;
-      border-radius: 4px;
-      padding-bottom: 10px;
-      box-shadow: 1px 1px 4px rgba(80, 114, 125, 0.4);
+    height: 750px;
+    flex-direction: column;
+    background: white;
+    padding-left: 10px;
+    /* border: 1px solid #70707024; */
+    /* padding: 10px 0 1px 30px; */
+    margin: 0;
+    padding-top: 10px;
+    border-radius: 4px;
+    padding-bottom: 10px;
+    box-shadow: 5px 7px 8px -2px #cacaca57;
+    border-top: 1px solid #70707014;
+    border-left: 1px solid #70707014;
     }
   
     .nav-links li {
