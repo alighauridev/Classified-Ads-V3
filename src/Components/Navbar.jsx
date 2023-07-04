@@ -20,6 +20,8 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import axios from "axios";
+import currencySymbolMap from "currency-symbol-map";
+
 import { useDispatch } from "react-redux";
 import { getProducts } from "../Redux copy/actions/productActions";
 const style = {
@@ -43,6 +45,10 @@ export default function Navbar({ fixed }) {
   const navigate = useNavigate();
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   const [currencies, setCurrencies] = React.useState([]);
+  const [currencyAnchorEl, setCurrencyAnchorEl] = React.useState(null);
+  const [languageAnchorEl, setLanguageAnchorEl] = React.useState(null);
+  const [currencyOpen, setCurrencyOpen] = React.useState(false);
+
   const [dropdown, setdropdown] = React.useState(false);
   const [user, setuser] = React.useState(
     localStorage.getItem("@userdetails") &&
@@ -53,6 +59,23 @@ export default function Navbar({ fixed }) {
       "https://openexchangerates.org/api/currencies.json"
     );
     setCurrencies(data);
+    console.log(data.symbols);
+  };
+
+  const handleCurrencyClick = (event) => {
+    setCurrencyAnchorEl(event.currentTarget);
+  };
+
+  const handleCurrencyClose = () => {
+    setCurrencyAnchorEl(null);
+  };
+
+  const handleLanguageClick = (event) => {
+    setLanguageAnchorEl(event.currentTarget);
+  };
+
+  const handleLanguageClose = () => {
+    setLanguageAnchorEl(null);
   };
   const handleLogout = () => {
     localStorage.setItem("@accessToken", "");
@@ -67,6 +90,7 @@ export default function Navbar({ fixed }) {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -88,22 +112,22 @@ export default function Navbar({ fixed }) {
           <div>
             <Button
               className="curreny"
-              id="basic-button"
-              aria-controls={open ? "basic-menu" : undefined}
+              id="currency-button"
+              aria-controls={currencyOpen ? "currency-menu" : undefined}
               aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
-              onClick={handleClick}
+              aria-expanded={currencyOpen ? "true" : undefined}
+              onClick={handleCurrencyClick}
               style={{ background: "none" }}
             >
               Currency <RiArrowDropDownLine style={{ fontSize: "16px" }} />
             </Button>
             <Menu
-              id="basic-menu"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
+              id="currency-menu"
+              anchorEl={currencyAnchorEl}
+              open={Boolean(currencyAnchorEl)}
+              onClose={handleCurrencyClose}
               MenuListProps={{
-                "aria-labelledby": "basic-button",
+                "aria-labelledby": "currency-button",
               }}
             >
               {Object.entries(currencies).map(([code, currency]) => (
@@ -111,10 +135,10 @@ export default function Navbar({ fixed }) {
                   key={code}
                   onClick={() => {
                     dispatch(getProducts({}, 1, 10, code)); // Pass the selected currency code here
-                    handleClose();
+                    handleCurrencyClose();
                   }}
                 >
-                  {currency}
+                  {code}: {currency} {currencySymbolMap[code]}
                 </MenuItem>
               ))}
             </Menu>

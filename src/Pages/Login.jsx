@@ -6,19 +6,17 @@ import PirateEye from "../SVGs/PirateEye";
 import "./Login.scss";
 import ReCAPTCHA from "react-google-recaptcha";
 import logo from "../assets/logo.png";
-import { Loginn, googleLogin } from "../http/Services";
-//useContext
-
+import { Loginn } from "../http/Services";
 import LogoDevSharpIcon from "@mui/icons-material/LogoDevSharp";
 import { Link, useNavigate } from "react-router-dom";
 import Context from "../Context/Context";
-import { Google } from "@mui/icons-material";
+import { Google, Facebook } from "@mui/icons-material";
+import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 
-function Login({ role, aunthenticated }) {
+function Login({ role, authenticated }) {
   const navigate = useNavigate();
   const [credentials, setcredentials] = React.useState({ email: "", pass: "" });
   const { userdetails, setuserdetails } = useContext(Context);
-
   const [visible, setvisible] = React.useState(false);
 
   const onLogin = async () => {
@@ -27,44 +25,18 @@ function Login({ role, aunthenticated }) {
       credentials.pass
     );
     if (status === "OK") {
-      console.log("its here", accessToken);
-      aunthenticated(accessToken);
+      authenticated(accessToken);
       setuserdetails(resp);
-
       role(resp.user.admin);
-      console.log("admin is responser", resp.user.admin);
       localStorage.setItem("@accessToken", accessToken);
       localStorage.setItem("@refreshToken", refreshToken);
       localStorage.setItem("@userdetails", JSON.stringify(resp));
       localStorage.setItem("@role", JSON.stringify(resp.user.admin));
       navigate("/");
     }
-
-    // console.log(status)
   };
-  // const google = async () => {
-  //   //settimeout for 5 seconds
-  //   setTimeout(() => {
-  //     console.log("5 seconds passed");
-  //   }, 5000);
 
-  //   const { accessToken, refreshToken, ...resp } = await googleLogin();
-  //   console.log("google login", resp);
-
-  //   if (true) {
-  //     aunthenticated(accessToken);
-  //     setuserdetails(resp);
-
-  //     // console.log(status);
-  //     // console.log(resp);
-  //     role(resp.user.admin);
-  //     console.log("admin is responser", resp.user.admin);
-  //     localStorage.setItem("@accessToken", accessToken);
-  //     localStorage.setItem("@refreshToken", refreshToken);
-  //     localStorage.setItem("@userdetails", JSON.stringify(resp));
-  //     localStorage.setItem("@role", JSON.stringify(resp.user.admin));
-  //   }
-  // };
+  const { loginWithRedirect } = useAuth0();
 
   return (
     <div className="login-parent">
@@ -76,6 +48,7 @@ function Login({ role, aunthenticated }) {
         <div className="login-text">
           <h1>login your account</h1>
         </div>
+
         <div>
           <div className="user-email">
             <input
@@ -105,40 +78,43 @@ function Login({ role, aunthenticated }) {
               <PirateEye />
             </span>
           </div>
-          {/* <text className="w-full flex justify-end ">Forget Password?</text> */}
         </div>
 
         <div>
           <div className="login-button">
             <input type="button" value="Login" onClick={onLogin} />
           </div>
-          {/* <div
-            className="btn flex justify-center items-center flex-row   mt-[1rem] bg-[#e2dff7] min-w-[12.5rem] w-full min-h-[5.6rem] rounded-[8px] text-black font-normal font-Poppins text-[18px]  hover:scale-[1.02]"
+          <div
+            className="btn flex justify-center items-center flex-row mt-[1rem] bg-[#e2dff7] min-w-[12.5rem] w-full min-h-[5.6rem] rounded-[8px] text-black font-normal font-Poppins text-[18px]  hover:scale-[1.02]"
             onClick={() => {
-              const loginUrl = "http://localhost:5000/auth/google";
-              const win = window.open(
-                loginUrl,
-                "_blank",
-                "width=500,height=600"
-              );
-              if (win) {
-                const timer = setInterval(() => {
-                  if (win.closed) {
-                    console.log("closed");
-                    if (timer) clearInterval(timer);
-                  }
-                }, 500);
-              }
+              loginWithRedirect({
+                connection: "google-oauth2",
+              });
             }}
           >
             <input type="button" value="Login with Google" />
             <Google sx={{ color: "blue", fontSize: "22px", marginLeft: 1 }} />
-          </div> */}
+          </div>
+
+          <div
+            className="btn flex justify-center items-center flex-row mt-[1rem] bg-[#e2dff7] min-w-[12.5rem] w-full min-h-[5.6rem] rounded-[8px] text-black font-normal font-Poppins text-[18px]  hover:scale-[1.02]"
+            onClick={() => {
+              loginWithRedirect({
+                connection: "facebook",
+              });
+            }}
+          >
+            <input type="button" value="Login with Facebook" />
+            <Facebook
+              sx={{ color: "#3b5998", fontSize: "22px", marginLeft: 1 }}
+            />
+          </div>
         </div>
+
         <Link to={"/Dashboard"}>
           <div className="dont-have">
             <text style={{ color: "black" }}>
-              Dont have a account ?
+              Don't have an account?
               <span>
                 <Link to="/Register">
                   <input type="button" value=" Register " />

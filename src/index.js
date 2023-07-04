@@ -10,11 +10,20 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import Store from "./Redux copy/store/store";
+import { Auth0Provider } from "@auth0/auth0-react";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={Store}>
-      <App />
+      <Auth0Provider
+        domain="dev-yj3chuv7s7qobgv0.us.auth0.com"
+        clientId="m2souO9SxGYEwX6IofhkBcr6FbFuZxzW"
+        authorizationParams={{
+          redirect_uri: window.location.origin
+        }}
+      >
+        <App />
+      </Auth0Provider>
     </Provider>
   </React.StrictMode>
 );
