@@ -88,8 +88,9 @@ function Login({ role, authenticated }) {
               });
             }}
           >
-            <input type="button" value="Login with Google" />
-            <Google sx={{ color: "blue", fontSize: "22px", marginLeft: 1 }} />
+            <img src="./images/google.png" alt="" style={{width:'10%'}}/>
+            <input type="button" value="Login with Google" style={{marginLeft:'10px'}} />
+          
           </div>
 
           <div
@@ -99,11 +100,9 @@ function Login({ role, authenticated }) {
                 connection: "facebook",
               });
             }}
-          >
-            <input type="button" value="Login with Facebook" />
-            <Facebook
-              sx={{ color: "#3b5998", fontSize: "22px", marginLeft: 1 }}
-            />
+          > <img src="./images/facebook.png" alt="" style={{width:'10%'}}/>
+            <input type="button" value="Login with Facebook" style={{marginLeft:'10px'}}  />
+
           </div>
           </div>
         </div>
