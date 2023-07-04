@@ -26,6 +26,7 @@ function Login({ role, aunthenticated }) {
       credentials.email,
       credentials.pass
     );
+    console.log(resp,'response ')
     if (status === "OK") {
       console.log("its here", accessToken);
       aunthenticated(accessToken);
