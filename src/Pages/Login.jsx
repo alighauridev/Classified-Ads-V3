@@ -3,9 +3,9 @@ import HandWave from "../SVGs/HandWave";
 import Email from "../SVGs/Email";
 import Password from "../SVGs/Password";
 import PirateEye from "../SVGs/PirateEye";
-import './Login.scss'
+import "./Login.scss";
 import ReCAPTCHA from "react-google-recaptcha";
-import logo from '../assets/logo.png'
+import logo from "../assets/logo.png";
 import { Loginn, googleLogin } from "../http/Services";
 //useContext
 
@@ -14,10 +14,9 @@ import { Link, useNavigate } from "react-router-dom";
 import Context from "../Context/Context";
 import { Google } from "@mui/icons-material";
 
-function Login({ authenticated, role }) {
+function Login({ role, setAuthenticated }) {
   const navigate = useNavigate();
   const [credentials, setcredentials] = React.useState({ email: "", pass: "" });
-  console.log(credentials);
   const { userdetails, setuserdetails } = useContext(Context);
 
   const [visible, setvisible] = React.useState(false);
@@ -27,14 +26,11 @@ function Login({ authenticated, role }) {
       credentials.email,
       credentials.pass
     );
-console.log(accessToken)
     if (status === "OK") {
-      console.log('its here', accessToken)
-      authenticated(accessToken);
+      console.log("its here", accessToken);
+      setAuthenticated(accessToken);
       setuserdetails(resp);
 
-      console.log(status);
-      // console.log(resp);
       role(resp.user.admin);
       console.log("admin is responser", resp.user.admin);
       localStorage.setItem("@accessToken", accessToken);
@@ -56,7 +52,7 @@ console.log(accessToken)
     console.log("google login", resp);
 
     if (true) {
-      authenticated(accessToken);
+      setAuthenticated(accessToken);
       setuserdetails(resp);
 
       // console.log(status);
@@ -72,23 +68,21 @@ console.log(accessToken)
 
   return (
     <div className="login-parent">
-      <div >
-      
-<div className="logo-div">
-  <img src={logo}alt="" />
-</div>
+      <div>
+        <div className="logo-div">
+          <img src={logo} alt="" />
+        </div>
 
-       <div className="login-text">
-<h1>login your account</h1>
-       </div>
-        <div >
-          <div className="user-email" >
+        <div className="login-text">
+          <h1>login your account</h1>
+        </div>
+        <div>
+          <div className="user-email">
             <input
               type="email"
               email=""
               id=""
               placeholder="Your Mail?"
-            
               required
               onChange={(paso) => {
                 setcredentials({ ...credentials, email: paso.target.value });
@@ -97,37 +91,27 @@ console.log(accessToken)
           </div>
 
           <div className="user-password">
-          
             <input
               type={visible ? "text" : "password"}
               email=""
               id=""
               placeholder="Your Passcode?"
-            
               required
               onChange={(paso) => {
                 setcredentials({ ...credentials, pass: paso.target.value });
               }}
             />
-              <span
-             
-             onClick={() => setvisible(!visible)}
-           >
-             <PirateEye />
-           </span>
+            <span onClick={() => setvisible(!visible)}>
+              <PirateEye />
+            </span>
           </div>
           {/* <text className="w-full flex justify-end ">Forget Password?</text> */}
         </div>
 
-        <div >
-         <div className="login-button">
-         <input
-            type="button"
-            value="Login"
-            
-            onClick={onLogin}
-          />
-         </div>
+        <div>
+          <div className="login-button">
+            <input type="button" value="Login" onClick={onLogin} />
+          </div>
           {/* <div
             className="btn flex justify-center items-center flex-row   mt-[1rem] bg-[#e2dff7] min-w-[12.5rem] w-full min-h-[5.6rem] rounded-[8px] text-black font-normal font-Poppins text-[18px]  hover:scale-[1.02]"
             onClick={() => {
@@ -150,26 +134,18 @@ console.log(accessToken)
             <input type="button" value="Login with Google" />
             <Google sx={{ color: "blue", fontSize: "22px", marginLeft: 1 }} />
           </div> */}
-       
         </div>
-        <Link
-
-          to={"/Dashboard"}
-        >
-       <div className="dont-have">
-       <text style={{color:'black'}}>
-            Dont have a account ?
-            <span >
-            <Link to="/Register">
-            <input
-              type="button"
-              value=" Register "
-             
-            />
-          </Link>
-            </span>
-          </text>
-       </div>
+        <Link to={"/Dashboard"}>
+          <div className="dont-have">
+            <text style={{ color: "black" }}>
+              Dont have a account ?
+              <span>
+                <Link to="/Register">
+                  <input type="button" value=" Register " />
+                </Link>
+              </span>
+            </text>
+          </div>
         </Link>
       </div>
     </div>
