@@ -199,7 +199,7 @@ function Dashboard() {
       {/* write me a  */}
       <Navbar />
       <Banner />
-      <div className="flex-1">
+      <div className="flex-1" style={{background:"white"}}>
         {/* <div className="flex  px-10">
           <SearchBar setName={setsearch} />
           <CategoryDropdown
