@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import {BiSolidUser} from 'react-icons/bi'
 import ".././Components/Scss/Home/Navbar.scss";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
@@ -24,19 +25,18 @@ import currencySymbolMap from "currency-symbol-map";
 
 import { useDispatch } from "react-redux";
 import { getProducts } from "../Redux copy/actions/productActions";
+
 const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 580,
-  height: 603,
-  bgcolor: "background.paper",
-  borderRadius: 8,
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 581,
+  bgcolor: 'background.paper',
+ borderRadius:8,
   boxShadow: 24,
   p: 4,
 };
-
 export default function Navbar({ fixed }) {
   const [opentwo, setOpentwo] = useState(false);
   const handleOpentwo = () => setOpentwo(true);
@@ -264,21 +264,27 @@ export default function Navbar({ fixed }) {
                           </span>
                         </li>
                       ) : (
+                        // <div>
+                        //   <Link to={"/Login"}>
+                        //     <Button>Login</Button>
+                        //   </Link>
+                     
+                        // </div>
                         <div>
-                          <Link to={"/Login"}>
-                            <Button>Login</Button>
-                          </Link>
-                          {/* <Modal
-                            open={opentwo}
-                            onClose={handleClosetwo}
-                            aria-labelledby="modal-modal-title"
-                            aria-describedby="modal-modal-description"
-                          >
-                            <Box sx={style}>
-                              <Login />
-                            </Box>
-                          </Modal> */}
-                        </div>
+                        <Button onClick={handleOpentwo} className="login-buttoon" style={{color:'black',marginLeft:'8px',fontSize:'17px',fontWeight:'bolder'}}><BiSolidUser style={{fontWeight:'bolder'}}/> <span style={{marginLeft:'5px'}}>Login</span> </Button>
+                        <Modal
+                          open={opentwo}
+                          onClose={handleClosetwo}
+                          aria-labelledby="modal-modal-title"   
+                          aria-describedby="modal-modal-description"
+                        >
+                          <Box sx={style}>
+                          <Login/>
+                          </Box>
+                        </Modal>
+                      </div>
+
+
                       )}
                       {!user && (
                         <li

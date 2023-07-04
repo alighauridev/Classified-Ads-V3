@@ -12,8 +12,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Context from "../Context/Context";
 import { Google, Facebook } from "@mui/icons-material";
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
-import Navbar from "../Components/Navbar";
-import Footer from '../Components/Footer/Footer'
+
 function Login({ role, authenticated }) {
   const navigate = useNavigate();
   const [credentials, setcredentials] = React.useState({ email: "", pass: "" });
@@ -41,9 +40,7 @@ function Login({ role, authenticated }) {
   const { loginWithRedirect } = useAuth0();
 
   return (
-<div>
-  <Navbar/>
-  <div style={{background:'white'}}>
+   <div style={{background:'white'}}>
      <div className="login-parent">
       <div>
         <div className="logo-div">
@@ -128,13 +125,15 @@ function Login({ role, authenticated }) {
                 </Link>
               </span>
             </text>
+           
           </div>
         </Link>
+        <div>
+        <p style={{color:'#AEAEB2',fontSize:'16px',textAlign:'center',paddingTop:'30px'}}>By continuing you agree to the Policy and Rules</p>
+        </div>
       </div>
     </div>
    </div>
-   <Footer/>
-</div>
   );
 }
 
