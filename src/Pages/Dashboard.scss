@@ -1,9 +1,16 @@
+@font-face{
+    src: url('../arial-font/arial.ttf');
+    font-family: Arial, Helvetica, sans-serif;
+}
 .card-grid{
     background: white;
      .card-parent{
          img{
              width: 100%;
          }
+     }
+     p{
+        font-family: Arial, Helvetica, sans-serif;
      }
  }
  

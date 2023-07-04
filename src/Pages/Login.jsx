@@ -12,7 +12,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Context from "../Context/Context";
 import { Google, Facebook } from "@mui/icons-material";
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
-
+import Navbar from "../Components/Navbar";
+import Footer from '../Components/Footer/Footer'
 function Login({ role, authenticated }) {
   const navigate = useNavigate();
   const [credentials, setcredentials] = React.useState({ email: "", pass: "" });
@@ -40,7 +41,10 @@ function Login({ role, authenticated }) {
   const { loginWithRedirect } = useAuth0();
 
   return (
-    <div className="login-parent">
+<div>
+  <Navbar/>
+  <div style={{background:'white'}}>
+     <div className="login-parent">
       <div>
         <div className="logo-div">
           <img src={logo} alt="" />
@@ -79,14 +83,8 @@ function Login({ role, authenticated }) {
               <PirateEye />
             </span>
           </div>
-        </div>
-
-        <div>
-          <div className="login-button">
-            <input type="button" value="Login" onClick={onLogin} />
-          </div>
-          <div
-            className="btn flex justify-center items-center flex-row mt-[1rem] bg-[#e2dff7] min-w-[12.5rem] w-full min-h-[5.6rem] rounded-[8px] text-black font-normal font-Poppins text-[18px]  hover:scale-[1.02]"
+          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr ',gap:'20px',marginTop:'20px'}}>
+          <div   style={{padding:'10px',width:'100%',display:'flex',justifyContent:'center',border: "1px solid #E9EBED",borderRadius:'40px'}}
             onClick={() => {
               loginWithRedirect({
                 connection: "google-oauth2",
@@ -98,7 +96,7 @@ function Login({ role, authenticated }) {
           </div>
 
           <div
-            className="btn flex justify-center items-center flex-row mt-[1rem] bg-[#e2dff7] min-w-[12.5rem] w-full min-h-[5.6rem] rounded-[8px] text-black font-normal font-Poppins text-[18px]  hover:scale-[1.02]"
+       style={{padding:'10px',width:'100%',display:'flex',justifyContent:'center', border: "1px solid #E9EBED",borderRadius:'40px'}}
             onClick={() => {
               loginWithRedirect({
                 connection: "facebook",
@@ -110,6 +108,14 @@ function Login({ role, authenticated }) {
               sx={{ color: "#3b5998", fontSize: "22px", marginLeft: 1 }}
             />
           </div>
+          </div>
+        </div>
+
+        <div>
+          <div className="login-button">
+            <input type="button" value="Login" onClick={onLogin} />
+          </div>
+    
         </div>
 
         <Link to={"/Dashboard"}>
@@ -126,6 +132,9 @@ function Login({ role, authenticated }) {
         </Link>
       </div>
     </div>
+   </div>
+   <Footer/>
+</div>
   );
 }
 
