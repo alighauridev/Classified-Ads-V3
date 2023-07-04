@@ -47,7 +47,7 @@ function Main() {
             <Route
               path="/Login"
               element={
-                <Login authenticated={setAuthenticated} role={setRole} />
+                <Login aunthenticated={setAuthenticated} role={setRole} />
               }
             />
             <Route path="/Register" element={<Register />} />
@@ -65,7 +65,6 @@ function Main() {
 
 function App() {
   return (
-
     <ContextProvider>
       <Main />
       <ToastContainer />
@@ -74,5 +73,3 @@ function App() {
 }
 
 export default App;
-
-
