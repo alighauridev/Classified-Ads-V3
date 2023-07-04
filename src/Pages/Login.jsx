@@ -14,7 +14,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Context from "../Context/Context";
 import { Google } from "@mui/icons-material";
 
-function Login({ role, setAuthenticated }) {
+function Login({ role, aunthenticated }) {
   const navigate = useNavigate();
   const [credentials, setcredentials] = React.useState({ email: "", pass: "" });
   const { userdetails, setuserdetails } = useContext(Context);
@@ -28,7 +28,7 @@ function Login({ role, setAuthenticated }) {
     );
     if (status === "OK") {
       console.log("its here", accessToken);
-      setAuthenticated(accessToken);
+      aunthenticated(accessToken);
       setuserdetails(resp);
 
       role(resp.user.admin);
@@ -42,29 +42,29 @@ function Login({ role, setAuthenticated }) {
 
     // console.log(status)
   };
-  const google = async () => {
-    //settimeout for 5 seconds
-    setTimeout(() => {
-      console.log("5 seconds passed");
-    }, 5000);
+  // const google = async () => {
+  //   //settimeout for 5 seconds
+  //   setTimeout(() => {
+  //     console.log("5 seconds passed");
+  //   }, 5000);
 
-    const { accessToken, refreshToken, ...resp } = await googleLogin();
-    console.log("google login", resp);
+  //   const { accessToken, refreshToken, ...resp } = await googleLogin();
+  //   console.log("google login", resp);
 
-    if (true) {
-      setAuthenticated(accessToken);
-      setuserdetails(resp);
+  //   if (true) {
+  //     aunthenticated(accessToken);
+  //     setuserdetails(resp);
 
-      // console.log(status);
-      // console.log(resp);
-      role(resp.user.admin);
-      console.log("admin is responser", resp.user.admin);
-      localStorage.setItem("@accessToken", accessToken);
-      localStorage.setItem("@refreshToken", refreshToken);
-      localStorage.setItem("@userdetails", JSON.stringify(resp));
-      localStorage.setItem("@role", JSON.stringify(resp.user.admin));
-    }
-  };
+  //     // console.log(status);
+  //     // console.log(resp);
+  //     role(resp.user.admin);
+  //     console.log("admin is responser", resp.user.admin);
+  //     localStorage.setItem("@accessToken", accessToken);
+  //     localStorage.setItem("@refreshToken", refreshToken);
+  //     localStorage.setItem("@userdetails", JSON.stringify(resp));
+  //     localStorage.setItem("@role", JSON.stringify(resp.user.admin));
+  //   }
+  // };
 
   return (
     <div className="login-parent">

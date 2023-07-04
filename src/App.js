@@ -79,6 +79,7 @@ import MyAccount from './Pages/CreateAd'
 import { BrowserRouter } from 'react-router-dom'
 const App = () => {
   return (
+<<<<<<< HEAD
  <BrowserRouter>
  <MyAccount/>
  </BrowserRouter>
@@ -86,3 +87,49 @@ const App = () => {
 }
 
 export default App
+=======
+    <Router>
+      <Routes>
+        {authenticated !== "" && !role ? (
+          <>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/MyAccount" element={<MyAccount />} />
+            <Route path="/CreateAd" element={<CreateAd />} />
+            <Route path="/About" element={<Homescreen />} />
+            <Route path="/secondpage" element={<Secondpage />} />
+            <Route path="/ProductDetails/:id" element={<ProductDetails />} />
+          </>
+        ) : authenticated !== "" && role ? (
+          <Route path="/" element={<Admin />} />
+        ) : (
+          <>
+            <Route
+              path="/Login"
+              element={
+                <Login aunthenticated={setAuthenticated} role={setRole} />
+              }
+            />
+            <Route path="/Register" element={<Register />} />
+            <Route path="/pakage" element={<Pakage />} />
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/About" element={<Homescreen />} />
+            <Route path="/ProductDetails/:id" element={<ProductDetails />} />
+            <Route path="*" element={<>not found</>} />
+          </>
+        )}
+      </Routes>
+    </Router>
+  );
+}
+
+function App() {
+  return (
+    <ContextProvider>
+      <Main />
+      <ToastContainer />
+    </ContextProvider>
+  );
+}
+
+export default App;
+>>>>>>> 02726210f07788d1e1a5fd2127aa03eb66bc3767

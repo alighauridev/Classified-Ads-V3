@@ -241,8 +241,10 @@ export default function Navbar({ fixed }) {
                         </li>
                       ) : (
                         <div>
-                          <Button onClick={handleOpentwo}>Login</Button>
-                          <Modal
+                          <Link to={"/Login"}>
+                            <Button>Login</Button>
+                          </Link>
+                          {/* <Modal
                             open={opentwo}
                             onClose={handleClosetwo}
                             aria-labelledby="modal-modal-title"
@@ -251,7 +253,7 @@ export default function Navbar({ fixed }) {
                             <Box sx={style}>
                               <Login />
                             </Box>
-                          </Modal>
+                          </Modal> */}
                         </div>
                       )}
                       {!user && (
