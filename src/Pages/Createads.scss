@@ -14,7 +14,7 @@ body {
             grid-template-columns: 1fr 1fr 1fr;
             background: white;
             padding: 20px 50px;
-            border-radius: 8px;
+            border-radius: 10px;
             margin-top: 30px;
 
             h3 {
@@ -28,8 +28,8 @@ body {
         .text-filed-back {
             background: white;
             margin-top: 20px;
-            padding: 20px 50px;
-            border-radius: 8px;
+            padding: 60px 200px 80px 200px;
+            border-radius: 20px;
 
             .title {
                 width: 100%;
@@ -49,81 +49,223 @@ body {
                 /* Set the placeholder color */
                 color: #000000;
             }
-        }
 
-        .field-first {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
+            .field-first {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                margin-top: 30px;
 
-            input[type="text"]::placeholder {
-                /* Set the placeholder color */
-                color: #000000;
+                input[type="text"]::placeholder {
+                    /* Set the placeholder color */
+                    color: #000000;
+                }
+
+                .labelc {
+                    color: black;
+                    font-family: 'Quicksand', sans-serif;
+                    font-size: 18px;
+                }
+
+                .formcontrol {
+                    width: 100%;
+                    border-radius: 30px;
+                }
             }
 
-            .labelc {
-                color: black;
+            .field-second {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+
+                input[type="number"]::placeholder {
+                    /* Set the placeholder color */
+                    color: #000000;
+                }
+
+                input[type="text"]::placeholder {
+                    /* Set the placeholder color */
+                    color: #000000;
+                }
+
+                .labelc {
+                    color: black;
+                    font-family: 'Quicksand', sans-serif;
+                    font-size: 18px;
+                }
+
+                .formcontrol {
+                    width: 100%;
+                    border-radius: 30px;
+                }
+            }
+
+            .titletwo {
+                width: 100%;
+                border-radius: 4px;
+                border: 1px solid #c8c8c8;
+                text-decoration: none;
+                outline: none;
+                padding: 15px 20px;
                 font-family: 'Quicksand', sans-serif;
+                color: black;
                 font-size: 18px;
+                padding-bottom: 150px;
+                margin-left: 8px;
+
+                margin-top: 30px;
+            }
+
+            .description {
+                input {
+                    font-family: 'Quicksand', sans-serif;
+                    font-size: 18px;
+                    color: black;
+                }
+
+                input[type="textarea"]::placeholder {
+                    /* Set the placeholder color */
+                    color: #000000;
+                }
+            }
+        }
+
+        .delivery-parent {
+            background: white;
+            padding: 60px 200px;
+            margin-top: 60px;
+            border-radius: 15px;
+
+            .text {
+                h1 {
+                    font-size: 32px;
+                    font-family: 'Quicksand', sans-serif;
+                    font-weight: 900;
+                    text-transform: capitalize;
+                    margin-left: 10px;
+                }
+
+                p {
+                    font-family: 'Quicksand', sans-serif;
+                    font-weight: 900;
+                    margin-left: 10px;
+                    margin-top: 10px;
+                    font-size: 16px;
+                }
+
+                .standard {
+                    width: 100%;
+                    border-radius: 4px;
+                    border: 1px solid #c8c8c8;
+                    margin-top: 40px;
+
+                    h1 {
+                        font-family: 'Quicksand', sans-serif;
+                        font-weight: 400;
+                        padding: 15px 20px;
+
+
+                        font-size: 18px;
+                    }
+                }
             }
 
             .formcontrol {
                 width: 100%;
-                border-radius: 30px;
-            }
-        }
+                margin-top: 40px;
 
-        .field-second {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-
-            input[type="number"]::placeholder {
-                /* Set the placeholder color */
-                color: #000000;
+                .labelc {
+                    color: black;
+                    font-family: 'Quicksand', sans-serif;
+                    font-size: 18px;
+                }
             }
-            input[type="text"]::placeholder {
-                /* Set the placeholder color */
-                color: #000000;
-            }
-            .labelc {
-                color: black;
-                font-family: 'Quicksand', sans-serif;
-                font-size: 18px;
-            }
-
-            .formcontrol {
+            .top {
                 width: 100%;
-                border-radius: 30px;
+                border-radius: 4px;
+                border: 1px solid #c8c8c8;
+                margin-top: 40px;
+                padding: 15px 20px;
+    
+                .top-text {
+                    font-family: 'Quicksand', sans-serif;
+                    font-weight: 400;
+                    margin-left: 10px;
+                    font-weight: bolder;
+    
+    
+                    font-size: 20px;
+                }
+    
+                .buttons {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 15px;
+                    .plan{
+                        .buttf{
+                            border: none;
+                            background: #FB5018;
+                            color: white;
+                            padding: 8px 30px;
+                            border-radius: 8px;
+                        }
+                        .butts{
+                           
+                            border:2px solid #FB5018;
+                            color: #FB5018;
+                            padding: 8px 30px;
+                            border-radius: 8px;
+                        }
+                        .butts:hover{
+                           
+                            border:2px solid #FB5018;
+                            color: #ffffff;
+                            padding: 8px 30px;
+                            border-radius: 8px;
+                            background: #FB5018;
+                        }
+                    }
+                    .price{
+                        h1{
+                            font-size: 18px;
+                            font-family: 'Quicksand', sans-serif;
+                            font-weight: bolder;
+                            color: #FB5018;
+                        }
+                    }
+                }
+            }
+            .create{
+                display: flex;
+                justify-content: center;
+            
+                button{
+                    background: #FB5018;
+                    border: none;
+                    color: white;
+                    width: 80%;
+                    margin: auto;
+                    padding: 15px 0;
+                    margin-top: 80px;
+                    border-radius: 8px;
+                }
+                button:hover{
+                    background: #FB5018;
+                }
+             
+            }
+            .para{
+                margin-top: 30px;
+                p{
+                    font-size: 18px;
+                    font-weight: 900;
+                    font-family: 'Quicksand', sans-serif;
+                 
+                }
             }
         }
 
-        .titletwo {
-            width: 100%;
-            border-radius: 4px;
-            border: 1px solid #c8c8c8;
-            text-decoration: none;
-            outline: none;
-            padding: 15px 20px;
-            font-family: 'Quicksand', sans-serif;
-            color: black;
-            font-size: 18px;
-            padding-bottom: 150px;
-            margin-left: 8px;
-
-            margin-top: 30px;
-        }
-        .description{
-            input{
-                font-family: 'Quicksand', sans-serif; font-size: 18px;
-                color: black;
-            }
-            input[type="textarea"]::placeholder {
-                /* Set the placeholder color */
-                color: #000000;
-            }
-        }
-
+      
     }
 }

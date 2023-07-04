@@ -14,7 +14,7 @@ import { useTheme } from '@mui/material/styles';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { toast } from "react-toastify";
 import "./Createads.scss";
-
+import Footer from '../Components/Footer/Footer'
 
 
 
@@ -218,6 +218,13 @@ function MyAccount() {
                 </div>
               </div>
               <div>
+
+
+                {/* REQUIRMENT FIELDS SECTION START HERE */}
+
+
+
+
                 <div className="text-filed-back">
 
                   <input type="text" placeholder="Enter your title"
@@ -381,8 +388,8 @@ function MyAccount() {
                     <div>
                       <input type="text" placeholder="Enter your Price" className="title" />
                     </div>
-                    <div style={{marginTop:'23px'}}>
-                    
+                    <div style={{ marginTop: '23px' }}>
+
                       <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
                         <InputLabel id="demo-multiple-name-label" className="labelc">Brands</InputLabel>
                         <Select
@@ -405,29 +412,82 @@ function MyAccount() {
                           ))}
                         </Select>
                       </FormControl>
-                    
+
+                    </div>
+                  </div>
+
+
+                  <div className="field-first">
+                    <div>
+                      <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
+                        <InputLabel id="demo-multiple-name-label" className="labelc">Category</InputLabel>
+                        <Select
+                          labelId="demo-multiple-name-label"
+                          id="demo-multiple-name"
+                          multiple
+                          value={personName}
+                          onChange={handleChangefour}
+                          input={<OutlinedInput label="Name" />}
+                          MenuProps={MenuProps}
+                        >
+                          {namesthree.map((name) => (
+                            <MenuItem
+                              key={name}
+                              value={name}
+                              style={getStyles(name, personName, theme)}
+                            >
+                              {name}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                      </FormControl>
+                    </div>
+
+
+                    <div>
+                      <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
+                        <InputLabel id="demo-multiple-name-label" className="labelc">Sub-Category</InputLabel>
+                        <Select
+                          labelId="demo-multiple-name-label"
+                          id="demo-multiple-namet"
+                          multiple
+                          value={personName}
+                          onChange={handleChangefive}
+                          input={<OutlinedInput label="Name" />}
+                          MenuProps={MenuProps}
+                        >
+                          {namesfour.map((name) => (
+                            <MenuItem
+                              key={name}
+                              value={name}
+                              style={getStyles(name, personName, theme)}
+                            >
+                              {name}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                      </FormControl>
                     </div>
                   </div>
 
 
 
-
-                 <div className="description">
-                 <input type="textarea"
-                    placeholder="Description"
-                    id="standard-basic"
-                    defaultValue="
+                  <div className="description">
+                    <input type="textarea"
+                      placeholder="Description"
+                      id="standard-basic"
+                      defaultValue="
                   Enter Description"
-                    minRows={2}
-                    required
-                    value={Obj.description}
-                    label={Obj.description == "" ? "description" : null}
-                    variant="standard"
-                    onChange={(event) => {
-                      setObj({ ...Obj, description: event.target.value });
-                    }} className="titletwo"
-                  />
-                 </div>
+                      minRows={2}
+                      required
+                      value={Obj.description}
+                      label={Obj.description == "" ? "description" : null}
+                      variant="standard"
+                      onChange={(event) => {
+                        setObj({ ...Obj, description: event.target.value });
+                      }} className="titletwo"
+                    />
+                  </div>
 
 
 
@@ -481,7 +541,7 @@ function MyAccount() {
                   /> */}
                   {/* add input for file type */}
 
-                  <div>
+                  {/* <div>
                     <FormControl
                       variant="standard"
                       sx={{ m: 1, minWidth: 120 }}
@@ -537,12 +597,14 @@ function MyAccount() {
                       Note: You can select multiple categories by clicking on
                       it. You can also deselect them by clicking again above
                     </div>
+                  </div> */}
+                  <div style={{ marginTop: '30px', marginLeft: '10px' }}>
+                    <input
+                      type="file"
+                      multiple
+                      onChange={(e) => setObj({ ...Obj, images: e.target.files })}
+                    />
                   </div>
-                  <input
-                    type="file"
-                    multiple
-                    onChange={(e) => setObj({ ...Obj, images: e.target.files })}
-                  />
                   {/* <div className="flex flex-row">
                   {Obj.category.map((item) => {
                     return (
@@ -563,15 +625,105 @@ function MyAccount() {
                   })}
                 </div> */}
                 </div>
+
+
+
+                {/* DELEIVERY SECTION START */}
+
+
+                <div className="delivery-parent">
+
+                  <div className="text">
+                    <h1>
+                      delivery
+                    </h1>
+                    <div>
+                      <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
+                        <InputLabel id="demo-multiple-name-label" className="labelc">Add Delivery Options</InputLabel>
+                        <Select
+                          labelId="demo-multiple-name-label"
+                          id="demo-multiple-name"
+                          multiple
+                          value={personName}
+                          onChange={handleChangetwo}
+                          input={<OutlinedInput label="Name" />}
+                          MenuProps={MenuProps}
+                        >
+                          {names.map((name) => (
+                            <MenuItem
+                              key={name}
+                              value={name}
+                              style={getStyles(name, personName, theme)}
+                            >
+                              {name}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                      </FormControl>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                {/* PROMOTE YOUR ADDS SECTION  */}
+
+                <div className="delivery-parent">
+
+                  <div className="text">
+                    <h1>
+                      Promote your ad
+                    </h1>
+                    <p>Please, choose one of the following options to post your ad</p>
+                    <div className="standard">
+                      <h1>Standard Ad</h1>
+                    </div>
+                  </div>
+
+
+                  <div className="top">
+                    <h1 className="top-text">Top</h1>
+                    <div className="buttons">
+                      <div className="plan">
+                        <button className="buttf">7 Days</button>
+                        <button className="butts">30 Days</button>
+                      </div>
+                      <div className="price">
+                        <h1>₦ 2,899</h1>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+                  <div className="top">
+                    <h1 className="top-text">Boost Premium</h1>
+                    <div className="buttons">
+                      <div className="plan">
+                        <button className="buttf">1 Month</button>
+
+                      </div>
+                      <div className="price">
+                        <h1>₦ 20,999</h1>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="create">
+                    <button type="submit">Next</button>
+                  </div>
+                  <div className="para"> 
+                    <p>By clicking on Post Ad, you accept the Terms of Use , confirm that you will abide by the Safety Tips, and declare that this posting does not include any Prohibited Items.</p>
+                  </div>
+                </div>
+
               </div>
-              <div className="flex  justify-center">
-                <button type="submit">Create Ad +</button>
-              </div>
+
             </div>
           </div>
         </div>
       </form>
-      {/* form div out */}
+      <Footer/>
     </div>
   );
 }

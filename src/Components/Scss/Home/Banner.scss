@@ -2,15 +2,16 @@
 
 .banner-parent-back{
     background: #ECECEC;
+    height: 60vh;
     .banner-grid{
         display: grid;
-        grid-template-columns: 1fr 1fr ;
+        grid-template-columns: 1fr 1fr;
         place-items: center;
         align-items: center;
         gap: 40px;
-        width:90%;
+        width: 90%;
         margin: auto;
-        padding: 40px 40px 100px 40px ;
+        padding: 0px 40px 100px 40px;
    
     }
     .person{

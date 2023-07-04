@@ -24,6 +24,7 @@ function Login({ role, authenticated }) {
       credentials.email,
       credentials.pass
     );
+    console.log(resp,'response ')
     if (status === "OK") {
       authenticated(accessToken);
       setuserdetails(resp);

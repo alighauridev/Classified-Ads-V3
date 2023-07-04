@@ -10,7 +10,7 @@ const Banner = () => {
       
           <div className='search'>
             <div className='cunty'>
-              <h1>For Anythins</h1>
+              <h1>For Anythings</h1>
           
              <h1>In <span>Nigeria</span></h1>
             </div>
