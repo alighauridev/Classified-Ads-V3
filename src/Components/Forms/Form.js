@@ -36,9 +36,9 @@ const MenuProps = {
 };
 
 const names = ["nike", "addida", "Bata"];
-const namestwo = ["Used", "New"];
+const namestwo = ["Location 1", "Location 2", "Location 3"];
 const namesthree = ["Used", "New"];
-const namesfour = ["1 year", "2 year"];
+const namesfour = ["val 1", "val 2"];
 
 function getStyles(name, personName, theme) {
   return {
@@ -55,16 +55,19 @@ const Form = () => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    author: "",
+    brand: "eerer",
+    type: "ererer",
     price: "",
     category: "",
-    subCategory: "",
+    location: "",
     images: [],
-    type: "",
+    condition: "erer",
+    warranty: "erer",
     name: "",
     telephone: "",
     vehicle: "",
-    property: ""
+    property: "",
+    deliveryOptions: ""
   });
   const fetchCategories = async () => {
     try {
@@ -188,19 +191,17 @@ const Form = () => {
                             style={{ borderRadius: "20px" }}
                             labelId="demo-multiple-name-label"
                             id="demo-multiple-namet"
-                            value={formData.name}
-                            name="name"
+                            value={formData.location}
+                            name="location"
                             onChange={handleInputChange}
                             input={<OutlinedInput label="Name" />}
                             MenuProps={MenuProps}
                           >
-                            {namestwo.map((name) => (
+                            {namestwo.map((cat) => (
                               <MenuItem
-                                key={name}
-                                value={name}
-                                style={getStyles(name, formData.name, theme)}
+                                key={cat} value={cat}
                               >
-                                {name}
+                                {cat}
                               </MenuItem>
                             ))}
                           </Select>
@@ -296,13 +297,21 @@ const Form = () => {
                                       style={{ borderRadius: "20px" }}
                                       labelId="demo-multiple-name-label"
                                       id="demo-multiple-name"
-                                      multiple
                                       value={formData.brand}
                                       name="brand"
                                       onChange={handleInputChange}
                                       input={<OutlinedInput label="Name" />}
                                       MenuProps={MenuProps}
-                                    ></Select>
+                                    >
+                                      {namesfour.map((cat) => (
+                                        <MenuItem
+                                          key={cat} value={cat}
+                                        >
+                                          {cat}
+                                        </MenuItem>
+                                      ))}
+
+                                    </Select>
                                   </FormControl>
                                 </div>
                                 <div>
@@ -320,13 +329,21 @@ const Form = () => {
                                       style={{ borderRadius: "20px" }}
                                       labelId="demo-multiple-name-label"
                                       id="demo-multiple-namet"
-                                      multiple
                                       value={formData.type}
                                       name="type"
                                       onChange={handleInputChange}
                                       input={<OutlinedInput label="Name" />}
                                       MenuProps={MenuProps}
-                                    ></Select>
+                                    >
+
+                                      {namesfour.map((cat) => (
+                                        <MenuItem
+                                          key={cat} value={cat}
+                                        >
+                                          {cat}
+                                        </MenuItem>
+                                      ))}
+                                    </Select>
                                   </FormControl>
                                 </div>
                               </div>
@@ -346,13 +363,21 @@ const Form = () => {
                                       style={{ borderRadius: "20px" }}
                                       labelId="demo-multiple-name-label"
                                       id="demo-multiple-name"
-                                      multiple
                                       value={formData.condition}
                                       name="condition"
                                       onChange={handleInputChange}
                                       input={<OutlinedInput label="Name" />}
                                       MenuProps={MenuProps}
-                                    ></Select>
+                                    >
+
+                                      {namesfour.map((cat) => (
+                                        <MenuItem
+                                          key={cat} value={cat}
+                                        >
+                                          {cat}
+                                        </MenuItem>
+                                      ))}
+                                    </Select>
                                   </FormControl>
                                 </div>
                                 <div>
@@ -370,13 +395,21 @@ const Form = () => {
                                       style={{ borderRadius: "20px" }}
                                       labelId="demo-multiple-name-label"
                                       id="demo-multiple-namet"
-                                      multiple
                                       value={formData.warranty}
                                       name="warranty"
                                       onChange={handleInputChange}
                                       input={<OutlinedInput label="Name" />}
                                       MenuProps={MenuProps}
-                                    ></Select>
+                                    >
+                                      {namesfour.map((cat) => (
+                                        <MenuItem
+                                          key={cat} value={cat}
+                                        >
+                                          {cat}
+                                        </MenuItem>
+                                      ))}
+
+                                    </Select>
                                   </FormControl>
                                 </div>
                               </div>
@@ -387,6 +420,8 @@ const Form = () => {
                                     placeholder="Enter your Name"
                                     className="title"
                                     style={{ borderRadius: "20px" }}
+                                    value={formData.name} // Update the value to formData.telephone
+                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                   />
                                 </div>
                                 <div>
@@ -395,6 +430,8 @@ const Form = () => {
                                     className="title"
                                     placeholder="Enter your telephone number"
                                     id="standard-basic"
+                                    value={formData.telephone} // Update the value to formData.telephone
+                                    onChange={(e) => setFormData({ ...formData, telephone: e.target.value })}
                                     variant="standard"
                                     style={{ borderRadius: "20px" }}
                                   />
@@ -406,6 +443,8 @@ const Form = () => {
                                     type="text"
                                     placeholder="Enter your Price"
                                     className="title"
+                                    value={formData.price} // Update the value to formData.telephone
+                                    onChange={(e) => setFormData({ ...formData, price: e.target.value })}
                                   />
                                 </div>
                               </div>
@@ -419,6 +458,8 @@ const Form = () => {
                                   minRows={2}
                                   required
                                   variant="standard"
+                                  value={formData.description} // Update the value to formData.telephone
+                                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                                   className="titletwo"
                                 />
                               </div>
@@ -453,13 +494,21 @@ const Form = () => {
                                       style={{ borderRadius: "20px" }}
                                       labelId="demo-multiple-name-label"
                                       id="demo-multiple-name"
-                                      multiple
                                       value={formData.deliveryOptions}
                                       name="deliveryOptions"
                                       onChange={handleInputChange}
                                       input={<OutlinedInput label="Name" />}
                                       MenuProps={MenuProps}
-                                    ></Select>
+                                    >
+                                      {namesfour.map((cat) => (
+                                        <MenuItem
+                                          key={cat} value={cat}
+                                        >
+                                          {cat}
+                                        </MenuItem>
+                                      ))}
+
+                                    </Select>
                                   </FormControl>
                                 </div>
                               </div>
