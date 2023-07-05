@@ -263,6 +263,54 @@ function Subcategory() {
                                                 </Select>
                                             </FormControl>
                                         </div>
+                                        <div>
+                                            <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
+                                                <InputLabel id="demo-multiple-name-label" className="labelc" >Category</InputLabel>
+                                                <Select style={{ borderRadius: '20px' }}
+                                                    labelId="demo-multiple-name-label"
+                                                    id="demo-multiple-namet"
+                                                    multiple
+                                                    value={personName}
+                                                    onChange={handleChangethree}
+                                                    input={<OutlinedInput label="Name" />}
+                                                    MenuProps={MenuProps}
+                                                >
+                                                    {namestwo.map((name) => (
+                                                        <MenuItem
+                                                            key={name}
+                                                            value={name}
+                                                            style={getStyles(name, personName, theme)}
+                                                        >
+                                                            {name}
+                                                        </MenuItem>
+                                                    ))}
+                                                </Select>
+                                            </FormControl>
+                                        </div>
+                                        <div>
+                                            <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
+                                                <InputLabel id="demo-multiple-name-label" className="labelc" >Category</InputLabel>
+                                                <Select style={{ borderRadius: '20px' }}
+                                                    labelId="demo-multiple-name-label"
+                                                    id="demo-multiple-namet"
+                                                    multiple
+                                                    value={personName}
+                                                    onChange={handleChangethree}
+                                                    input={<OutlinedInput label="Name" />}
+                                                    MenuProps={MenuProps}
+                                                >
+                                                    {namestwo.map((name) => (
+                                                        <MenuItem
+                                                            key={name}
+                                                            value={name}
+                                                            style={getStyles(name, personName, theme)}
+                                                        >
+                                                            {name}
+                                                        </MenuItem>
+                                                    ))}
+                                                </Select>
+                                            </FormControl>
+                                        </div>
                                     </div>
 
 

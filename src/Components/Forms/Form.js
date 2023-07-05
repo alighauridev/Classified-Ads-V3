@@ -15,7 +15,11 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import { toast } from "react-toastify";
 import './Forms.scss'
 import Footer from '../../Components/Footer/Footer'
-
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
 import Frame from '../../assets/Frame 33.png'
 
 
@@ -72,6 +76,11 @@ function getStyles(name, personName, theme) {
 
 
 function Form() {
+    const [value, setValue] = React.useState('1');
+
+    const handleChangese = (event, newValue) => {
+      setValue(newValue);
+    };
     const [Category, setCategory] = useState(null);
     const [subCategory, setSubCategory] = useState(null);
     const [subCategories, setSubCategories] = useState([]);
@@ -202,7 +211,7 @@ function Form() {
         <div>
             <Navbar />
             {/* form div in */}
-            <form onSubmit={adPost} encType="multipart/form-data">
+          
                 <div className="post-back">
                     <div className="postad-paretntwo">
                         <div>
@@ -326,7 +335,20 @@ function Form() {
                                     </div>
 
 
-
+                                    <Box sx={{ width: '100%', typography: 'body1' }}>
+      <TabContext value={value}>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <TabList onChange={handleChangese} aria-label="lab API tabs example">
+            <Tab label="Item One" value="1" />
+            <Tab label="Item Two" value="2" />
+            <Tab label="Item Three" value="3" />
+          </TabList>
+        </Box>
+        <TabPanel value="1">Item One</TabPanel>
+        <TabPanel value="2">Item Two</TabPanel>
+        <TabPanel value="3">Item Three</TabPanel>
+      </TabContext>
+    </Box>
 
 
 
@@ -481,7 +503,7 @@ function Form() {
                         </div>
                     </div>
                 </div>
-            </form>
+ 
             <Footer />
         </div>
     );
