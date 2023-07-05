@@ -365,110 +365,11 @@ function MyAccount() {
 
 
 
-                  <div className="field-second">
-                    <div>
-                      <input type="text" placeholder="Enter your Name" className="title" style={{borderRadius:'20px'}} />
-                    </div>
-                    <div>
-                      <input type="number" className="title" placeholder="Enter your telephone number"
-                        id="standard-basic"
-                        value={tel1}
-                        label={Obj.telephone == "" ? "Tel1" : null}
-                        variant="standard"
-                        onChange={(event) => {
-                          setTel1(event.target.value); 
-                        }} style={{borderRadius:'20px'}}
-                      />
-                    </div>
-                  </div>
 
 
 
-                  <div className="field-second">
-                    <div>
-                      <input type="text" placeholder="Enter your Price" className="title" />
-                    </div>
-                    <div style={{ marginTop: '23px' }}>
-
-                      <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
-                        <InputLabel id="demo-multiple-name-label" className="labelc">Brands</InputLabel>
-                        <Select style={{borderRadius:'20px'}}
-                          labelId="demo-multiple-name-label"
-                          id="demo-multiple-name"
-                          multiple
-                          value={personName}
-                          onChange={handleChangetwo}
-                          input={<OutlinedInput label="Name" />}
-                          MenuProps={MenuProps}
-                        >
-                          {names.map((name) => (
-                            <MenuItem
-                              key={name}
-                              value={name}
-                              style={getStyles(name, personName, theme)}
-                            >
-                              {name}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </FormControl>
-
-                    </div>
-                  </div>
 
 
-                  <div className="field-first">
-                    <div>
-                      <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
-                        <InputLabel id="demo-multiple-name-label" className="labelc">Category</InputLabel>
-                        <Select style={{borderRadius:'20px'}}
-                          labelId="demo-multiple-name-label"
-                          id="demo-multiple-name"
-                          multiple
-                          value={personName}
-                          onChange={handleChangefour}
-                          input={<OutlinedInput label="Name" />}
-                          MenuProps={MenuProps}
-                        >
-                          {namesthree.map((name) => (
-                            <MenuItem
-                              key={name}
-                              value={name}
-                              style={getStyles(name, personName, theme)}
-                            >
-                              {name}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </FormControl>
-                    </div>
-
-
-                    <div>
-                      <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
-                        <InputLabel id="demo-multiple-name-label" className="labelc">Sub-Category</InputLabel>
-                        <Select style={{borderRadius:'20px'}}
-                          labelId="demo-multiple-name-label"
-                          id="demo-multiple-namet"
-                          multiple
-                          value={personName}
-                          onChange={handleChangefive}
-                          input={<OutlinedInput label="Name" />}
-                          MenuProps={MenuProps}
-                        >
-                          {namesfour.map((name) => (
-                            <MenuItem
-                              key={name}
-                              value={name}
-                              style={getStyles(name, personName, theme)}
-                            >
-                              {name}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </FormControl>
-                    </div>
-                  </div>
 
 
 
@@ -598,13 +499,7 @@ function MyAccount() {
                       it. You can also deselect them by clicking again above
                     </div>
                   </div> */}
-                  <div style={{ marginTop: '30px', marginLeft: '10px' }}>
-                    <input
-                      type="file"
-                      multiple
-                      onChange={(e) => setObj({ ...Obj, images: e.target.files })}
-                    />
-                  </div>
+         
                   {/* <div className="flex flex-row">
                   {Obj.category.map((item) => {
                     return (

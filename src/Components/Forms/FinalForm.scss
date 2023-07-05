@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Copse&family=Open+Sans&family=Poppins&family=Quicksand&family=Raleway:wght@200&family=Roboto&display=swap');
 @font-face{
     font-family: Arial, Helvetica, sans-serif;
-    src:url('../arial-font/arial.ttf')
+    src:url('../../arial-font/arial.ttf')
 }
 body {
     background: #EBF2F7;
     height: 100%;
 
-    .postad-paretn {
+    .postad-paretnse {
         max-width: 1200px;
         width: 100%;
         margin: auto;
 padding-bottom: 80px;
         .post-ad-back-sec {
             display: grid;
-            grid-template-columns: 1fr 1fr  1fr;
+            grid-template-columns: 1fr  1fr 1fr;
             background: white;
             padding: 20px 50px;
             border-radius: 10px;
@@ -43,7 +43,7 @@ padding-bottom: 80px;
                 padding: 15px 20px;
                 font-family: Arial, Helvetica, sans-serif;
                 color: black;
-                font-size: 18px;
+                font-size: 16px;
                 margin-left: 8px;
                 margin-top: 30px;
             }
@@ -55,7 +55,7 @@ padding-bottom: 80px;
 
             .field-first {
                 display: grid;
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr ;
                 gap: 20px;
                 margin-top: 30px;
 
@@ -94,7 +94,7 @@ padding-bottom: 80px;
                 .labelc {
                     color: black;
                     font-family: Arial, Helvetica, sans-serif;
-                    font-size: 18px;
+                    font-size: 16px;
                 }
 
                 .formcontrol {
@@ -122,7 +122,7 @@ padding-bottom: 80px;
             .description {
                 input {
                     font-family: Arial, Helvetica, sans-serif;
-                    font-size: 18px;
+                    font-size: 16px;
                     color: black;
                 }
 
@@ -180,7 +180,7 @@ padding-bottom: 80px;
                 .labelc {
                     color: black;
                     font-family: Arial, Helvetica, sans-serif;
-                    font-size: 18px;
+                    font-size: 16px;
                 }
             }
             .top {
@@ -206,8 +206,6 @@ padding-bottom: 80px;
                     align-items: center;
                     margin-top: 15px;
                     .plan{
-                        display: flex;
-                        gap: 10px;
                         .buttf{
                             border: none;
                             background: #FB5018;
@@ -233,7 +231,7 @@ padding-bottom: 80px;
                     }
                     .price{
                         h1{
-                            font-size: 18px;
+                            font-size: 16px;
                             font-family: Arial, Helvetica, sans-serif;
                             font-weight: bolder;
                             color: #FB5018;
@@ -272,5 +270,21 @@ padding-bottom: 80px;
         }
 
       
+    }
+    .secure{
+        margin-left: 10px;
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40%;
+        h1{
+            font-size: 32px;
+            font-weight: 700;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input.larger{
+            width: 20px;
+            height: 20px;
+        }
     }
 }
