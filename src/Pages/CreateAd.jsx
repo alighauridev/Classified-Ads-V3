@@ -227,7 +227,7 @@ function MyAccount() {
 
                 <div className="text-filed-back">
 
-                  <input type="text" placeholder="Enter your title"
+                  <input type="text" placeholder="Enter your title" name="Enter Your title" required
                     id="standard-basic"
                     value={Obj.title}
                     label="

@@ -117,9 +117,7 @@ function Login({ role, authenticated }) {
           </div>
 
           <div>
-            <div className="login-button">
-              <input type="button" value="Login" onClick={onLogin} />
-            </div>
+
             <GoogleLogin
               clientId="YOUR_GOOGLE_CLIENT_ID"
               onSuccess={handleGoogleSuccess}
