@@ -49,16 +49,17 @@ function Login({ role, authenticated }) {
     axios
       .post("/auth/google-signin", { idToken })
       .then((response) => {
-        const { accessToken, refreshToken, user } = response;
+        const { accessToken, refreshToken, user } = response.data;
         console.log(response);
 
         // Perform any additional actions after successful Google sign-in
         authenticated(accessToken);
-        setuserdetails(user);
+        setuserdetails(response.data);
+        console.log(user);
         role(user.admin);
         localStorage.setItem("@accessToken", accessToken);
         localStorage.setItem("@refreshToken", refreshToken);
-        localStorage.setItem("@userdetails", JSON.stringify(user));
+        localStorage.setItem("@userdetails", JSON.stringify(response.data));
         localStorage.setItem("@role", JSON.stringify(user.admin));
         navigate("/");
       })
@@ -121,7 +122,7 @@ function Login({ role, authenticated }) {
               <input type="button" value="Login" onClick={onLogin} />
             </div>
             <GoogleLogin
-              clientId="YOUR_GOOGLE_CLIENT_ID"
+              clientId="430388340650-cm3fqfnbpgfpnbgagudqmbjqmp7slm1d.apps.googleusercontent.com"
               onSuccess={handleGoogleSuccess}
               onFailure={handleGoogleError}
             />
