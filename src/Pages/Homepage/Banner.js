@@ -8,8 +8,8 @@ const Banner = () => {
       <div className='banner-parent-back'>
         <div className='banner-grid'>
       
-          <div className='search'>
-            <div className='cunty'>
+          <div className='search' >
+            <div className='cunty' style={{margintop:'-5px'}}>
               <h1>For Anythings</h1>
           
              <h1>In <span>Nigeria</span></h1>
@@ -17,7 +17,7 @@ const Banner = () => {
             <input type="text" placeholder='I am looking for...' />
           </div>
           <div className='person'>
-            <img src={banner} alt="" style={{ marginTop: '60px', width: '130%' }} />
+            <img src={banner} alt="" style={{width: '100%',padding:'0 70px' }} />
           </div>
         </div>
       </div>

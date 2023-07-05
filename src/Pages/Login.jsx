@@ -74,69 +74,91 @@ function Login({ role, authenticated }) {
   };
 
   return (
-    <div className="login-parent">
-      <div>
-        <div className="logo-div">
-          <img src={logo} alt="" />
-        </div>
-
-        <div className="login-text">
-          <h1>login your account</h1>
-        </div>
-
+    <div style={{ background: "white" }}>
+      <div className="login-parent">
         <div>
-          <div className="user-email">
-            <input
-              type="email"
-              email=""
-              id=""
-              placeholder="Your Mail?"
-              required
-              onChange={(paso) => {
-                setcredentials({ ...credentials, email: paso.target.value });
-              }}
-            />
+          <div className="logo-div">
+            <img src={logo} alt="" />
           </div>
 
-          <div className="user-password">
-            <input
-              type={visible ? "text" : "password"}
-              email=""
-              id=""
-              placeholder="Your Passcode?"
-              required
-              onChange={(paso) => {
-                setcredentials({ ...credentials, pass: paso.target.value });
-              }}
+          <div className="login-text">
+            <h1>login your account</h1>
+          </div>
+
+          <div>
+            <div className="user-email">
+              <input
+                type="email"
+                email=""
+                id=""
+                placeholder="Your Mail?"
+                required
+                onChange={(paso) => {
+                  setcredentials({ ...credentials, email: paso.target.value });
+                }}
+              />
+            </div>
+
+            <div className="user-password">
+              <input
+                type={visible ? "text" : "password"}
+                email=""
+                id=""
+                placeholder="Your Passcode?"
+                required
+                onChange={(paso) => {
+                  setcredentials({ ...credentials, pass: paso.target.value });
+                }}
+              />
+              <span onClick={() => setvisible(!visible)}>
+                <PirateEye />
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <div className="login-button">
+              <input type="button" value="Login" onClick={onLogin} />
+            </div>
+            <GoogleLogin
+              clientId="YOUR_GOOGLE_CLIENT_ID"
+              onSuccess={handleGoogleSuccess}
+              onFailure={handleGoogleError}
             />
-            <span onClick={() => setvisible(!visible)}>
-              <PirateEye />
-            </span>
+
+            <div
+              style={{
+                padding: "10px",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                border: "1px solid #E9EBED",
+                borderRadius: "40px",
+              }}
+              onClick={() => {
+                loginWithRedirect({
+                  connection: "facebook",
+                });
+              }}
+            >
+              {" "}
+              <img
+                src="./images/facebook.png"
+                alt=""
+                style={{ width: "10%" }}
+              />
+              <input
+                type="button"
+                value="Login with Facebook"
+                style={{ marginLeft: "10px" }}
+              />
+            </div>
           </div>
         </div>
 
         <div>
           <div className="login-button">
             <input type="button" value="Login" onClick={onLogin} />
-          </div>
-          <GoogleLogin
-            clientId="YOUR_GOOGLE_CLIENT_ID"
-            onSuccess={handleGoogleSuccess}
-            onFailure={handleGoogleError}
-          />
-
-          <div
-            className="btn flex justify-center items-center flex-row mt-[1rem] bg-[#e2dff7] min-w-[12.5rem] w-full min-h-[5.6rem] rounded-[8px] text-black font-normal font-Poppins text-[18px]  hover:scale-[1.02]"
-            onClick={() => {
-              loginWithRedirect({
-                connection: "facebook",
-              });
-            }}
-          >
-            <input type="button" value="Login with Facebook" />
-            <Facebook
-              sx={{ color: "#3b5998", fontSize: "22px", marginLeft: 1 }}
-            />
           </div>
         </div>
 
@@ -152,6 +174,18 @@ function Login({ role, authenticated }) {
             </text>
           </div>
         </Link>
+        <div>
+          <p
+            style={{
+              color: "#AEAEB2",
+              fontSize: "16px",
+              textAlign: "center",
+              paddingTop: "30px",
+            }}
+          >
+            By continuing you agree to the Policy and Rules
+          </p>
+        </div>
       </div>
     </div>
   );

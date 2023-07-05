@@ -1,33 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Copse&family=Nunito&family=Open+Sans&family=Poppins&family=Quicksand&family=Raleway:wght@200&family=Roboto&display=swap');
-
+@font-face{
+    src: url('../../../arial-font/arial.ttf');
+    font-family: Arial, Helvetica, sans-serif;
+}
 .banner-parent-back{
     background: #ECECEC;
-    height: 60vh;
+    height: 40vh;
     .banner-grid{
         display: grid;
         grid-template-columns: 1fr 1fr;
         place-items: center;
         align-items: center;
         gap: 40px;
-        width: 90%;
+        width: 80%;
         margin: auto;
-        padding: 0px 40px 100px 40px;
+        padding: 25px 40px 25px 40px;
    
     }
     .person{
         img{
-            width: 100%;
+            width: 80%;
         }
     }
     .search{
         width: 100%;
         .cunty{
- padding-top: 20px;
+ 
             h1{
                 color: rgb(0, 0, 0);
-                font-size: 65px;
+                font-size: 55px;
                font-weight: 900;
-               font-family: 'Nunito', sans-serif;
+               font-family: Arial, Helvetica, sans-serif;
                 margin: 0;
                 padding: 0;
                 
@@ -47,7 +50,7 @@
             }
         }
         input{
-            padding: 20px 30px;
+            padding: 15px 30px;
 
             border-radius: 4px;
             outline: none;
@@ -60,7 +63,7 @@
        
             
             border-radius: 45px;
-            margin-top: 30px;
+            margin-top: 20px;
             
         }
     }

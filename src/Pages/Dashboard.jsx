@@ -64,7 +64,7 @@ const ProductComponent = ({ product, currency }) => {
 
           <div style={{ padding: "25px 10px 10px 10px" }}>
             <div>
-              <p style={{ fontSize: "18px", fontWeight: "600" }} cl>
+              <p style={{ fontSize: "18px", fontWeight: "400" }} cl>
                 {product.title}
               </p>
 
@@ -229,9 +229,9 @@ function Dashboard() {
               {/* <div>
          <img src={img} alt="" style={{ width: '100%', }} />
          </div> */}
-              {/* <div>
-          <img src="./images/add.png" alt=""nstyle={{ width: '100%', }}  />
-         </div> */}
+              <div>
+          <img src="./images/banner.png" alt=""nstyle={{ width: '100%', }}  />
+         </div>
             </div>
 
             {/* ADS SECTION */}

@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Copse&family=Open+Sans&family=Poppins&family=Quicksand&family=Raleway:wght@200&family=Roboto&display=swap');
+@font-face{
+    font-family: Arial, Helvetica, sans-serif;
+    src: url('../../../arial-font/arial.ttf');
+}
+p{
+    font-family: Arial, Helvetica, sans-serif;
+}
 .navbar-back{
       background: 
     #ffffff;
@@ -58,4 +65,7 @@ color: #FA4F16;
     }
      }
  
+}
+.login-buttoon{
+    color: red;
 }
