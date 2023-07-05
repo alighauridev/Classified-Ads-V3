@@ -107,9 +107,8 @@ const Form = () => {
     event.preventDefault();
     console.log(formData);
     try {
-      const response = await axios.post("/api/createAd", formData);
+      const response = await axios.post("/ads/createAd", formData);
       console.log(response.data);
-      // Handle success response
     } catch (error) {
       console.log(error);
       // Handle error response
