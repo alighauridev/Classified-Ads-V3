@@ -12,6 +12,10 @@ import { Link, useNavigate } from "react-router-dom";
 import Context from "../Context/Context";
 import { Google, Facebook } from "@mui/icons-material";
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
+import { GoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
+import axios from "../http/axiosSet";
+// import { GoogleSignIn } from "path/to/GoogleSignIn";
 
 function Login({ role, authenticated }) {
   const navigate = useNavigate();
@@ -24,7 +28,7 @@ function Login({ role, authenticated }) {
       credentials.email,
       credentials.pass
     );
-    console.log(resp,'response ')
+    console.log(resp, "response ");
     if (status === "OK") {
       authenticated(accessToken);
       setuserdetails(resp);
@@ -39,71 +43,116 @@ function Login({ role, authenticated }) {
 
   const { loginWithRedirect } = useAuth0();
 
+  const handleGoogleSuccess = (credentialResponse) => {
+    const idToken = credentialResponse.credential;
+    console.log(idToken);
+    axios
+      .post("/auth/google-signin", { idToken })
+      .then((response) => {
+        const { accessToken, refreshToken, user } = response;
+        console.log(response);
+
+        // Perform any additional actions after successful Google sign-in
+        authenticated(accessToken);
+        setuserdetails(user);
+        role(user.admin);
+        localStorage.setItem("@accessToken", accessToken);
+        localStorage.setItem("@refreshToken", refreshToken);
+        localStorage.setItem("@userdetails", JSON.stringify(user));
+        localStorage.setItem("@role", JSON.stringify(user.admin));
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        // Handle error from your API
+      });
+  };
+
+  const handleGoogleError = () => {
+    console.log("Google Login Failed");
+    // Handle Google sign-in error
+  };
+
   return (
-   <div style={{background:'white'}}>
-     <div className="login-parent">
-      <div>
-        <div className="logo-div">
-          <img src={logo} alt="" />
-        </div>
-
-        <div className="login-text">
-          <h1>login your account</h1>
-        </div>
-
+    <div style={{ background: "white" }}>
+      <div className="login-parent">
         <div>
-          <div className="user-email">
-            <input
-              type="email"
-              email=""
-              id=""
-              placeholder="Your Mail?"
-              required
-              onChange={(paso) => {
-                setcredentials({ ...credentials, email: paso.target.value });
-              }}
+          <div className="logo-div">
+            <img src={logo} alt="" />
+          </div>
+
+          <div className="login-text">
+            <h1>login your account</h1>
+          </div>
+
+          <div>
+            <div className="user-email">
+              <input
+                type="email"
+                email=""
+                id=""
+                placeholder="Your Mail?"
+                required
+                onChange={(paso) => {
+                  setcredentials({ ...credentials, email: paso.target.value });
+                }}
+              />
+            </div>
+
+            <div className="user-password">
+              <input
+                type={visible ? "text" : "password"}
+                email=""
+                id=""
+                placeholder="Your Passcode?"
+                required
+                onChange={(paso) => {
+                  setcredentials({ ...credentials, pass: paso.target.value });
+                }}
+              />
+              <span onClick={() => setvisible(!visible)}>
+                <PirateEye />
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <div className="login-button">
+              <input type="button" value="Login" onClick={onLogin} />
+            </div>
+            <GoogleLogin
+              clientId="YOUR_GOOGLE_CLIENT_ID"
+              onSuccess={handleGoogleSuccess}
+              onFailure={handleGoogleError}
             />
-          </div>
 
-          <div className="user-password">
-            <input
-              type={visible ? "text" : "password"}
-              email=""
-              id=""
-              placeholder="Your Passcode?"
-              required
-              onChange={(paso) => {
-                setcredentials({ ...credentials, pass: paso.target.value });
+            <div
+              style={{
+                padding: "10px",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                border: "1px solid #E9EBED",
+                borderRadius: "40px",
               }}
-            />
-            <span onClick={() => setvisible(!visible)}>
-              <PirateEye />
-            </span>
-          </div>
-          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr ',gap:'20px',marginTop:'20px'}}>
-          <div   style={{padding:'10px',width:'100%',display:'flex',justifyContent:'center',border: "1px solid #E9EBED",borderRadius:'40px'}}
-            onClick={() => {
-              loginWithRedirect({
-                connection: "google-oauth2",
-              });
-            }}
-          >
-            <img src="./images/google.png" alt="" style={{width:'10%'}}/>
-            <input type="button" value="Login with Google" style={{marginLeft:'10px'}} />
-          
-          </div>
-
-          <div
-       style={{padding:'10px',width:'100%',display:'flex',justifyContent:'center', border: "1px solid #E9EBED",borderRadius:'40px'}}
-            onClick={() => {
-              loginWithRedirect({
-                connection: "facebook",
-              });
-            }}
-          > <img src="./images/facebook.png" alt="" style={{width:'10%'}}/>
-            <input type="button" value="Login with Facebook" style={{marginLeft:'10px'}}  />
-
-          </div>
+              onClick={() => {
+                loginWithRedirect({
+                  connection: "facebook",
+                });
+              }}
+            >
+              {" "}
+              <img
+                src="./images/facebook.png"
+                alt=""
+                style={{ width: "10%" }}
+              />
+              <input
+                type="button"
+                value="Login with Facebook"
+                style={{ marginLeft: "10px" }}
+              />
+            </div>
           </div>
         </div>
 
@@ -111,7 +160,6 @@ function Login({ role, authenticated }) {
           <div className="login-button">
             <input type="button" value="Login" onClick={onLogin} />
           </div>
-    
         </div>
 
         <Link to={"/Dashboard"}>
@@ -124,15 +172,22 @@ function Login({ role, authenticated }) {
                 </Link>
               </span>
             </text>
-           
           </div>
         </Link>
         <div>
-        <p style={{color:'#AEAEB2',fontSize:'16px',textAlign:'center',paddingTop:'30px'}}>By continuing you agree to the Policy and Rules</p>
+          <p
+            style={{
+              color: "#AEAEB2",
+              fontSize: "16px",
+              textAlign: "center",
+              paddingTop: "30px",
+            }}
+          >
+            By continuing you agree to the Policy and Rules
+          </p>
         </div>
       </div>
     </div>
-   </div>
   );
 }
 
