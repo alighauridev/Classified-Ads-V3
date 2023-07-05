@@ -23,7 +23,6 @@ import Select from "@mui/material/Select";
 import TabPanel from "@mui/lab/TabPanel";
 import Frame from "../../assets/Frame 33.png";
 import axios from "../../http/axiosSet";
-import { useNavigate } from "react-router-dom";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -68,6 +67,7 @@ const Form = () => {
     telephone: "",
     vehicle: "",
     property: "",
+    bulkPrice: "",
     deliveryOptions: ""
   });
   const fetchCategories = async () => {
@@ -103,15 +103,13 @@ const Form = () => {
       images: event.target.files
     });
   };
-  const navigate = useNavigate()
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formData);
     try {
-      const response = await axios.post("/ads/createAd", formData).then((res) => {
-        navigate("/")
-      })
-
+      const response = await axios.post("/ads/createAd", formData);
+      console.log(response.data);
     } catch (error) {
       console.log(error);
       // Handle error response
@@ -433,7 +431,51 @@ const Form = () => {
                                 />
                               </div>
 
+                              <div className="field-second">
+                                <div>
+                                  <input
+                                    type="text"
+                                    placeholder="Enter your Name"
+                                    className="title"
+                                    style={{ borderRadius: "20px" }}
+                                    value={formData.name} // Update the value to formData.telephone
+                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                  />
+                                </div>
+                                <div>
+                                  <input
+                                    type="number"
+                                    className="title"
+                                    placeholder="Enter your telephone number"
+                                    id="standard-basic"
+                                    value={formData.telephone} // Update the value to formData.telephone
+                                    onChange={(e) => setFormData({ ...formData, telephone: e.target.value })}
+                                    variant="standard"
+                                    style={{ borderRadius: "20px" }}
+                                  />
+                                </div>
+                              </div>
+                              <div className="field-second">
+                                <div>
+                                  <input
+                                    type="text"
+                                    placeholder="Enter your Price"
+                                    className="title"
+                                    value={formData.price} // Update the value to formData.telephone
+                                    onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                                  />
 
+                                </div>
+                                <div>
+                                  <input
+                                    type="text"
+                                    placeholder="Add Bulk Price"
+                                    className="title"
+                                    value={formData.price} // Update the value to formData.telephone
+                                    onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                                  />
+                                </div>
+                              </div>
                               <div
                                 style={{
                                   marginTop: "30px",
