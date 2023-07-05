@@ -412,41 +412,8 @@ const Form = () => {
                                   </FormControl>
                                 </div>
                               </div>
-                              <div className="field-second">
-                                <div>
-                                  <input
-                                    type="text"
-                                    placeholder="Enter your Name"
-                                    className="title"
-                                    style={{ borderRadius: "20px" }}
-                                    value={formData.name} // Update the value to formData.telephone
-                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                  />
-                                </div>
-                                <div>
-                                  <input
-                                    type="number"
-                                    className="title"
-                                    placeholder="Enter your telephone number"
-                                    id="standard-basic"
-                                    value={formData.telephone} // Update the value to formData.telephone
-                                    onChange={(e) => setFormData({ ...formData, telephone: e.target.value })}
-                                    variant="standard"
-                                    style={{ borderRadius: "20px" }}
-                                  />
-                                </div>
-                              </div>
-                              <div className="field-second">
-                                <div>
-                                  <input
-                                    type="text"
-                                    placeholder="Enter your Price"
-                                    className="title"
-                                    value={formData.price} // Update the value to formData.telephone
-                                    onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-                                  />
-                                </div>
-                              </div>
+                        
+                           
                               <div className="description">
                                 <input
                                   type="textarea"
@@ -468,11 +435,7 @@ const Form = () => {
                                   marginLeft: "10px"
                                 }}
                               >
-                                <input
-                                  type="file"
-                                  multiple
-                                  onChange={handleFileChange}
-                                />
+      
                               </div>
                             </div>
                             <div className="delivery-parent">
