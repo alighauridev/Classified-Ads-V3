@@ -12,6 +12,10 @@ import { Link, useNavigate } from "react-router-dom";
 import Context from "../Context/Context";
 import { Google, Facebook } from "@mui/icons-material";
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
+import { GoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
+import axios from "../http/axiosSet";
+// import { GoogleSignIn } from "path/to/GoogleSignIn";
 
 function Login({ role, authenticated }) {
   const navigate = useNavigate();
@@ -24,7 +28,7 @@ function Login({ role, authenticated }) {
       credentials.email,
       credentials.pass
     );
-    console.log(resp,'response ')
+    console.log(resp, "response ");
     if (status === "OK") {
       authenticated(accessToken);
       setuserdetails(resp);
@@ -38,6 +42,36 @@ function Login({ role, authenticated }) {
   };
 
   const { loginWithRedirect } = useAuth0();
+
+  const handleGoogleSuccess = (credentialResponse) => {
+    const idToken = credentialResponse.credential;
+    console.log(idToken);
+    axios
+      .post("/auth/google-signin", { idToken })
+      .then((response) => {
+        const { accessToken, refreshToken, user } = response;
+        console.log(response);
+
+        // Perform any additional actions after successful Google sign-in
+        authenticated(accessToken);
+        setuserdetails(user);
+        role(user.admin);
+        localStorage.setItem("@accessToken", accessToken);
+        localStorage.setItem("@refreshToken", refreshToken);
+        localStorage.setItem("@userdetails", JSON.stringify(user));
+        localStorage.setItem("@role", JSON.stringify(user.admin));
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        // Handle error from your API
+      });
+  };
+
+  const handleGoogleError = () => {
+    console.log("Google Login Failed");
+    // Handle Google sign-in error
+  };
 
   return (
     <div className="login-parent">
@@ -85,17 +119,11 @@ function Login({ role, authenticated }) {
           <div className="login-button">
             <input type="button" value="Login" onClick={onLogin} />
           </div>
-          <div
-            className="btn flex justify-center items-center flex-row mt-[1rem] bg-[#e2dff7] min-w-[12.5rem] w-full min-h-[5.6rem] rounded-[8px] text-black font-normal font-Poppins text-[18px]  hover:scale-[1.02]"
-            onClick={() => {
-              loginWithRedirect({
-                connection: "google-oauth2",
-              });
-            }}
-          >
-            <input type="button" value="Login with Google" />
-            <Google sx={{ color: "blue", fontSize: "22px", marginLeft: 1 }} />
-          </div>
+          <GoogleLogin
+            clientId="YOUR_GOOGLE_CLIENT_ID"
+            onSuccess={handleGoogleSuccess}
+            onFailure={handleGoogleError}
+          />
 
           <div
             className="btn flex justify-center items-center flex-row mt-[1rem] bg-[#e2dff7] min-w-[12.5rem] w-full min-h-[5.6rem] rounded-[8px] text-black font-normal font-Poppins text-[18px]  hover:scale-[1.02]"

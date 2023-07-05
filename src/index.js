@@ -11,19 +11,18 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import Store from "./Redux copy/store/store";
 import { Auth0Provider } from "@auth0/auth0-react";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+
+import jwt_decode from "jwt-decode";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={Store}>
-      <Auth0Provider
-        domain="dev-yj3chuv7s7qobgv0.us.auth0.com"
-        clientId="m2souO9SxGYEwX6IofhkBcr6FbFuZxzW"
-        authorizationParams={{
-          redirect_uri: window.location.origin
-        }}
-      >
+      <GoogleOAuthProvider clientId="430388340650-cm3fqfnbpgfpnbgagudqmbjqmp7slm1d.apps.googleusercontent.com">
+
+
         <App />
-      </Auth0Provider>
+      </GoogleOAuthProvider>
     </Provider>
   </React.StrictMode>
 );
