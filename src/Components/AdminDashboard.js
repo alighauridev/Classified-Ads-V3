@@ -1,7 +1,7 @@
 import './AdminDashboard.scss'
 import { BsBag } from 'react-icons/bs'
-import { adminpakage,request } from './Data';
-import {  getpakage, getpakagetwo, pkgedit } from '../http/Services';
+import { adminpakage, request } from './Data';
+import { getpakage, getpakagetwo, pkgedit } from '../http/Services';
 import axios from "../http/axiosSet"
 
 import React, { useState, useEffect } from "react";
@@ -18,6 +18,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { formatDistanceToNow } from 'date-fns';
+import CategoryForm from './AdminPages/CategoryForm';
+import CategoriesTable from './AdminPages/CategoriesTable';
 const style = {
     position: "absolute",
     top: "50%",
@@ -278,7 +280,22 @@ const AdminDashboard = ({ products, handlePress }) => {
                             })
                         }
                     </div>
-                    <div></div>
+                    <section className="content-main">
+                        <div className="content-header">
+                            <h2 className="content-title"> Categories </h2>{" "}
+                        </div>
+                        <div className="card shadow-sm">
+                            <div className="card-body">
+                                <div className="grid" style={{
+                                    gridTemplateColumns: '2fr 2fr',
+                                    gap: '2rem'
+                                }}>
+                                    <CategoryForm />
+                                    <CategoriesTable />
+                                </div>{" "}
+                            </div>{" "}
+                        </div>{" "}
+                    </section>
                 </div>
             </div>
         </div>
