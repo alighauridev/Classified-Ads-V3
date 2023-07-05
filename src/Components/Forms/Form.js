@@ -23,6 +23,7 @@ import Select from "@mui/material/Select";
 import TabPanel from "@mui/lab/TabPanel";
 import Frame from "../../assets/Frame 33.png";
 import axios from "../../http/axiosSet";
+import { useNavigate } from "react-router-dom";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -102,13 +103,15 @@ const Form = () => {
       images: event.target.files
     });
   };
-
+  const navigate = useNavigate()
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formData);
     try {
-      const response = await axios.post("/ads/createAd", formData);
-      console.log(response.data);
+      const response = await axios.post("/ads/createAd", formData).then((res) => {
+        navigate("/")
+      })
+
     } catch (error) {
       console.log(error);
       // Handle error response
