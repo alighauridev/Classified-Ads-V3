@@ -23,6 +23,7 @@ import Select from "@mui/material/Select";
 import TabPanel from "@mui/lab/TabPanel";
 import Frame from "../../assets/Frame 33.png";
 import axios from "../../http/axiosSet";
+import { useNavigate } from "react-router-dom";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -67,7 +68,7 @@ const Form = () => {
     telephone: "",
     vehicle: "",
     property: "",
-    bulkPrice: "",
+    bulkPrice: 0,
     deliveryOptions: ""
   });
   const fetchCategories = async () => {
@@ -103,13 +104,14 @@ const Form = () => {
       images: event.target.files
     });
   };
-
+  const navigate = useNavigate()
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formData);
     try {
       const response = await axios.post("/ads/createAd", formData);
       console.log(response.data);
+      navigate("/")
     } catch (error) {
       console.log(error);
       // Handle error response
@@ -471,8 +473,8 @@ const Form = () => {
                                     type="text"
                                     placeholder="Add Bulk Price"
                                     className="title"
-                                    value={formData.price} // Update the value to formData.telephone
-                                    onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                                    value={formData.bulkPrice} // Update the value to formData.telephone
+                                    onChange={(e) => setFormData({ ...formData, bulkPrice: e.target.value })}
                                   />
                                 </div>
                               </div>
