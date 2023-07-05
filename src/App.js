@@ -15,6 +15,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ContextProvider } from "./Context/Context";
 import Secondpage from "./Components/Secondpage";
+import FinalForm from "./Components/Forms/FinalForm";
 import Form from "./Components/Forms/Form";
 import SubCategory from "./Components/Forms/SubcategoryForm";
 function Main() {
@@ -42,6 +43,7 @@ function Main() {
             <Route path="/About" element={<Homescreen />} />
             <Route path="/secondpage" element={<Secondpage />} />
             <Route path="/ProductDetails/:id" element={<ProductDetails />} />
+            <Route path="/final-form" element={<FinalForm/>}/>
           </>
         ) : authenticated !== "" && role ? (
           <Route path="/" element={<Admin />} />
