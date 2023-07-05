@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Dropdown, Modal, Button, Form } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from '../../http/axiosSet';
 import { toast } from "react-toastify";
 // import { listCategories } from "../../Redux/actions/categoryActions";

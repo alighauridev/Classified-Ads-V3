@@ -47,8 +47,8 @@ const CategoryForm = () => {
             const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-'); // convert name to slug
             let payload = { name, slug };
             if (tab === 1) {
-                url += `/${subCategory}/subcategories`;
-                payload = { ...payload, parentId: subCategory };
+                url += `/${parentCategory}/subcategories`;
+                payload = { ...payload, parentId: parentCategory };
             } else if (tab === 2) {
                 url += `/`;
                 payload = { ...payload, };
