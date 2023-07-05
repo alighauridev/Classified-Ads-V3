@@ -157,7 +157,7 @@ export default function Navbar({ fixed }) {
               Language <RiArrowDropDownLine style={{ fontSize: "16px" }} />
             </Button>
             {/* <Menu
-              id="basic-menu"
+            id="basic-menu"
               anchorEl={anchorEl}
               open={open}
               onClose={handleClose}
@@ -242,7 +242,7 @@ export default function Navbar({ fixed }) {
                           </li>
                         </Link>
                       )}
-                      {user && (
+                    
                         <Link to={"/CreateAd"}>
                           <li className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75 hover:bg-[#5cabff] hover:text-white cursor-pointer ">
                             <i className="fa fa-plus-square text-[20px] leading-lg text-black opacity-75  "></i>
@@ -251,7 +251,7 @@ export default function Navbar({ fixed }) {
                             </span>
                           </li>
                         </Link>
-                      )}
+                   
 
                       {user ? (
                         <li
@@ -264,25 +264,25 @@ export default function Navbar({ fixed }) {
                           </span>
                         </li>
                       ) : (
-                        // <div>
-                        //   <Link to={"/Login"}>
-                        //     <Button>Login</Button>
-                        //   </Link>
-                     
-                        // </div>
                         <div>
-                        <Button onClick={handleOpentwo} className="login-buttoon" style={{color:'black',marginLeft:'8px',fontSize:'17px',fontWeight:'bolder'}}><BiSolidUser style={{fontWeight:'bolder'}}/> <span style={{marginLeft:'5px'}}>Login</span> </Button>
-                        <Modal
-                          open={opentwo}
-                          onClose={handleClosetwo}
-                          aria-labelledby="modal-modal-title"   
-                          aria-describedby="modal-modal-description"
-                        >
-                          <Box sx={style}>
-                          <Login/>
-                          </Box>
-                        </Modal>
-                      </div>
+                          <Link to={"/Login"}>
+                            <Button>Login</Button>
+                          </Link>
+                     
+                        </div>
+                      //   <div>
+                      //   <Button onClick={handleOpentwo} className="login-buttoon" style={{color:'black',marginLeft:'8px',fontSize:'17px',fontWeight:'bolder'}}><BiSolidUser style={{fontWeight:'bolder'}}/> <span style={{marginLeft:'5px'}}>Login</span> </Button>
+                      //   <Modal
+                      //     open={opentwo}
+                      //     onClose={handleClosetwo}
+                      //     aria-labelledby="modal-modal-title"   
+                      //     aria-describedby="modal-modal-description"
+                      //   >
+                      //     <Box sx={style}>
+                      //     <Login/>
+                      //     </Box>
+                      //   </Modal>
+                      // </div>
 
 
                       )}

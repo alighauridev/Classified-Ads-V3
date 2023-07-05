@@ -11,15 +11,15 @@ p{
     #ffffff;
     .navbar-parent{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
     place-items: center;
     align-items: center;
   
     padding: 15px 0;
-    width: 100%;
+    width: 87%;
     margin: auto;
     .logo-div{
-        width: 35%;
+        width: 50%;
      img{
          width: 100%;
      }

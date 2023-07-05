@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 import EditIcon from "@mui/icons-material/Edit";
 import CallIcon from "@mui/icons-material/Call";
 import Footer from "../Components/Footer/Footer";
+import rover from '../assets/rover.png'
 import "./Dashboard.scss";
 import { GetAllAds, getCategories, updateAd } from "../http/Services";
 import CategoryDropdown from "../Components/CategoryDropDown";
@@ -212,7 +213,7 @@ function Dashboard() {
             display: "grid",
             gridTemplateColumns: "2fr 8fr",
             padding: "20px 40px",
-            gap: "20px",
+            gap: "35px",
             width: "90%",
             margin: "auto",
           }}
@@ -235,13 +236,16 @@ function Dashboard() {
             </div>
 
             {/* ADS SECTION */}
-
-            <div
+<div>
+  <h1 style={{color:'#415661',fontSize:"20px",marginTop:'10px',fontWeight:'600'}}>Trending ads</h1>
+</div>
+         <div style={{display:'grid',gridTemplateColumns:'3fr 1fr',gap:'40px'}}>
+         <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "1fr 1fr 1fr 1fr",
+                gridTemplateColumns: "1fr 1fr 1fr",
                 gap: "10px",
-                margin: "20px 0",
+                margin: "10px 0",
               }}
             >
               {ads?.map((product) => (
@@ -250,6 +254,40 @@ function Dashboard() {
                 </Link>
               ))}
             </div>
+            <div style={{background:'#FFEFEA',borderRadius:'4px',height:'52vh'}}>
+             <div style={{background:'white',padding:'20px 10px',margin:'10px 5px',borderRadius:'4px'}}>
+             <div style={{display:'flex',gap:'10px'}}>
+                <img src={rover} alt="" style={{height:'30px',width:'30px'}} />
+                <p style={{fontSize:'12px'}}>Land Rover Range Rover Sport…</p>
+              </div>
+              <div>
+                
+                <p style={{fontSize:'13px',color:'#FB5018',marginTop:'5px',marginLeft:'10px'}}>₦ 9,300,000</p>
+              </div>
+             </div>
+             <div style={{background:'white',padding:'20px 10px',margin:'30px 5px',borderRadius:'4px'}}>
+             <div style={{display:'flex',gap:'10px'}}>
+                <img src={rover} alt="" style={{height:'30px',width:'30px'}} />
+                <p style={{fontSize:'12px'}}>Belkin BOOST UP 7.5W …</p>
+              </div>
+              <div>
+                
+                <p style={{fontSize:'13px',color:'#FB5018',marginTop:'5px',marginLeft:'10px'}}>₦ 70,000</p>
+              </div>
+             </div>
+             <div style={{background:'white',padding:'20px 10px',margin:'30px 5px',borderRadius:'4px'}}>
+             <div style={{display:'flex',gap:'10px'}}>
+                <img src={rover} alt="" style={{height:'30px',width:'30px'}} />
+                <p style={{fontSize:'12px'}}>Safari Court Estate A1 Abuja…
+ </p>
+              </div>
+              <div>
+                
+                <p style={{fontSize:'13px',color:'#FB5018',marginTop:'5px',marginLeft:'10px'}}>₦ 11,000</p>
+              </div>
+             </div>
+            </div>
+         </div>
           </div>
         </div>
         <div className="w-full items-center justify-center my-8 ">

@@ -249,10 +249,10 @@ function MyAccount() {
 
 
                   <div className="field-first">
-                    <div>
+                    <div style={{borderRadius:'20px'}}>
                       <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
                         <InputLabel id="demo-multiple-name-label" className="labelc">Brands</InputLabel>
-                        <Select
+                        <Select style={{borderRadius:'20px'}}
                           labelId="demo-multiple-name-label"
                           id="demo-multiple-name"
                           multiple
@@ -278,7 +278,7 @@ function MyAccount() {
                     <div>
                       <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
                         <InputLabel id="demo-multiple-name-label" className="labelc" >Type</InputLabel>
-                        <Select
+                        <Select style={{borderRadius:'20px'}}
                           labelId="demo-multiple-name-label"
                           id="demo-multiple-namet"
                           multiple
@@ -306,7 +306,7 @@ function MyAccount() {
                     <div>
                       <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
                         <InputLabel id="demo-multiple-name-label" className="labelc">Conditions</InputLabel>
-                        <Select
+                        <Select style={{borderRadius:'20px'}}
                           labelId="demo-multiple-name-label"
                           id="demo-multiple-name"
                           multiple
@@ -332,7 +332,7 @@ function MyAccount() {
                     <div>
                       <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
                         <InputLabel id="demo-multiple-name-label" className="labelc">Warranty</InputLabel>
-                        <Select
+                        <Select style={{borderRadius:'20px'}}
                           labelId="demo-multiple-name-label"
                           id="demo-multiple-namet"
                           multiple
@@ -367,7 +367,7 @@ function MyAccount() {
 
                   <div className="field-second">
                     <div>
-                      <input type="text" placeholder="Enter your Name" className="title" />
+                      <input type="text" placeholder="Enter your Name" className="title" style={{borderRadius:'20px'}} />
                     </div>
                     <div>
                       <input type="number" className="title" placeholder="Enter your telephone number"
@@ -376,8 +376,8 @@ function MyAccount() {
                         label={Obj.telephone == "" ? "Tel1" : null}
                         variant="standard"
                         onChange={(event) => {
-                          setTel1(event.target.value);
-                        }}
+                          setTel1(event.target.value); 
+                        }} style={{borderRadius:'20px'}}
                       />
                     </div>
                   </div>
@@ -392,7 +392,7 @@ function MyAccount() {
 
                       <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
                         <InputLabel id="demo-multiple-name-label" className="labelc">Brands</InputLabel>
-                        <Select
+                        <Select style={{borderRadius:'20px'}}
                           labelId="demo-multiple-name-label"
                           id="demo-multiple-name"
                           multiple
@@ -421,7 +421,7 @@ function MyAccount() {
                     <div>
                       <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
                         <InputLabel id="demo-multiple-name-label" className="labelc">Category</InputLabel>
-                        <Select
+                        <Select style={{borderRadius:'20px'}}
                           labelId="demo-multiple-name-label"
                           id="demo-multiple-name"
                           multiple
@@ -447,7 +447,7 @@ function MyAccount() {
                     <div>
                       <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
                         <InputLabel id="demo-multiple-name-label" className="labelc">Sub-Category</InputLabel>
-                        <Select
+                        <Select style={{borderRadius:'20px'}}
                           labelId="demo-multiple-name-label"
                           id="demo-multiple-namet"
                           multiple
@@ -473,7 +473,7 @@ function MyAccount() {
 
 
                   <div className="description">
-                    <input type="textarea"
+                    <input type="textarea" style={{borderRadius:'20px'}}
                       placeholder="Description"
                       id="standard-basic"
                       defaultValue="
@@ -640,7 +640,7 @@ function MyAccount() {
                     <div>
                       <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
                         <InputLabel id="demo-multiple-name-label" className="labelc">Add Delivery Options</InputLabel>
-                        <Select
+                        <Select style={{borderRadius:'20px'}}
                           labelId="demo-multiple-name-label"
                           id="demo-multiple-name"
                           multiple
@@ -675,7 +675,7 @@ function MyAccount() {
                       Promote your ad
                     </h1>
                     <p>Please, choose one of the following options to post your ad</p>
-                    <div className="standard">
+                    <div className="standard" style={{borderRadius:'20px'}}>
                       <h1>Standard Ad</h1>
                     </div>
                   </div>

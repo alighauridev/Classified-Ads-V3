@@ -5,21 +5,22 @@
 }
 .banner-parent-back{
     background: #ECECEC;
-    height: 40vh;
+    height: 38vh;
     .banner-grid{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 2fr 1.5fr;
         place-items: center;
         align-items: center;
-        gap: 40px;
-        width: 80%;
+ 
+        width: 70%;
         margin: auto;
         padding: 25px 40px 25px 40px;
    
     }
     .person{
         img{
-            width: 80%;
+            width: 100%;
+            margin: 0 0 0 auto;
         }
     }
     .search{
@@ -28,7 +29,7 @@
  
             h1{
                 color: rgb(0, 0, 0);
-                font-size: 55px;
+                font-size: 45px;
                font-weight: 900;
                font-family: Arial, Helvetica, sans-serif;
                 margin: 0;
@@ -50,20 +51,20 @@
             }
         }
         input{
-            padding: 15px 30px;
-
-            border-radius: 4px;
-            outline: none;
-            width: 100%;
-            margin-left: auto;
-            box-shadow: 0 0px 0px 0 #000000;
+            padding: 15px 50px;
+    outline: none;
+    width: 90%;
+    /* margin-left: auto; */
+    box-shadow: 0 0px 0px 0 #000000;
+    border-radius: 45px;
+    margin-top: 15px;
          
           
             
        
             
             border-radius: 45px;
-            margin-top: 20px;
+            margin-top: 30px;
             
         }
     }
