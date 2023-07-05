@@ -76,7 +76,7 @@ function Login({ role, authenticated }) {
 
   return (
     <div style={{ background: "white" }}>
-      <div className="login-parent">
+      <div className="login-parent" style={{width:'100%',margin:'auto',display:'flex',justifyContent:'center',flexDirection:'column'}}>
         <div>
           <div className="logo-div">
             <img src={logo} alt="" />
@@ -117,25 +117,18 @@ function Login({ role, authenticated }) {
             </div>
           </div>
 
-          <div>
-            <div className="login-button">
-              <input type="button" value="Login" onClick={onLogin} />
-            </div>
-            <GoogleLogin
+          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr'}}>
+
+        <div >
+        <GoogleLogin 
               clientId="430388340650-cm3fqfnbpgfpnbgagudqmbjqmp7slm1d.apps.googleusercontent.com"
               onSuccess={handleGoogleSuccess}
               onFailure={handleGoogleError}
             />
+        </div>
 
-            <div
-              style={{
-                padding: "10px",
-                width: "100%",
-                display: "flex",
-                justifyContent: "center",
-                border: "1px solid #E9EBED",
-                borderRadius: "40px",
-              }}
+            <div style={{display:'flex',alignItems:'center'}}
+            
               onClick={() => {
                 loginWithRedirect({
                   connection: "facebook",

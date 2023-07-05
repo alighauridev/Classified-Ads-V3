@@ -32,6 +32,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 581,
+  height:604,
   bgcolor: "background.paper",
   borderRadius: 8,
   boxShadow: 24,
@@ -243,7 +244,7 @@ export default function Navbar({ fixed }) {
                         </Link>
                       )}
 
-                      <Link to={"/CreateAd"}>
+                      <Link to={"/category"}>
                         <li className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75 hover:bg-[#5cabff] hover:text-white cursor-pointer ">
                           <i className="fa fa-plus-square text-[20px] leading-lg text-black opacity-75  "></i>
                           <span className="ml-2 text-[16px]  mobile:hidden ">

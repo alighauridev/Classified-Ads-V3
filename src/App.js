@@ -15,7 +15,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ContextProvider } from "./Context/Context";
 import Secondpage from "./Components/Secondpage";
-
+import Form from "./Components/Forms/Form";
+import SubCategory from "./Components/Forms/SubcategoryForm";
 function Main() {
   const [authenticated, setAuthenticated] = useState(
     localStorage.getItem("@accessToken")
@@ -36,6 +37,8 @@ function Main() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/MyAccount" element={<MyAccount />} />
             <Route path="/CreateAd" element={<CreateAd />} />
+            <Route path="/category" element={<Form/>}/>
+            <Route path="/sub-category" element={<SubCategory/>}/>
             <Route path="/About" element={<Homescreen />} />
             <Route path="/secondpage" element={<Secondpage />} />
             <Route path="/ProductDetails/:id" element={<ProductDetails />} />
