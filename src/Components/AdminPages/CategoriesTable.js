@@ -120,61 +120,7 @@ const CategoriesTable = () => {
                         })}
                 </tbody>
             </table>
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th className="text-end">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {categories &&
-                        categories.map((category) => {
-                            return (
-                                <tr key={category._id}>
-                                    <td>
-                                        <b>{category.name}</b>
-                                    </td>
-                                    <td className="text-end">
-                                        <Dropdown>
-                                            <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                                <i className="fas fa-ellipsis-h"></i>
-                                            </Dropdown.Toggle>
 
-                                            <Dropdown.Menu>
-                                                <Dropdown.Item onClick={() => handleModalOpen(category._id, category.name)}>Edit info</Dropdown.Item>
-                                                <Dropdown.Item onClick={() => handleDelete(category._id)}>Delete</Dropdown.Item>
-                                            </Dropdown.Menu>
-                                        </Dropdown>
-
-                                        {/* Edit category modal */}
-                                        <Modal show={activeModal === category._id} onHide={handleModalClose}>
-                                            <Modal.Header closeButton>
-                                                <Modal.Title>Edit Category</Modal.Title>
-                                            </Modal.Header>
-                                            <Modal.Body>
-                                                <Form>
-                                                    <Form.Group className="mb-3">
-                                                        <Form.Label>Category Name</Form.Label>
-                                                        <Form.Control type="text" value={categoryName} onChange={e => setCategoryName(e.target.value)} />
-                                                    </Form.Group>
-                                                </Form>
-                                            </Modal.Body>
-                                            <Modal.Footer>
-                                                <Button variant="secondary" onClick={handleModalClose}>
-                                                    Close
-                                                </Button>
-                                                <Button variant="primary" onClick={handleUpdate}>
-                                                    Save Changes
-                                                </Button>
-                                            </Modal.Footer>
-                                        </Modal>
-                                    </td>
-                                </tr>
-                            );
-                        })}
-                </tbody>
-            </table>
         </div>
     );
 };
