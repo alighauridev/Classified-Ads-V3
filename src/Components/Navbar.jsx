@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import {BiSolidUser} from 'react-icons/bi'
+import { BiSolidUser } from "react-icons/bi";
 import ".././Components/Scss/Home/Navbar.scss";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
@@ -27,13 +27,13 @@ import { useDispatch } from "react-redux";
 import { getProducts } from "../Redux copy/actions/productActions";
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
   width: 581,
-  bgcolor: 'background.paper',
- borderRadius:8,
+  bgcolor: "background.paper",
+  borderRadius: 8,
   boxShadow: 24,
   p: 4,
 };
@@ -242,16 +242,15 @@ export default function Navbar({ fixed }) {
                           </li>
                         </Link>
                       )}
-                    
-                        <Link to={"/sub-category"}>
-                          <li className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75 hover:bg-[#5cabff] hover:text-white cursor-pointer ">
-                            <i className="fa fa-plus-square text-[20px] leading-lg text-black opacity-75  "></i>
-                            <span className="ml-2 text-[16px]  mobile:hidden ">
-                              Create Ad
-                            </span>
-                          </li>
-                        </Link>
-                   
+
+                      <Link to={"/CreateAd"}>
+                        <li className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75 hover:bg-[#5cabff] hover:text-white cursor-pointer ">
+                          <i className="fa fa-plus-square text-[20px] leading-lg text-black opacity-75  "></i>
+                          <span className="ml-2 text-[16px]  mobile:hidden ">
+                            Create Ad
+                          </span>
+                        </li>
+                      </Link>
 
                       {user ? (
                         <li
@@ -268,23 +267,20 @@ export default function Navbar({ fixed }) {
                           <Link to={"/Login"}>
                             <Button>Login</Button>
                           </Link>
-                     
                         </div>
-                      //   <div>
-                      //   <Button onClick={handleOpentwo} className="login-buttoon" style={{color:'black',marginLeft:'8px',fontSize:'17px',fontWeight:'bolder'}}><BiSolidUser style={{fontWeight:'bolder'}}/> <span style={{marginLeft:'5px'}}>Login</span> </Button>
-                      //   <Modal
-                      //     open={opentwo}
-                      //     onClose={handleClosetwo}
-                      //     aria-labelledby="modal-modal-title"   
-                      //     aria-describedby="modal-modal-description"
-                      //   >
-                      //     <Box sx={style}>
-                      //     <Login/>
-                      //     </Box>
-                      //   </Modal>
-                      // </div>
-
-
+                        //   <div>
+                        //   <Button onClick={handleOpentwo} className="login-buttoon" style={{color:'black',marginLeft:'8px',fontSize:'17px',fontWeight:'bolder'}}><BiSolidUser style={{fontWeight:'bolder'}}/> <span style={{marginLeft:'5px'}}>Login</span> </Button>
+                        //   <Modal
+                        //     open={opentwo}
+                        //     onClose={handleClosetwo}
+                        //     aria-labelledby="modal-modal-title"
+                        //     aria-describedby="modal-modal-description"
+                        //   >
+                        //     <Box sx={style}>
+                        //     <Login/>
+                        //     </Box>
+                        //   </Modal>
+                        // </div>
                       )}
                       {!user && (
                         <li
