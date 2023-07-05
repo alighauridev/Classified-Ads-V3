@@ -332,7 +332,7 @@ function FinalForm() {
                                         <div style={{ marginTop: '23px' }}>
 
                                             <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
-                                                <InputLabel id="demo-multiple-name-label" className="labelc">Brands</InputLabel>
+                                                <InputLabel id="demo-multiple-name-label" className="labelc">Furnishing</InputLabel>
                                                 <Select style={{ borderRadius: '20px' }}
                                                     labelId="demo-multiple-name-label"
                                                     id="demo-multiple-name"
@@ -358,7 +358,7 @@ function FinalForm() {
                                         <div style={{ marginTop: '23px' }}>
 
                                             <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
-                                                <InputLabel id="demo-multiple-name-label" className="labelc">Furnishing</InputLabel>
+                                                <InputLabel id="demo-multiple-name-label" className="labelc">Parking Space</InputLabel>
                                                 <Select style={{ borderRadius: '20px' }}
                                                     labelId="demo-multiple-name-label"
                                                     id="demo-multiple-name"
@@ -388,7 +388,7 @@ function FinalForm() {
                                         <div style={{ marginTop: '23px' }}>
 
                                             <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
-                                                <InputLabel id="demo-multiple-name-label" className="labelc">Parking space</InputLabel>
+                                                <InputLabel id="demo-multiple-name-label" className="labelc">Furnishing</InputLabel>
                                                 <Select style={{ borderRadius: '20px' }}
                                                     labelId="demo-multiple-name-label"
                                                     id="demo-multiple-name"
@@ -414,7 +414,7 @@ function FinalForm() {
                                         <div style={{ marginTop: '23px' }}>
 
                                             <FormControl sx={{ m: 1, width: 300 }} className="formcontrol">
-                                                <InputLabel id="demo-multiple-name-label" className="labelc">Furnishing</InputLabel>
+                                                <InputLabel id="demo-multiple-name-label" className="labelc">Parking S pace</InputLabel>
                                                 <Select style={{ borderRadius: '20px' }}
                                                     labelId="demo-multiple-name-label"
                                                     id="demo-multiple-name"
@@ -444,7 +444,7 @@ function FinalForm() {
 
 
                                         <div>
-                                            <input type="text" placeholder="Enter your title" name="Enter Your title" required
+                                            <input type="text" placeholder="Suare Metres (Sqm)" name="Enter Your title" required
                                                 id="standard-basic"
                                                 value={Obj.title}
                                                 label="
@@ -475,7 +475,7 @@ function FinalForm() {
 
 
                                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                                        <input type="text" placeholder="Enter your title" name="Enter Your title" required
+                                        <input type="text" placeholder="Minimum Rent Time" name="Enter Your title" required
                                             id="standard-basic"
                                             value={Obj.title}
                                             label="
@@ -486,7 +486,7 @@ function FinalForm() {
                                             }} className="title"
                                         />
 
-                                        <input type="text" placeholder="Enter your title" name="Enter Your title" required
+                                        <input type="text" placeholder="Agency Fee" name="Enter Your title" required
                                             id="standard-basic"
                                             value={Obj.title}
                                             label="
@@ -500,7 +500,7 @@ function FinalForm() {
 
 
                                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                                        <input type="text" placeholder="Enter your title" name="Enter Your title" required
+                                        <input type="text" placeholder="Legal And Agreement" name="Enter Your title" required
                                             id="standard-basic"
                                             value={Obj.title}
                                             label="
@@ -511,7 +511,7 @@ function FinalForm() {
                                             }} className="title"
                                         />
 
-                                        <input type="text" placeholder="Enter your title" name="Enter Your title" required
+                                        <input type="text" placeholder="Caution Fee" name="Enter Your title" required
                                             id="standard-basic"
                                             value={Obj.title}
                                             label="
@@ -541,7 +541,7 @@ function FinalForm() {
                                     </div>
 
                                     <div>
-                                        <input type="text" placeholder="Enter your title" name="Enter Your title" required
+                                        <input type="text" placeholder="Enter your title" name="₦ Price" required
                                             id="standard-basic"
                                             value={Obj.title}
                                             label="
@@ -556,7 +556,7 @@ function FinalForm() {
 
                                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
 
-                                        <input type="text" placeholder="Enter your title" name="Enter Your title" required
+                                        <input type="text" placeholder="Phone Number" name="Enter Your title" required
                                             id="standard-basic"
                                             value={Obj.title}
                                             label="
@@ -566,7 +566,7 @@ function FinalForm() {
                                                 setObj({ ...Obj, title: event.target.value });
                                             }} className="title"
                                         />
-                                        <input type="text" placeholder="Enter your title" name="Enter Your title" required
+                                        <input type="text" placeholder="Enter your title" name="Name" required
                                             id="standard-basic"
                                             value={Obj.title}
                                             label="
@@ -685,13 +685,7 @@ function FinalForm() {
                       it. You can also deselect them by clicking again above
                     </div>
                   </div> */}
-                                    <div style={{ marginTop: '30px', marginLeft: '10px' }}>
-                                        <input
-                                            type="file"
-                                            multiple
-                                            onChange={(e) => setObj({ ...Obj, images: e.target.files })}
-                                        />
-                                    </div>
+                                 
                                     {/* <div className="flex flex-row">
                   {Obj.category.map((item) => {
                     return (

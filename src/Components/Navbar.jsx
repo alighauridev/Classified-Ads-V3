@@ -266,7 +266,7 @@ export default function Navbar({ fixed }) {
                       ) : (
                         <div>
                           <Link to={"/Login"}>
-                            <Button>Login</Button>
+                          <Button onClick={handleOpentwo} className="login-buttoon" style={{color:'black',marginLeft:'8px',fontSize:'17px',fontWeight:'bolder'}}><BiSolidUser style={{fontWeight:'bolder'}}/> <span style={{marginLeft:'5px'}}>Login</span> </Button>
                           </Link>
                         </div>
                         //   <div>
