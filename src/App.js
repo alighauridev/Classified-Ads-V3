@@ -38,12 +38,12 @@ function Main() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/MyAccount" element={<MyAccount />} />
             <Route path="/CreateAd" element={<CreateAd />} />
-            <Route path="/category" element={<Form/>}/>
-            <Route path="/sub-category" element={<SubCategory/>}/>
+            <Route path="/category" element={<Form />} />
+            <Route path="/sub-category" element={<SubCategory />} />
             <Route path="/About" element={<Homescreen />} />
             <Route path="/secondpage" element={<Secondpage />} />
             <Route path="/ProductDetails/:id" element={<ProductDetails />} />
-            <Route path="/final-form" element={<FinalForm/>}/>
+            <Route path="/final-form" element={<FinalForm />} />
           </>
         ) : authenticated !== "" && role ? (
           <Route path="/" element={<Admin />} />
@@ -57,6 +57,7 @@ function Main() {
             />
             <Route path="/Register" element={<Register />} />
             <Route path="/pakage" element={<Pakage />} />
+
             <Route path="/" element={<Dashboard />} />
             <Route path="/About" element={<Homescreen />} />
             <Route path="/ProductDetails/:id" element={<ProductDetails />} />
