@@ -15,6 +15,8 @@ import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import axios from "../http/axiosSet";
+import Navbar from '../Components/Navbar'
+import Footer from '../Components/Footer/Footer'
 // import { GoogleSignIn } from "path/to/GoogleSignIn";
 
 function Login({ role, authenticated }) {
@@ -75,8 +77,9 @@ function Login({ role, authenticated }) {
   };
 
   return (
-    <div style={{ background: "white" }}>
-      <div className="login-parent" style={{width:'100%',margin:'auto',display:'flex',justifyContent:'center',flexDirection:'column'}}>
+    <div style={{ background: "#EBF2F7",height:'100vh' }}>
+      <Navbar/>
+      <div className="login-parent" style={{width:'30%',margin:'auto',display:'flex',justifyContent:'center',flexDirection:'column',padding:'30px 30px',background:'white',width:'581px',height:'604px',marginTop:'40px',borderRadius:'20px'}}>
         <div>
           <div className="logo-div">
             <img src={logo} alt="" />
@@ -117,7 +120,7 @@ function Login({ role, authenticated }) {
             </div>
           </div>
 
-          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr'}}>
+          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',paddingLeft:'10px',gap:'20px',marginTop:'30px'}}>
 
         <div >
         <GoogleLogin 
@@ -127,7 +130,7 @@ function Login({ role, authenticated }) {
             />
         </div>
 
-            <div style={{display:'flex',alignItems:'center'}}
+            <div style={{display:'flex',alignItems:'center',border:'1px solid rgb(205 207 213)',padding:'0 10px'}}
             
               onClick={() => {
                 loginWithRedirect({
@@ -180,6 +183,10 @@ function Login({ role, authenticated }) {
             By continuing you agree to the Policy and Rules
           </p>
         </div>
+      </div>
+
+      <div style={{marginTop:'80px'}}>
+      <Footer/>
       </div>
     </div>
   );
