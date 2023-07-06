@@ -3,7 +3,7 @@ import "./Blog.scss";
 
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import axios from "../..//http/axiosSet.js";
+import axios from "../../api/axios";
 const Blog = ({ products }) => {
   const navigate = useNavigate();
 

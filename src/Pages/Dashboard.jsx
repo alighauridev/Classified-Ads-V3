@@ -3,7 +3,7 @@ import Navbar from "../Components/Navbar";
 import EditIcon from "@mui/icons-material/Edit";
 import CallIcon from "@mui/icons-material/Call";
 import Footer from "../Components/Footer/Footer";
-import rover from '../assets/rover.png'
+import rover from "../assets/rover.png";
 import "./Dashboard.scss";
 import { GetAllAds, getCategories, updateAd } from "../http/Services";
 import CategoryDropdown from "../Components/CategoryDropDown";
@@ -56,7 +56,7 @@ const ProductComponent = ({ product, currency }) => {
           }}
         >
           <img
-            src={`${axios.defaults.baseURL}/upload/image/${product.images[0]}`}
+            src={`https://classifiedads.onrender.com/upload/image/${product.images[0]}`}
             crossorigin="anonymous"
             style={{ borderRadius: "4px", height: "145px" }}
           />
@@ -200,7 +200,7 @@ function Dashboard() {
       {/* write me a  */}
       <Navbar />
       <Banner />
-      <div className="flex-1" style={{background:"white"}}>
+      <div className="flex-1" style={{ background: "white" }}>
         {/* <div className="flex  px-10">
           <SearchBar setName={setsearch} />
           <CategoryDropdown
@@ -231,63 +231,148 @@ function Dashboard() {
          <img src={img} alt="" style={{ width: '100%', }} />
          </div> */}
               <div>
-          <img src="./images/banner.png" alt=""nstyle={{ width: '100%', }}  />
-         </div>
+                <img
+                  src="./images/banner.png"
+                  alt=""
+                  nstyle={{ width: "100%" }}
+                />
+              </div>
             </div>
 
             {/* ADS SECTION */}
-<div>
-  <h1 style={{color:'#415661',fontSize:"20px",marginTop:'10px',fontWeight:'600'}}>Trending ads</h1>
-</div>
-         <div style={{display:'grid',gridTemplateColumns:'3fr 1fr',gap:'40px'}}>
-         <div
+            <div>
+              <h1
+                style={{
+                  color: "#415661",
+                  fontSize: "20px",
+                  marginTop: "10px",
+                  fontWeight: "600",
+                }}
+              >
+                Trending ads
+              </h1>
+            </div>
+            <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "1fr 1fr 1fr",
-                gap: "10px",
-                margin: "10px 0",
+                gridTemplateColumns: "3fr 1fr",
+                gap: "40px",
               }}
             >
-              {ads?.map((product) => (
-                <Link to="/secondpage">
-                  <ProductComponent currency={currency} product={product} />
-                </Link>
-              ))}
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr 1fr",
+                  gap: "10px",
+                  margin: "10px 0",
+                }}
+              >
+                {ads?.map((product) => (
+                  <Link to="/secondpage">
+                    <ProductComponent currency={currency} product={product} />
+                  </Link>
+                ))}
+              </div>
+              <div
+                style={{
+                  background: "#FFEFEA",
+                  borderRadius: "4px",
+                  height: "52vh",
+                }}
+              >
+                <div
+                  style={{
+                    background: "white",
+                    padding: "20px 10px",
+                    margin: "10px 5px",
+                    borderRadius: "4px",
+                  }}
+                >
+                  <div style={{ display: "flex", gap: "10px" }}>
+                    <img
+                      src={rover}
+                      alt=""
+                      style={{ height: "30px", width: "30px" }}
+                    />
+                    <p style={{ fontSize: "12px" }}>
+                      Land Rover Range Rover Sport…
+                    </p>
+                  </div>
+                  <div>
+                    <p
+                      style={{
+                        fontSize: "13px",
+                        color: "#FB5018",
+                        marginTop: "5px",
+                        marginLeft: "10px",
+                      }}
+                    >
+                      ₦ 9,300,000
+                    </p>
+                  </div>
+                </div>
+                <div
+                  style={{
+                    background: "white",
+                    padding: "20px 10px",
+                    margin: "30px 5px",
+                    borderRadius: "4px",
+                  }}
+                >
+                  <div style={{ display: "flex", gap: "10px" }}>
+                    <img
+                      src={rover}
+                      alt=""
+                      style={{ height: "30px", width: "30px" }}
+                    />
+                    <p style={{ fontSize: "12px" }}>Belkin BOOST UP 7.5W …</p>
+                  </div>
+                  <div>
+                    <p
+                      style={{
+                        fontSize: "13px",
+                        color: "#FB5018",
+                        marginTop: "5px",
+                        marginLeft: "10px",
+                      }}
+                    >
+                      ₦ 70,000
+                    </p>
+                  </div>
+                </div>
+                <div
+                  style={{
+                    background: "white",
+                    padding: "20px 10px",
+                    margin: "30px 5px",
+                    borderRadius: "4px",
+                  }}
+                >
+                  <div style={{ display: "flex", gap: "10px" }}>
+                    <img
+                      src={rover}
+                      alt=""
+                      style={{ height: "30px", width: "30px" }}
+                    />
+                    <p style={{ fontSize: "12px" }}>
+                      Safari Court Estate A1 Abuja…
+                    </p>
+                  </div>
+                  <div>
+                    <p
+                      style={{
+                        fontSize: "13px",
+                        color: "#FB5018",
+                        marginTop: "5px",
+                        marginLeft: "10px",
+                      }}
+                    >
+                      ₦ 11,000
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div style={{background:'#FFEFEA',borderRadius:'4px',height:'52vh'}}>
-             <div style={{background:'white',padding:'20px 10px',margin:'10px 5px',borderRadius:'4px'}}>
-             <div style={{display:'flex',gap:'10px'}}>
-                <img src={rover} alt="" style={{height:'30px',width:'30px'}} />
-                <p style={{fontSize:'12px'}}>Land Rover Range Rover Sport…</p>
-              </div>
-              <div>
-                
-                <p style={{fontSize:'13px',color:'#FB5018',marginTop:'5px',marginLeft:'10px'}}>₦ 9,300,000</p>
-              </div>
-             </div>
-             <div style={{background:'white',padding:'20px 10px',margin:'30px 5px',borderRadius:'4px'}}>
-             <div style={{display:'flex',gap:'10px'}}>
-                <img src={rover} alt="" style={{height:'30px',width:'30px'}} />
-                <p style={{fontSize:'12px'}}>Belkin BOOST UP 7.5W …</p>
-              </div>
-              <div>
-                
-                <p style={{fontSize:'13px',color:'#FB5018',marginTop:'5px',marginLeft:'10px'}}>₦ 70,000</p>
-              </div>
-             </div>
-             <div style={{background:'white',padding:'20px 10px',margin:'30px 5px',borderRadius:'4px'}}>
-             <div style={{display:'flex',gap:'10px'}}>
-                <img src={rover} alt="" style={{height:'30px',width:'30px'}} />
-                <p style={{fontSize:'12px'}}>Safari Court Estate A1 Abuja…
- </p>
-              </div>
-              <div>
-                
-                <p style={{fontSize:'13px',color:'#FB5018',marginTop:'5px',marginLeft:'10px'}}>₦ 11,000</p>
-              </div>
-             </div>
-            </div>
-         </div>
           </div>
         </div>
         <div className="w-full items-center justify-center my-8 ">

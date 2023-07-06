@@ -685,7 +685,7 @@ function FinalForm() {
                       it. You can also deselect them by clicking again above
                     </div>
                   </div> */}
-                                 
+
                                     {/* <div className="flex flex-row">
                   {Obj.category.map((item) => {
                     return (
@@ -726,7 +726,7 @@ function FinalForm() {
                                         </h1>
                                         <p>Please, choose one of the following options to post your ad</p>
                                         <div className="standard" style={{ borderRadius: '20px' }}>
-                                            <h1 style={{fontSize:'16px'}}>Standard Ad</h1>
+                                            <h1 style={{ fontSize: '16px' }}>Standard Ad</h1>
                                         </div>
                                     </div>
 
