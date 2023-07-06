@@ -328,7 +328,9 @@ const Form = () => {
                                       id="demo-multiple-name-label"
                                       className="labelc"
                                     >
-                                      Conditions
+                                      <pre>
+                                      Conditions                 
+                                      </pre>
                                     </InputLabel>
                                     <Select
                                       style={{ borderRadius: "20px" }}
