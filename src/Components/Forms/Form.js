@@ -33,8 +33,10 @@ const MenuProps = {
 const names = ["nike", "addida", "Bata"];
 const namestwo = ["Abuja (Fct)", "Lagos State", "Ogun State",'Oyo State','Rivers State','Abia State','Adamawa State','Akwa Ibom State','Anambra State','Bauchi State','Bayelsa State','Benue State'];
 const namesthree = ["Used", "New"];
-const namesfour = ["val 1", "val 2"];
-
+const namesfour = ["Toyota", "Ford","Honda","Chevrolet","Volkswagen","BMW","Mercedes-Benz","Audi","Nissan","Hyundai","Kia","Subaru","Tesla"];
+const namefive=["Mainstream Brands","Luxury Brands","Sports Car Brands","Electric Vehicle (EV) Brands"]
+const namesix=["Used","New"]
+const nameseven=["One Year","Two year","Three Year","Four Year","Five Year","Six Year"]
 function getStyles(name, personName, theme) {
   return {
     fontWeight:
@@ -213,7 +215,7 @@ const Form = () => {
                       <label htmlFor="select">
                         <img src={Frame} alt="" />
                       </label>
-                      <input
+                      <input id="select" style={{display:'none'}}
                         type="file"
                         multiple
                         onChange={(e) =>
@@ -241,31 +243,7 @@ const Form = () => {
                     <div className="post-back">
                       <div className="postad-paretn">
                         <div>
-                          <div className="post-ad-back-sec">
-                            <div>
-                              <h3
-                                style={{
-                                  textAlign: "start",
-                                  color: "#FB5018",
-                                }}
-                              >
-                                Back
-                              </h3>
-                            </div>
-                            <div>
-                              <h3>Post Ad</h3>
-                            </div>
-                            <div>
-                              <h3
-                                style={{
-                                  textAlign: "end",
-                                  color: "#FB5018",
-                                }}
-                              >
-                                Clear
-                              </h3>
-                            </div>
-                          </div>
+                        
                           <div>
                             <div className="text-filed-back">
                               <input
@@ -331,7 +309,7 @@ const Form = () => {
                                       input={<OutlinedInput label="Name" />}
                                       MenuProps={MenuProps}
                                     >
-                                      {namesfour.map((cat) => (
+                                      {namefive.map((cat) => (
                                         <MenuItem key={cat} value={cat}>
                                           {cat}
                                         </MenuItem>
@@ -362,7 +340,7 @@ const Form = () => {
                                       input={<OutlinedInput label="Name" />}
                                       MenuProps={MenuProps}
                                     >
-                                      {namesfour.map((cat) => (
+                                      {namesix.map((cat) => (
                                         <MenuItem key={cat} value={cat}>
                                           {cat}
                                         </MenuItem>
@@ -391,7 +369,7 @@ const Form = () => {
                                       input={<OutlinedInput label="Name" />}
                                       MenuProps={MenuProps}
                                     >
-                                      {namesfour.map((cat) => (
+                                      {nameseven.map((cat) => (
                                         <MenuItem key={cat} value={cat}>
                                           {cat}
                                         </MenuItem>
