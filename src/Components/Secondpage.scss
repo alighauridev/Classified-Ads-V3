@@ -1,38 +1,222 @@
+@font-face {
+    src: url('../arial-font/arial.ttf');
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-.back-second{
-    background: #EBF2F7;
-    .second-page-grid{
+.back-second {
+    background: #ffffff;
+
+    .second-page-grid {
         display: grid;
-        grid-template-columns: 8fr 2fr;
-        width: 95%;
-        padding: 80px 0;
+        grid-template-columns: 8fr 2.5fr;
+        max-width: 1300px;
+        width: 100%;
+        margin: auto;
+        padding: 40px 0 80px 0;
         margin: 30px auto;
-        gap: 30px;
-        img{
+        gap: 20px;
+
+        .ads-spec {
+            display: flex;
+            gap: 30px;
+            padding: 10px;
+
+            span {
+                font-family: Arial, Helvetica, sans-serif;
+                color:
+                    #555555;
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
+
+        .main {
+            text-align: center;
+            border-top: 5px solid #FB5018;
+            border-radius: 10px;
+        }
+
+        .flex_row {
+
+            display: flex;
+            padding-top: 20px;
+            gap: 10px;
+        }
+
+        .thumbnail {
+          
+        }
+
+        .clicked {}
+
+        img {
             width: 100%;
             border-radius: 8px;
+
+        }
+.detail{
+    .car-model{
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 30px 0px 30px;
+        h1{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            font-size: 25px;
+            color: #464B4F;
             
         }
-        h3{
-            font-size: 15px;
-            font-weight: bolder;
-            margin: 5px 0;
+        span{
+            font-size: 14px;
+            font-weight: 400;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #99B2BF;
         }
-        li{
-            font-size: 12px;
-            font-weight: 500;
-            color: gray;
+    }
+    .car-model-spec{
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 30px 30px 30px;
+        border-bottom: 1px solid #99b2bf64;
+        span{
+            font-size: 14px;
+            font-weight: 400;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #99B2BF;
         }
-        .rbort{
-            display: flex;
-    background: white;
-    padding: 20px 10px;
-    margin-top: 10px;
-    border-radius: 4px;
+    }
+
+}
+        .grid-two {
+            margin-top: 40px;
+
+            .reqquest {
+                box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.071);
+                padding: 15px 15px;
+
+                h1 {
+                    font-size: 23px;
+                    font-weight: 700;
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+
+                button {
+                    background: none;
+                    color: #FB5018;
+                    border: 2px solid #FB5018;
+                    border-radius: 4px;
+                    width: 100%;
+                    margin-left: -0px;
+                    font-family: Arial, Helvetica, sans-serif;
+                    padding: 10px 0;
+                    font-size: 14px;
+                    margin-top: 10px;
+
+                }
+            }
+
+            .response {
+                box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.071);
+                padding: 15px 15px;
+                margin-top: 20px;
+
+                .flex {
+                    display: flex;
+                    gap: 10px;
+
+                    h3 {
+                        font-size: 16px;
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-weight: 700;
+                    }
+
+                    h4 {
+                        font-weight: 400;
+                        background: #EBF2F7;
+                        padding: 5px 10px;
+                        margin-top: 10px;
+                        border-radius: 4px;
+                        font-size: 12px;
+                        font-family: Arial, Helvetica, sans-serif;
+                    }
+                }
+
+                .contact {
+                    background: #FB5018;
+                    color: #ffffff;
+                    border: 2px solid #FB5018;
+                    border-radius: 4px;
+                    width: 100%;
+                    margin-left: -0px;
+                    font-family: Arial, Helvetica, sans-serif;
+                    padding: 10px 0;
+                    margin-top: 30px;
+                    font-size: 14px;
+                }
+
+                button {
+                    background: none;
+                    color: #FB5018;
+                    border: 2px solid #FB5018;
+                    border-radius: 4px;
+                    width: 100%;
+                    margin-left: -0px;
+                    font-family: Arial, Helvetica, sans-serif;
+                    padding: 10px 0;
+                    margin-top: 10px;
+                    font-size: 14px;
+
+                }
+            }
+
+            .tip {
+                box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.071);
+                padding: 15px 15px;
+                margin-top: 20px;
+
+                h3 {
+                    font-size: 15px;
+                    font-weight: bolder;
+                    margin: 5px 0;
+                }
+
+                li {
+                    font-size: 14px;
+                    font-weight: 400;
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: #464B4F;
+                }
+            }
+
+
+            .rbort {
+                box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.071);
+                padding: 15px 15px;
+                margin-top: 20px;
+                display: flex;
+                gap: 10px;
+
+                button {
+                    border-radius: 4px;
+                    font-family: Arial, Helvetica, sans-serif;
+                    padding: 10px 0;
+                    width: 100%;
+                    font-size: 14px;
+                    border: 1px solid rgba(160, 160, 160, 0.608);
+                }
+                button:hover{
+                    border-radius: 4px;
+                    background: none;
+                    font-family: Arial, Helvetica, sans-serif;
+                    padding: 10px 0;
+                    width: 100%;
+                    font-size: 14px;
+                    border: 1px solid rgba(160, 160, 160, 0.608); 
+                }
+            }
         }
-        button{
-            font-size: 12px;
-            border: 1px solid rgba(160, 160, 160, 0.608);
-        }
+
+
+
     }
 }

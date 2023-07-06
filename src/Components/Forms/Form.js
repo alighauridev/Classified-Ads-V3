@@ -36,7 +36,7 @@ const MenuProps = {
 };
 
 const names = ["nike", "addida", "Bata"];
-const namestwo = ["Location 1", "Location 2", "Location 3"];
+const namestwo = ["Abuja (Fct)", "Lagos State", "Ogun State",'Oyo State','Rivers State','Abia State','Adamawa State','Akwa Ibom State','Anambra State','Bauchi State','Bayelsa State','Benue State'];
 const namesthree = ["Used", "New"];
 const namesfour = ["val 1", "val 2"];
 

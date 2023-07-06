@@ -102,12 +102,14 @@ export default function Navbar({ fixed }) {
   return (
     <div className="navbar-back">
       <div className="navbar-parent">
-        <div className="logo-div">
+       <Link to='/'>
+       <div className="logo-div">
           <img src={logo} alt="" />
         </div>
+       </Link>
         <div className="seller-buy">
-          <span style={{ color: "#FA4F16" }}>Home</span>
-          <span>About</span>
+          <Link to='/'><span style={{ color: "#FA4F16" }}>Home</span></Link>
+         <Link to='/About'> <span>About</span></Link>
           <span></span>
           <span>Services</span>
           <div>
