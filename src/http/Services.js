@@ -1,4 +1,4 @@
-import axios from "./axiosSet";
+import axios from "../api/axios";
 
 export const Loginn = async (email, pass) => {
   try {

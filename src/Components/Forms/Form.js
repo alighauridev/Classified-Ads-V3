@@ -22,7 +22,7 @@ import TabList from "@mui/lab/TabList";
 import Select from "@mui/material/Select";
 import TabPanel from "@mui/lab/TabPanel";
 import Frame from "../../assets/Frame 33.png";
-import axios from "../../http/axiosSet";
+import axios from "../../api/axios";
 import { useNavigate } from "react-router-dom";
 
 const ITEM_HEIGHT = 48;
@@ -133,16 +133,7 @@ const Form = () => {
           <div>
             <Box sx={{ width: "100%", typography: "body1" }}>
               <TabContext value={value}>
-                <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-                  <TabList
-                    onChange={handleChangese}
-                    aria-label="lab API tabs example"
-                  >
-                    <Tab label="Item One" value="1" />
-                    <Tab label="Item Two" value="2" />
-                    <Tab label="Item Three" value="3" />
-                  </TabList>
-                </Box>
+
                 <TabPanel value="1">
                   <div className="text-filed-back">
                     {/* ADDITION MATERIAL UI */}
