@@ -11,7 +11,9 @@ const get = async (key) => {
 };
 
 const instance = axios.create({
+
   baseURL: "https://classifiedads.onrender.com/",
+
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",

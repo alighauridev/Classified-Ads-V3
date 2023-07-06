@@ -1,13 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar";
 
-import {
-  Box,
-  Tab,
-  InputLabel,
-  OutlinedInput,
-  MenuItem
-} from "@mui/material";
+import { Box, Tab, InputLabel, OutlinedInput, MenuItem } from "@mui/material";
 import { getCategories, postAd, postImages } from "../../http/Services";
 import Textarea from "@mui/joy/Textarea";
 import { Country, State, City } from "country-state-city";
@@ -22,7 +16,8 @@ import TabList from "@mui/lab/TabList";
 import Select from "@mui/material/Select";
 import TabPanel from "@mui/lab/TabPanel";
 import Frame from "../../assets/Frame 33.png";
-import axios from "../../http/axiosSet";
+import axios from "../../api/axios";
+import { useNavigate } from "react-router-dom";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -49,9 +44,8 @@ function getStyles(name, personName, theme) {
   };
 }
 
-
 const Form = () => {
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -67,7 +61,8 @@ const Form = () => {
     telephone: "",
     vehicle: "",
     property: "",
-    deliveryOptions: ""
+    bulkPrice: 0,
+    deliveryOptions: "",
   });
   const fetchCategories = async () => {
     try {
@@ -92,23 +87,37 @@ const Form = () => {
   const handleInputChange = (event) => {
     setFormData({
       ...formData,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
   const handleFileChange = (event) => {
     setFormData({
       ...formData,
-      images: event.target.files
+      images: event.target.files,
     });
   };
-
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
+    let formI = new FormData();
+    let images = [];
+    for (let i = 0; i < formData.images.length; i++) {
+      formI.append("files", formData.images[i]);
+    }
+    // formData.append("files", Obj.images);
+    let response = await postImages(formI);
+    if (response) {
+      images = response.map((item) => item.filename);
+    }
     console.log(formData);
     try {
-      const response = await axios.post("/ads/createAd", formData);
+      const response = await axios.post("/ads/createAd", {
+        ...formData,
+        images: images,
+      });
       console.log(response.data);
+      navigate("/");
     } catch (error) {
       console.log(error);
       // Handle error response
@@ -130,16 +139,6 @@ const Form = () => {
           <div>
             <Box sx={{ width: "100%", typography: "body1" }}>
               <TabContext value={value}>
-                <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-                  <TabList
-                    onChange={handleChangese}
-                    aria-label="lab API tabs example"
-                  >
-                    <Tab label="Item One" value="1" />
-                    <Tab label="Item Two" value="2" />
-                    <Tab label="Item Three" value="3" />
-                  </TabList>
-                </Box>
                 <TabPanel value="1">
                   <div className="text-filed-back">
                     {/* ADDITION MATERIAL UI */}
@@ -197,9 +196,7 @@ const Form = () => {
                             MenuProps={MenuProps}
                           >
                             {namestwo.map((cat) => (
-                              <MenuItem
-                                key={cat} value={cat}
-                              >
+                              <MenuItem key={cat} value={cat}>
                                 {cat}
                               </MenuItem>
                             ))}
@@ -210,8 +207,8 @@ const Form = () => {
                     <div className="add-photo">
                       <h1>Add Photo</h1>
                       <p>
-                        First picture - is the title picture. You can change
-                        the order of photos: just grab your photos and drag
+                        First picture - is the title picture. You can change the
+                        order of photos: just grab your photos and drag
                       </p>
                       <label htmlFor="select">
                         <img src={Frame} alt="" />
@@ -219,11 +216,14 @@ const Form = () => {
                       <input
                         type="file"
                         multiple
-                        style={{ display: "none" }}
-                        id="select"
+                        onChange={(e) =>
+                          setFormData({ ...formData, images: e.target.files })
+                        }
                       />
                       <div>
-                        <p>Supported formats are .jpg, .gif and .png, 5MB max</p>
+                        <p>
+                          Supported formats are .jpg, .gif and .png, 5MB max
+                        </p>
                       </div>
                     </div>
                     <div className="social-media">
@@ -246,7 +246,7 @@ const Form = () => {
                               <h3
                                 style={{
                                   textAlign: "start",
-                                  color: "#FB5018"
+                                  color: "#FB5018",
                                 }}
                               >
                                 Back
@@ -259,7 +259,7 @@ const Form = () => {
                               <h3
                                 style={{
                                   textAlign: "end",
-                                  color: "#FB5018"
+                                  color: "#FB5018",
                                 }}
                               >
                                 Clear
@@ -303,13 +303,10 @@ const Form = () => {
                                       MenuProps={MenuProps}
                                     >
                                       {namesfour.map((cat) => (
-                                        <MenuItem
-                                          key={cat} value={cat}
-                                        >
+                                        <MenuItem key={cat} value={cat}>
                                           {cat}
                                         </MenuItem>
                                       ))}
-
                                     </Select>
                                   </FormControl>
                                 </div>
@@ -334,11 +331,8 @@ const Form = () => {
                                       input={<OutlinedInput label="Name" />}
                                       MenuProps={MenuProps}
                                     >
-
                                       {namesfour.map((cat) => (
-                                        <MenuItem
-                                          key={cat} value={cat}
-                                        >
+                                        <MenuItem key={cat} value={cat}>
                                           {cat}
                                         </MenuItem>
                                       ))}
@@ -368,11 +362,8 @@ const Form = () => {
                                       input={<OutlinedInput label="Name" />}
                                       MenuProps={MenuProps}
                                     >
-
                                       {namesfour.map((cat) => (
-                                        <MenuItem
-                                          key={cat} value={cat}
-                                        >
+                                        <MenuItem key={cat} value={cat}>
                                           {cat}
                                         </MenuItem>
                                       ))}
@@ -401,19 +392,15 @@ const Form = () => {
                                       MenuProps={MenuProps}
                                     >
                                       {namesfour.map((cat) => (
-                                        <MenuItem
-                                          key={cat} value={cat}
-                                        >
+                                        <MenuItem key={cat} value={cat}>
                                           {cat}
                                         </MenuItem>
                                       ))}
-
                                     </Select>
                                   </FormControl>
                                 </div>
                               </div>
-                           
-                           
+
                               <div className="description">
                                 <input
                                   type="textarea"
@@ -425,7 +412,12 @@ const Form = () => {
                                   required
                                   variant="standard"
                                   value={formData.description} // Update the value to formData.telephone
-                                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                                  onChange={(e) =>
+                                    setFormData({
+                                      ...formData,
+                                      description: e.target.value,
+                                    })
+                                  }
                                   className="titletwo"
                                 />
                               </div>
@@ -438,7 +430,12 @@ const Form = () => {
                                     className="title"
                                     style={{ borderRadius: "20px" }}
                                     value={formData.name} // Update the value to formData.telephone
-                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                    onChange={(e) =>
+                                      setFormData({
+                                        ...formData,
+                                        name: e.target.value,
+                                      })
+                                    }
                                   />
                                 </div>
                                 <div>
@@ -448,7 +445,12 @@ const Form = () => {
                                     placeholder="Enter your telephone number"
                                     id="standard-basic"
                                     value={formData.telephone} // Update the value to formData.telephone
-                                    onChange={(e) => setFormData({ ...formData, telephone: e.target.value })}
+                                    onChange={(e) =>
+                                      setFormData({
+                                        ...formData,
+                                        telephone: e.target.value,
+                                      })
+                                    }
                                     variant="standard"
                                     style={{ borderRadius: "20px" }}
                                   />
@@ -461,28 +463,35 @@ const Form = () => {
                                     placeholder="Enter your Price"
                                     className="title"
                                     value={formData.price} // Update the value to formData.telephone
-                                    onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                                    onChange={(e) =>
+                                      setFormData({
+                                        ...formData,
+                                        price: e.target.value,
+                                      })
+                                    }
                                   />
-                               
                                 </div>
                                 <div>
-                                <input
+                                  <input
                                     type="text"
                                     placeholder="Add Bulk Price"
                                     className="title"
-                                    value={formData.price} // Update the value to formData.telephone
-                                    onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                                    value={formData.bulkPrice} // Update the value to formData.telephone
+                                    onChange={(e) =>
+                                      setFormData({
+                                        ...formData,
+                                        bulkPrice: e.target.value,
+                                      })
+                                    }
                                   />
                                 </div>
                               </div>
                               <div
                                 style={{
                                   marginTop: "30px",
-                                  marginLeft: "10px"
+                                  marginLeft: "10px",
                                 }}
-                              >
-                         
-                              </div>
+                              ></div>
                             </div>
                             <div className="delivery-parent">
                               <div className="text">
@@ -509,13 +518,10 @@ const Form = () => {
                                       MenuProps={MenuProps}
                                     >
                                       {namesfour.map((cat) => (
-                                        <MenuItem
-                                          key={cat} value={cat}
-                                        >
+                                        <MenuItem key={cat} value={cat}>
                                           {cat}
                                         </MenuItem>
                                       ))}
-
                                     </Select>
                                   </FormControl>
                                 </div>
@@ -525,9 +531,13 @@ const Form = () => {
                               <div className="text">
                                 <h1>Promote your ad</h1>
                                 <p>
-                                  Please, choose one of the following options to post your ad
+                                  Please, choose one of the following options to
+                                  post your ad
                                 </p>
-                                <div className="standard" style={{ borderRadius: "20px" }}>
+                                <div
+                                  className="standard"
+                                  style={{ borderRadius: "20px" }}
+                                >
                                   <h1>Standard Ad</h1>
                                 </div>
                               </div>
@@ -559,7 +569,10 @@ const Form = () => {
                               </div>
                               <div className="para">
                                 <p>
-                                  By clicking on Post Ad, you accept the Terms of Use, confirm that you will abide by the Safety Tips, and declare that this posting does not include any Prohibited Items.
+                                  By clicking on Post Ad, you accept the Terms
+                                  of Use, confirm that you will abide by the
+                                  Safety Tips, and declare that this posting
+                                  does not include any Prohibited Items.
                                 </p>
                               </div>
                             </div>
@@ -578,6 +591,5 @@ const Form = () => {
     </div>
   );
 };
-
 
 export default Form;

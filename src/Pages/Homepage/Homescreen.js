@@ -29,7 +29,7 @@ const Homescreen = () => {
       <Navbar />
       <Banner />
       <Blog products={products} />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

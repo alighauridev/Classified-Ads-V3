@@ -240,7 +240,7 @@ const AdminDashboard = ({ products, handlePress }) => {
                                                 </div>
                                             </div>
                                             <div >
-                                                <h1 className='price'>{item.price}USD</h1>
+                                                <h1 className='price'>{item.price}</h1>
                                             </div>
                                         </div>
                                         <div className='brand-item'>
@@ -270,7 +270,7 @@ const AdminDashboard = ({ products, handlePress }) => {
                                                 {
                                                     item.status === 'accepted' ? <h2>Accepted</h2> : <div>
 
-                                                        <button className='approve' onClick={() => handlePress(item._id)}>Accept</button>
+                                                        <button className='approve' onClick={() => handlePress(item._id, true)}>Accept</button>
                                                     </div>
                                                 }
                                             </div>
