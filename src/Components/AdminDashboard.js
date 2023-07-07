@@ -3,7 +3,9 @@ import { BsBag } from 'react-icons/bs'
 import { adminpakage, request } from './Data';
 import { getpakage, getpakagetwo, pkgedit } from '../http/Services';
 import axios from "../http/axiosSet"
-
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import React, { useState, useEffect } from "react";
 
 
@@ -110,6 +112,7 @@ const AdminDashboard = ({ products, handlePress }) => {
                             </span>
                             <li style={{ color: "white" }}>Dashboard</li>
                         </div>
+                   
                     </div>
 
                     <div className="sidebar-menu-parent">
@@ -144,81 +147,99 @@ const AdminDashboard = ({ products, handlePress }) => {
                             plans unlock additional features.
                         </p>
                     </div>
+                    <div>
+                            <img src="./images/addd.png" alt="" style={{width:'100%',marginBottom:'30px'}} />
+                        </div>
                     <div
-                        style={{
-                            display: "grid",
-                            gridTemplateColumns: "1fr 1fr 1fr",
-                            gap: "10px",
-                        }}
+                     
                     >
-                        {pakage.map((item) => {
-                            return (
-                                <div className="card-parent">
-                                    <div>
-                                        <h3>{item.name}</h3>
-                                        <p>{item.description}</p>
-                                        <p>{item.totalAds}</p>
-                                        <div className="price">
-                                            <h1>{item.price}</h1>
+                        <div style={{ display: 'grid', gridTemplateColumns: '6fr 1fr',gap:'30px' }}>
+                            <div    style={{
+                            display: "grid",
+                            gridTemplateColumns: "1fr 1fr ",
+                            gap: "10px",
+                        }}>
+                                {pakage.map((item) => {
+                                    return (
+                                        <div className="card-parent">
+                                            <div>
+                                                <h3>{item.name}</h3>
+                                                <p>{item.description}</p>
+                                                <p>{item.totalAds}</p>
+                                                <div className="price">
+                                                    <h1>{item.price}</h1>
 
-                                            <span>/mo</span>
-                                        </div>
-                                        <div style={{ display: "flex", justifyContent: "center" }}>
-                                            {/* <input type="number" placeholder='Edit your price' style={{width:'100%',border:'1px solid rgb(128, 128, 128)',outline:'none',borderRadius:'4px',padding:'0 10px'}}/> */}
-                                            <button onClick={() => editpkg(item._id)}>Edit</button>
-                                            <Modal
-                                                open={open}
-                                                onClose={handleClose}
-                                                aria-labelledby="modal-modal-title"
-                                                aria-describedby="modal-modal-description"
-                                            >
-                                                <Box sx={style}>
-                                                    <input
-                                                        type="text"
-                                                        value={edit.name}
-                                                        placeholder="edit your title"
-                                                        style={{ border: "1px solid rgb(128, 128, 128)" }}
-                                                        onChange={(e) =>
-                                                            setedit({ ...edit, name: e.target.value })
-                                                        }
-                                                    />
-                                                    <input
-                                                        type="text"
-                                                        value={edit.description}
-                                                        placeholder="edit your description"
-                                                        style={{ border: "1px solid rgb(128, 128, 128)" }} onChange={(e) =>
-                                                            setedit({ ...edit, description: e.target.value })
-                                                        }
-                                                    />
-                                                    <input
-                                                        type="number"
-                                                        value={edit.price}
-                                                        placeholder="edit your price"
-                                                        style={{ border: "1px solid rgb(128, 128, 128)" }} onChange={(e) =>
-                                                            setedit({ ...edit, price: e.target.value })
-                                                        }
-                                                    />
-                                                    <input
-                                                        type="number"
-                                                        value={edit.totalAds}
-                                                        placeholder="edit your ads"
-                                                        style={{ border: "1px solid rgb(128, 128, 128)" }}
-                                                        onChange={(e) =>
-                                                            setedit({ ...edit, totalAds: e.target.value })
-                                                        }
-                                                    />
-                                                    <button onClick={editpkgdone}>Update</button>
-                                                </Box>
-                                            </Modal>
-                                        </div>
+                                                    <span>/mo</span>
+                                                </div>
+                                                <div style={{ display: "flex", justifyContent: "center" }}>
+                                                    {/* <input type="number" placeholder='Edit your price' style={{width:'100%',border:'1px solid rgb(128, 128, 128)',outline:'none',borderRadius:'4px',padding:'0 10px'}}/> */}
+                                                    <button onClick={() => editpkg(item._id)}>Edit</button>
+                                                    <Modal
+                                                        open={open}
+                                                        onClose={handleClose}
+                                                        aria-labelledby="modal-modal-title"
+                                                        aria-describedby="modal-modal-description"
+                                                    >
+                                                        <Box sx={style}>
+                                                            <input
+                                                                type="text"
+                                                                value={edit.name}
+                                                                placeholder="edit your title"
+                                                                style={{ border: "1px solid rgb(128, 128, 128)" }}
+                                                                onChange={(e) =>
+                                                                    setedit({ ...edit, name: e.target.value })
+                                                                }
+                                                            />
+                                                            <input
+                                                                type="text"
+                                                                value={edit.description}
+                                                                placeholder="edit your description"
+                                                                style={{ border: "1px solid rgb(128, 128, 128)" }} onChange={(e) =>
+                                                                    setedit({ ...edit, description: e.target.value })
+                                                                }
+                                                            />
+                                                            <input
+                                                                type="number"
+                                                                value={edit.price}
+                                                                placeholder="edit your price"
+                                                                style={{ border: "1px solid rgb(128, 128, 128)" }} onChange={(e) =>
+                                                                    setedit({ ...edit, price: e.target.value })
+                                                                }
+                                                            />
+                                                            <input
+                                                                type="number"
+                                                                value={edit.totalAds}
+                                                                placeholder="edit your ads"
+                                                                style={{ border: "1px solid rgb(128, 128, 128)" }}
+                                                                onChange={(e) =>
+                                                                    setedit({ ...edit, totalAds: e.target.value })
+                                                                }
+                                                            />
+                                                            <button onClick={editpkgdone}>Update</button>
+                                                        </Box>
+                                                    </Modal>
+                                                </div>
 
-                                        <div>
+                                                <div>
 
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            );
-                        })}
+                                    );
+                                })}
+                            </div>
+                            <div>
+                                <LocalizationProvider
+                                    dateAdapter={AdapterDayjs}
+                                    localeText={{
+                                        calendarWeekNumberHeaderText: '#',
+                                        calendarWeekNumberText: (weekNumber) => `${weekNumber}.`,
+                                    }}
+                                >
+                                    <DateCalendar displayWeekNumber />
+                                </LocalizationProvider>
+                            </div>
+                        </div>
                     </div>
                     <div className='request-card-parent-main'>
                         {
