@@ -12,7 +12,7 @@ const get = async (key) => {
 
 const instance = axios.create({
 
-  baseURL: "http://localhost:5000/",
+  baseURL: "https://travel-backend-7qhe.onrender.com",
 
   headers: {
     "Content-Type": "application/json",
