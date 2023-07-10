@@ -1,6 +1,6 @@
 import './AdminDashboard.scss'
 import { BsBag } from 'react-icons/bs'
-import { adminpakage, request } from './Data';
+import { adminpakage, request, totaluseradmin } from './Data';
 import { getpakage, getpakagetwo, pkgedit } from '../http/Services';
 import axios from "../http/axiosSet"
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -147,9 +147,20 @@ const AdminDashboard = ({ products, handlePress }) => {
                             plans unlock additional features.
                         </p>
                     </div>
-                    <div>
-                            <img src="./images/addd.png" alt="" style={{width:'100%',marginBottom:'30px'}} />
+             <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr 1fr 1fr',gap:" 20px 50px",paddingBottom:'80px'}}>
+             {
+                    totaluseradmin.map((item)=>{
+                        return(
+                            <div style={{display:'flex',justifyContent:'space-between',background:"white",padding:'15px 15px',borderRadius:'8px',alignItems:'center'}}>
+                            {/* <img src="./images/addd.png" alt="" style={{width:'100%',marginBottom:'30px'}} /> */}
+                            <h1 style={{fontSize:'14px',fontWeight:'400',color:'#282D5A'}}>{item.title}</h1>
+
+                            <h1 style={{color:'#FB5018',fontSize:'20px',fontWeight:'600'}}>{item.number}</h1>
                         </div>
+                        )
+                    })
+                }
+             </div>
                     <div
                      
                     >
@@ -173,7 +184,7 @@ const AdminDashboard = ({ products, handlePress }) => {
                                                 </div>
                                                 <div style={{ display: "flex", justifyContent: "center" }}>
                                                     {/* <input type="number" placeholder='Edit your price' style={{width:'100%',border:'1px solid rgb(128, 128, 128)',outline:'none',borderRadius:'4px',padding:'0 10px'}}/> */}
-                                                    <button onClick={() => editpkg(item._id)}>Edit</button>
+                                                    <button onClick={() => editpkg(item._id)} style={{background:'#FB5018'}}>Edit</button>
                                                     <Modal
                                                         open={open}
                                                         onClose={handleClose}

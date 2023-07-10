@@ -153,3 +153,43 @@ export const request = [
     freshname: "50-60 HZ",
   },
 ];
+
+export const totaluseradmin =[
+  {
+    title:'total user',
+    number:"3,412",
+  },
+  {
+    title:'Total Orders',
+    number:"12",
+  },
+  {
+    title:'Active Orders',
+    number:"3,412",
+  },
+
+  {
+    title:'Pending Progress',
+    number:'4',
+  },
+  {
+    title:'Cancelled Order',
+    number:'1',
+  },
+  {
+    title:'Free Plan Order',
+    number:'1124',
+  },
+  {
+    title:'Basic Plan Order',
+    number:'124',
+  },
+  {
+    title:'Silver Plan Order',
+    number:'43',
+  },
+  {
+    title:'Bronze Plan Order',
+    number:'12',
+  },
+]
